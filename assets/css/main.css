@@ -1251,8 +1251,8 @@ button {
   transition-delay: 0.75s;
   background-image: linear-gradient(
       to top,
-      rgba(19, 21, 25, 0.75),
-      rgba(19, 21, 25, 0.75)
+      rgba(19, 21, 25, 0.8),
+      rgba(19, 21, 25, 0.8)
     ),
     url('../../images/overlay.png');
   background-size: auto, 256px 256px;
@@ -1814,14 +1814,9 @@ body.is-preload #footer {
   filter: brightness(0) saturate(0%);
 }
 
-/* CV */
+/* File */
 .fa-file-lines:hover {
   color: #da0403;
-}
-
-/* Instagram */
-.fa-instagram:hover {
-  color: #c13584;
 }
 
 /* X */
@@ -1829,17 +1824,22 @@ body.is-preload #footer {
   color: #080808;
 }
 
-/* Spotlight */
-.fa-portrait:hover {
-  color: #2641e6;
+/* Instagram */
+.fa-instagram:hover {
+  color: #c13584;
 }
 
-/* IMDB */
-.fa-imdb:hover {
-  color: #f3ce13;
+/* Facebook */
+.fa-facebook-f:hover {
+  color: #0766ff;
 }
 
-/* Backstage */
-.fa-person-booth:hover {
-  color: #fc6364;
+/* YouTube */
+.fa-youtube:hover {
+  color: #ff0034;
+}
+
+/* GitHub */
+.fa-github:hover {
+  color: #000408;
 }
