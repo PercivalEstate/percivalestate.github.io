@@ -1,6 +1,6 @@
 # percival-st-estate-tra.github.io
 
-Percival St Estate TRA
+Percival Street Estate TRA
 
 1. Right click index.html
 2. Select Open with Live Server
