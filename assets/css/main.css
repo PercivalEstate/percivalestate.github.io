@@ -1675,6 +1675,15 @@ body.is-preload #header .content .inner {
   background-color: rgba(27, 31, 34, 0.85);
   border-radius: 4px;
   opacity: 0;
+  word-wrap: break-word;
+}
+
+#main article h2 {
+  max-width: 100%;
+}
+
+#main article p {
+  max-width: 100%;
 }
 
 #main article.active {
