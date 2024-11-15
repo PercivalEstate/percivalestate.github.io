@@ -1215,7 +1215,7 @@ button {
 
 /* BG */
 
-#bg {
+/* #bg {
   -moz-transform: scale(1);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -1293,7 +1293,7 @@ body.is-article-visible #bg:after {
 
 body.is-preload #bg:before {
   background-color: #000000;
-}
+} */
 
 /* Wrapper */
 
