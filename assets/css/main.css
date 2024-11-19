@@ -1815,7 +1815,8 @@ body.is-preload #footer {
 /* logo */
 .circle:hover {
   /* color: #a6aeed; */
-  filter: brightness(0) saturate(0%);
+  /* filter: brightness(0) saturate(0%); */
+  content: url('../../images/percival-estate-logo-green-padding-circle.png');
 }
 
 /* File */
@@ -1834,7 +1835,7 @@ body.is-preload #footer {
 }
 
 /* Facebook */
-.fa-facebook-f:hover {
+.fa-facebook:hover {
   color: #0766ff;
 }
 
