@@ -1,6 +1,6 @@
-# percival-st-estate-tra.github.io
+# percivalestate.github.io
 
-Percival Street Estate TRA
+Percival Street Estate Community
 
 1. Right click index.html
 2. Select Open with Live Server
