@@ -106,6 +106,7 @@
         'images/slideshow/9.webp': 'center',
         'images/slideshow/10.webp': 'center',
         'images/slideshow/11.webp': 'center',
+        'images/slideshow/12.webp': 'center',
       },
 
       // Delay.
