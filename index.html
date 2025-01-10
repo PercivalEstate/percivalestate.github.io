@@ -147,14 +147,33 @@
             The Percival Estate is composed of six buildings that total 293
             properties.
           </p>
-          <img src="images/percival-estate-map.png" width="100%" />
-          <img src="images/percival-estate-map-detailed.png" width="100%" />
+          <img
+            src="images/percival-estate-map.png"
+            width="100%"
+            loading="lazy"
+          />
+          <img
+            src="images/percival-estate-map-detailed.png"
+            width="100%"
+            loading="lazy"
+          />
+          <div id="imgAbout">
+            <div>
+              <img
+                src="/images/loading.gif"
+                height="100px"
+                width="100px"
+                style="display: block; margin: 687.5px auto 687.5px auto"
+              />
+            </div>
+          </div>
           <iframe
+            id="iframeAbout"
             src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr2kbJXZYFex9lFf"
             width="100%"
-            height="100%"
-            style="min-height: 1475px"
+            height="0px"
             loading="lazy"
+            onload="document.getElementById('imgAbout').style.display='none';document.getElementById('iframeAbout').style.minHeight='1475px';"
           ></iframe>
 
           <br />
@@ -211,6 +230,7 @@
                 width="100%"
                 height="auto"
                 style="aspect-ratio: 950 / 597"
+                loading="lazy"
               />
               <p
                 style="
@@ -319,12 +339,23 @@
         <!-- Register -->
         <article id="register">
           <h2 class="major">Register</h2>
+          <div id="imgRegister">
+            <div>
+              <img
+                src="/images/loading.gif"
+                height="100px"
+                width="100px"
+                style="display: block; margin: 275px auto 275px auto"
+              />
+            </div>
+          </div>
           <iframe
+            id="iframeRegister"
             src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrT6agpqL3nUji4p"
             width="100%"
-            height="100%"
-            style="min-height: 650px"
+            height="0px"
             loading="lazy"
+            onload="document.getElementById('imgRegister').style.display='none';document.getElementById('iframeRegister').style.minHeight='650px';"
           ></iframe>
         </article>
 
@@ -333,12 +364,23 @@
           <h2 class="major">Facilities</h2>
           Below is a list of facilities shared between residents of the Percival
           Estate:
+          <div id="imgFacilities">
+            <div>
+              <img
+                src="/images/loading.gif"
+                height="100px"
+                width="100px"
+                style="display: block; margin: 275px auto 275px auto"
+              />
+            </div>
+          </div>
           <iframe
+            id="iframeFacilities"
             src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrYj3Ty7mf8rWif5"
             width="100%"
-            height="100%"
-            style="min-height: 650px"
+            height="0px"
             loading="lazy"
+            onload="document.getElementById('imgFacilities').style.display='none';document.getElementById('iframeFacilities').style.minHeight='650px';"
           ></iframe>
           <p>Other nearby facilities include:</p>
           <ul>
@@ -413,12 +455,23 @@
             estate.services<code>at</code> islington <code>dot</code> gov
             <code>dot</code> uk
           </p>
+          <div id="imgStaff">
+            <div>
+              <img
+                src="/images/loading.gif"
+                height="100px"
+                width="100px"
+                style="display: block; margin: 450px auto 450px auto"
+              />
+            </div>
+          </div>
           <iframe
+            id="iframeStaff"
             src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr17hNlGjiRksyek"
             width="100%"
-            height="100%"
-            style="min-height: 650px"
+            height="0px"
             loading="lazy"
+            onload="document.getElementById('imgStaff').style.display='none';document.getElementById('iframeStaff').style.minHeight='1000px';"
           ></iframe>
         </article>
 
