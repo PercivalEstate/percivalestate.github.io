@@ -118,6 +118,7 @@
               <a href="#register">Register</a>
             </li>
             <li><a href="#about">About</a></li>
+            <li><a href="#news">News</a></li>
             <li><a href="#facilities">Facilities</a></li>
             <li>
               <a href="#recycling">Recycling</a>
@@ -359,6 +360,107 @@
               >
             </li>
           </ul>
+        </article>
+
+        <!-- News -->
+        <article id="news">
+          <h2 class="major">News</h2>
+
+          <p>
+            Do you have some news you'd like to share with the wider estate?
+            <a href="#contact">Let us know</a>.
+          </p>
+
+          <div id="loadingNews">
+            <img
+              src="images/loading.gif"
+              height="50px"
+              width="50px"
+              style="display: block; margin: 235px auto 5px auto"
+            />
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 235px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeNews"
+            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrAyVmVDUVIbNHHs"
+            width="100%"
+            height="0px"
+            loading="lazy"
+            onload="document.getElementById('loadingNews').style.display='none';document.getElementById('iframeNews').style.minHeight='550px';"
+          ></iframe>
+
+          <!-- <div id="#legacyNews">
+            <h3 class="major">2024-12-19: Sports Court Improvements</h3>
+            <div style="width: 100%; display: flex; flex-direction: row">
+              <p style="max-width: 50%">
+                The Islington Council Grounds Maintenance Service has made some
+                improvements to the sports court shared between Grimthorpe
+                House, Crayle House and Partridge Court. The work has involved
+                removing ivy and overgrowth and a general tidy up. Construction
+                of step-free access has also begun at the west end of the sports
+                court.
+              </p>
+              <div style="width: 50%; margin: auto; margin-bottom: 2rem">
+                <img
+                  src="images/2024-12-19-sports-court-improvements.jpg"
+                  width="100%"
+                  height="auto"
+                  loading="lazy"
+                />
+                <p
+                  style="
+                    font-style: italic;
+                    margin-left: 1rem;
+                    margin-right: 1rem;
+                    text-align: center;
+                  "
+                >
+                  Sports Court Improvements (2024)
+                </p>
+              </div>
+            </div>
+
+            <h3 class="major">2024-12-13: Cadent Gas Works</h3>
+            <div style="width: 100%; display: flex; flex-direction: row">
+              <p style="max-width: 50%">
+                Cadent Gas have sent Grimthorpe House residents
+                <a
+                  href="documents/2024-12-13-cadent-gas-letter.pdf"
+                  target="_blank"
+                  >a letter notifiying them of works</a
+                >
+                taking place between Friday 3rd January 2025 and Wednesday 2nd
+                July 2025.
+              </p>
+              <div style="width: 50%; margin: auto; margin-bottom: 2rem">
+                <embed
+                  src="documents/2024-12-13-cadent-gas-letter.pdf"
+                  width="calc(100vw-18px)!important;"
+                  min-height="calc(100vh-18px)!important"
+                  ;
+                />
+                <p
+                  style="
+                    font-style: italic;
+                    margin-left: 1rem;
+                    margin-right: 1rem;
+                    text-align: center;
+                  "
+                >
+                  Cadent Gas Letter (2024)
+                </p>
+              </div>
+            </div>
+          </div> -->
         </article>
 
         <!-- Register -->
