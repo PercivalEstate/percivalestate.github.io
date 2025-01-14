@@ -793,15 +793,7 @@
         <!-- Contact -->
         <article id="contact">
           <h2 class="major">Contact</h2>
-          <p>
-            The Percival Estate is managed by
-            <a
-              href="https://www.islington.gov.uk/housing/repairs-and-estate-management/estate-management"
-              target="_blank"
-              >Islington Council Estate Services</a
-            >.<br /><b>Contact them via:</b> estate.services<code>at</code>
-            islington <code>dot</code> gov <code>dot</code> uk
-          </p>
+
           <p>
             The Percival Estate Community is managed by a group of local
             volunteer residents.<br /><b>Contact them via:</b> tra
@@ -878,6 +870,35 @@
               </a>
             </li>
           </ul>
+
+          <p>You can contact Islington Council via these emails:</p>
+
+          <div id="loadingContact">
+            <img
+              src="images/loading.gif"
+              height="50px"
+              width="50px"
+              style="display: block; margin: 395px auto 5px auto"
+            />
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 395px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeContact"
+            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrlRumOTwu9t4Bi2"
+            width="100%"
+            height="0px"
+            loading="lazy"
+            onload="document.getElementById('loadingContact').style.display='none';document.getElementById('iframeContact').style.minHeight='830px';"
+          ></iframe>
         </article>
 
         <!-- Success -->
