@@ -1467,6 +1467,7 @@ body.is-preload #bg:before {
   padding-left: 0;
   border: solid 1px #ffffff;
   border-radius: 4px;
+  display: block;
   max-width: 160px;
   margin: auto;
 }
