@@ -1461,34 +1461,6 @@ body.is-preload #bg:before {
   line-height: 2;
 }
 
-#featured ul {
-  margin-bottom: 0;
-  list-style: none;
-  padding-left: 0;
-  border: solid 1px #ffffff;
-  border-radius: 4px;
-  display: block;
-  max-width: 160px;
-  margin: auto;
-}
-
-#featured ul li {
-  padding-left: 0;
-  border-left: solid 1px #ffffff;
-}
-
-#featured ul li a {
-  display: block;
-  min-width: 7.5rem;
-  height: 2.75rem;
-  line-height: 2.75rem;
-  padding: 0 1.25rem 0 1.45rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-size: 0.8rem;
-  border-bottom: 0;
-}
-
 #header nav ul {
   display: -moz-flex;
   display: -webkit-flex;
