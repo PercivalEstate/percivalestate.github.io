@@ -1766,7 +1766,18 @@ body.is-preload #header .content .inner {
   max-width: 100%;
   margin-top: 2rem;
   text-align: center;
+  padding: 50px;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 4;
 }
+
+/* #footer:before,
+#footer:after {
+  opacity: 1 !important;
+  background: #000000 !important;
+} */
 
 #footer .copyright {
   letter-spacing: 0.2rem;
@@ -1892,4 +1903,11 @@ body.is-preload #footer {
 
 #loadingPage.hidden {
   display: none;
+}
+
+.separator {
+  font-size: 1.2em; /* Slightly larger for elegance */
+  margin: 0 8px; /* Adds balanced spacing */
+  colour: #888; /* Subtle, soft grey */
+  vertical-align: middle; /* Aligns nicely with text */
 }
