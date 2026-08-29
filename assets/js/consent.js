@@ -78,6 +78,7 @@
 
     function close() {
       if (banner.parentNode) banner.parentNode.removeChild(banner);
+      releaseSpace();
     }
 
     accept.addEventListener('click', function () {
@@ -94,10 +95,37 @@
     return banner;
   }
 
+  /* The banner is fixed to the bottom of the window, and both pages centre
+     their content in the full viewport height, so on a short screen it lands
+     squarely over the register button. Publishing its height lets the layout
+     centre in what is left instead of behind it. */
+  function reserveSpace() {
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    document.documentElement.style.setProperty(
+      '--cookie-banner-height',
+      banner.offsetHeight + 'px'
+    );
+    document.body.classList.add('has-cookie-banner');
+  }
+
+  function releaseSpace() {
+    document.documentElement.style.removeProperty('--cookie-banner-height');
+    document.body.classList.remove('has-cookie-banner');
+  }
+
   function showBanner() {
     if (document.getElementById('cookie-banner')) return;
     document.body.appendChild(buildBanner());
+    reserveSpace();
   }
+
+  /* Rotating the phone or growing the text reflows the banner to a different
+     number of lines, so the reserved strip has to be remeasured. */
+  window.addEventListener('resize', function () {
+    if (document.getElementById('cookie-banner')) reserveSpace();
+  });
 
   function init() {
     var choice = readChoice();
