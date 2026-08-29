@@ -53,6 +53,37 @@
     <link rel="canonical" href="https://percivalestate.com/" />
     <meta name="theme-color" content="#288548" />
 
+    <!-- Google tag (gtag.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Consent Mode: analytics storage stays denied, so GA sets no cookie,
+      // until the visitor accepts in the banner that assets/js/consent.js
+      // shows. Granting a stored consent here rather than waiting for that
+      // file keeps the pageview from being missed.
+      gtag("consent", "default", { analytics_storage: "denied" });
+
+      try {
+        if (localStorage.getItem("pec-cookie-consent") === "granted") {
+          gtag("consent", "update", { analytics_storage: "granted" });
+        }
+      } catch (e) {
+        // Storage is blocked; the denied default stands.
+      }
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-N85MHLCZ5L"
+    ></script>
+    <script>
+      gtag("js", new Date());
+
+      gtag("config", "G-N85MHLCZ5L");
+    </script>
+
     <script
       src="https://kit.fontawesome.com/5e05e77990.js"
       crossorigin="anonymous"
@@ -60,6 +91,7 @@
 
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/slideshow.css" />
+    <link rel="stylesheet" href="assets/css/consent.css" />
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -1199,10 +1231,14 @@
             choose to write in your message.
           </p>
           <p>
-            <strong>When you simply visit.</strong> We do not use analytics and
-            we do not track visitors. Our web host and the third parties listed
-            below receive your IP address as an ordinary part of serving the
-            page to you.
+            <strong>When you simply visit.</strong> If you accept analytics
+            cookies, Google Analytics counts your visit and records things like
+            the pages you look at, the kind of device you are using and the
+            country you are in. We see this only as totals for the whole site,
+            never as anything that identifies you, and if you decline then no
+            analytics cookies are set at all. Whichever you choose, our web host
+            and the third parties listed below receive your IP address as an
+            ordinary part of serving the page to you.
           </p>
 
           <h3>Why we use it, and our lawful basis</h3>
@@ -1230,6 +1266,12 @@
               share, so that we can ask for help with things like planning or
               legal questions. Our lawful basis is your consent, and you do not
               have to share a profile.
+            </li>
+            <li>
+              <strong>To see how this website is being used</strong>, so that we
+              know which information residents actually find useful. Our lawful
+              basis is your consent, which you give through the cookie banner
+              and can withdraw at any time.
             </li>
             <li>
               <strong>To reply to you</strong> when you get in touch. Our lawful
@@ -1265,6 +1307,14 @@
             <li>
               <strong>Form Taxi</strong> &mdash; delivers messages sent through
               our contact form to us by email.
+            </li>
+            <li>
+              <strong>Google Analytics</strong> &mdash; tells us how many people
+              visit the site and which pages they read, but only if you accept
+              analytics cookies. Google is based in the United States, so this
+              information is transferred outside the UK and protected by the
+              safeguards in Google's own data processing terms. We have not
+              turned on any advertising features.
             </li>
             <li>
               <strong>GitHub Pages</strong> &mdash; hosts this website and keeps
@@ -1326,10 +1376,17 @@
 
           <h3>Cookies</h3>
           <p>
-            This website does not set any cookies of its own, and we do not use
-            analytics or advertising cookies. The Airtable forms and tables
-            embedded on our pages may set their own cookies when they load; you
-            can control these through your browser settings.
+            The only cookies we set ourselves are the Google Analytics ones
+            described above, and we set them only if you accept them in the
+            banner we show on your first visit. We do not use advertising
+            cookies. You can
+            <a href="#" id="cookie-settings">change your cookie choice</a>
+            whenever you like.
+          </p>
+          <p>
+            The Airtable forms and tables embedded on our pages may set their
+            own cookies when they load; you can control these through your
+            browser settings.
           </p>
 
           <h3>Other websites</h3>
@@ -1549,5 +1606,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/slideshow.js"></script>
+    <script src="assets/js/consent.js"></script>
   </body>
 </html>

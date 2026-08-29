@@ -14,9 +14,48 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#288548" />
 
-    <!-- Deliberately self-contained: main.css and slideshow.js together hide the
+    <!-- Google tag (gtag.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Consent Mode: analytics storage stays denied, so GA sets no cookie,
+      // until the visitor accepts in the banner that assets/js/consent.js
+      // shows. Granting a stored consent here rather than waiting for that
+      // file keeps the pageview from being missed.
+      gtag("consent", "default", { analytics_storage: "denied" });
+
+      try {
+        if (localStorage.getItem("pec-cookie-consent") === "granted") {
+          gtag("consent", "update", { analytics_storage: "granted" });
+        }
+      } catch (e) {
+        // Storage is blocked; the denied default stands.
+      }
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-N85MHLCZ5L"
+    ></script>
+    <script>
+      gtag("js", new Date());
+
+      gtag("config", "G-N85MHLCZ5L");
+    </script>
+
+    <!-- The privacy policy lives on the home page, and this page can be served
+         from any path, so the banner needs an absolute link to it. -->
+    <script>
+      window.pecPrivacyPolicyHref = "/#privacy-policy";
+    </script>
+    <link rel="stylesheet" href="/assets/css/consent.css" />
+
+    <!-- Deliberately avoids main.css and slideshow.js: together they hide the
          page behind a loading overlay until the slideshow is ready, which would
-         strand visitors on a black screen here. -->
+         strand visitors on a black screen here. The consent files above and
+         below carry no such overlay, so they are safe to share. -->
     <style>
       html,
       body {
@@ -92,5 +131,7 @@
       out of date.
     </p>
     <a class="home" href="/">Back to the estate</a>
+
+    <script src="/assets/js/consent.js"></script>
   </body>
 </html>

@@ -1,0 +1,92 @@
+/* Cookie consent banner.
+
+   Kept in its own file so that 404.html can use it too: that page deliberately
+   avoids main.css, whose loading overlay would strand visitors on a black
+   screen, but it can safely pull in this one on its own.
+
+   z-index sits just under #loadingPage (9999) so the banner stays hidden
+   behind the overlay on the home page until the slideshow has finished
+   loading, rather than floating over it. */
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  box-sizing: border-box;
+  padding: 1.25rem 1.5rem;
+  background-color: #1b1f22;
+  border-top: solid 2px #288548;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+}
+
+#cookie-banner p {
+  margin: 0;
+  max-width: 46rem;
+  color: inherit;
+}
+
+#cookie-banner a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+#cookie-banner .cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+#cookie-banner button {
+  cursor: pointer;
+  border: solid 2px #ffffff;
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 0.6rem 1.5rem;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+}
+
+#cookie-banner button:hover {
+  background-color: #ffffff;
+  color: #1b1f22;
+}
+
+#cookie-banner button.accept {
+  border-color: #288548;
+  background-color: #288548;
+}
+
+#cookie-banner button.accept:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #1b1f22;
+}
+
+@media screen and (max-width: 736px) {
+  #cookie-banner {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  #cookie-banner .cookie-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
