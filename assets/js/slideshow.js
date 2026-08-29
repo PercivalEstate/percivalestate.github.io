@@ -89,11 +89,38 @@
       $body.classList.remove('is-preload');
     }
 
-    // Only the first backdrop needs to be present for the page to look right,
-    // so the overlay lifts as soon as that one lands. Waiting on the whole
-    // rotation meant several megabytes stood between every visitor and the
-    // page, and in practice the failsafe below always won the race.
+    // Two things have to be in place for the page to look right: the first
+    // backdrop, and the webfont. Waiting on the whole thirteen-image rotation
+    // put several megabytes in front of every visitor, and in practice the
+    // failsafe always won that race. Waiting on the font instead costs little
+    // and spares the visitor the heading re-wrapping under them a second
+    // after the page appears: the fallback is wide enough that the title
+    // breaks over three lines instead of two.
+    var pendingGates = 2;
+
+    function gateReady() {
+      pendingGates--;
+      if (pendingGates <= 0) revealAndLoadRest();
+    }
+
     var revealTimeoutId = window.setTimeout(revealAndLoadRest, 2500);
+
+    // Asking for the two weights the hero uses, rather than relying on
+    // document.fonts.ready alone: ready resolves against whatever is pending
+    // at the time, so it can come back immediately if layout has not yet
+    // asked for a face. load() starts them itself, which does not depend on
+    // that timing. Failure resolves the gate too -- a missing font must never
+    // be the reason the overlay stays up.
+    if (window.Promise && document.fonts && document.fonts.load) {
+      window.Promise.all([
+        document.fonts.load('300 1rem "Source Sans Pro"'),
+        document.fonts.load('600 1rem "Source Sans Pro"'),
+      ])
+        .then(gateReady)
+        .catch(gateReady);
+    } else {
+      gateReady();
+    }
 
     function preload(src, onSettled) {
       var img = new Image();
@@ -133,8 +160,8 @@
       loadRest();
     }
 
-    if (sources.length > 0) preload(sources[0], revealAndLoadRest);
-    else reveal();
+    if (sources.length > 0) preload(sources[0], gateReady);
+    else gateReady();
 
     function startSlideshow() {
       // Nothing loaded (yet)? Bail -- a later settle() will try again.

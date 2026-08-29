@@ -100,6 +100,24 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Loaded here rather than through an @import at the top of main.css:
+         that hid the font behind main.css's own download, so the request for
+         the stylesheet could not start until main.css had arrived and been
+         parsed, and the request for the woff2 files not until after that.
+         preconnect warms fonts.gstatic.com, which is otherwise not contacted
+         until the stylesheet below has been parsed.
+
+         display=swap only matters if slideshow.js gives up waiting: the
+         overlay normally holds until the font has arrived, so the swap
+         happens behind it. On that slow path readable text in the fallback
+         beats the invisible heading the default would give. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600&amp;display=swap"
+    />
+
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/slideshow.css" />
     <link rel="stylesheet" href="assets/css/consent.css" />
