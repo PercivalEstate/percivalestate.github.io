@@ -66,11 +66,11 @@
     $body.appendChild($wrapper);
 
     // Preload images and track loading
-    var settledImages = 0;
-    var totalImages = Object.keys(settings.images).length;
+    var sources = Object.keys(settings.images);
     var $bgs = [];
     var revealed = false;
     var started = false;
+    var restRequested = false;
 
     // The loading screen covers the whole page, so it has to come down whatever
     // happens to the images -- a single 404 or a stalled request must not leave
@@ -89,19 +89,21 @@
       $body.classList.remove('is-preload');
     }
 
-    var revealTimeoutId = window.setTimeout(reveal, 5000);
+    // Only the first backdrop needs to be present for the page to look right,
+    // so the overlay lifts as soon as that one lands. Waiting on the whole
+    // rotation meant several megabytes stood between every visitor and the
+    // page, and in practice the failsafe below always won the race.
+    var revealTimeoutId = window.setTimeout(revealAndLoadRest, 2500);
 
-    function settle() {
-      settledImages++;
-
-      // Images that arrive after the failsafe fired still join the rotation.
-      if (revealed) startSlideshow();
-      else if (settledImages === totalImages) reveal();
-    }
-
-    Object.keys(settings.images).forEach(function (src) {
+    function preload(src, onSettled) {
       var img = new Image();
       var $bg = document.createElement('div');
+
+      function settle() {
+        // Images that arrive after the slideshow started just join the rotation.
+        if (revealed) startSlideshow();
+        if (onSettled) onSettled();
+      }
 
       img.onload = function () {
         $bg.style.backgroundImage = 'url("' + src + '")';
@@ -113,7 +115,26 @@
       };
       img.onerror = settle;
       img.src = src;
-    });
+    }
+
+    // The rest are held back until the page is up so that they compete with
+    // neither the first backdrop nor anything else on the critical path.
+    function loadRest() {
+      if (restRequested) return;
+      restRequested = true;
+
+      sources.slice(1).forEach(function (src) {
+        preload(src);
+      });
+    }
+
+    function revealAndLoadRest() {
+      reveal();
+      loadRest();
+    }
+
+    if (sources.length > 0) preload(sources[0], revealAndLoadRest);
+    else reveal();
 
     function startSlideshow() {
       // Nothing loaded (yet)? Bail -- a later settle() will try again.

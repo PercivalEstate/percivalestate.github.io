@@ -332,8 +332,18 @@
   $main_articles.hide();
 
   // Initial article.
-  if (location.hash != '' && location.hash != '#')
-    $window.on('load', function () {
+  //
+  // Deliberately not deferred to window's load event: that waits on every
+  // slideshow image and embed, so someone following a #register link would
+  // watch the home page for several seconds before the panel appeared, and
+  // never see it at all if one of those requests stalled.
+  if (location.hash != '' && location.hash != '#') {
+    var showInitialArticle = function () {
       $main._show(location.hash.substr(1), true);
-    });
+    };
+
+    if (document.readyState === 'loading')
+      document.addEventListener('DOMContentLoaded', showInitialArticle);
+    else showInitialArticle();
+  }
 })(jQuery);

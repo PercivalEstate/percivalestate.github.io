@@ -46,13 +46,25 @@
   gap: 0.75rem;
 }
 
+/* main.css styles every bare <button> for the site's own look, and those rules
+   reach in here on the home page but not on 404.html, which does not load it.
+   Three of them have to be undone explicitly or the two pages disagree:
+   height and line-height (2.75rem each) leave the label sitting near the
+   bottom of the box, the inset ring draws a second border inside ours, and
+   color is set with !important, which plain specificity cannot beat and which
+   would otherwise leave white text on the white hover background. */
 #cookie-banner button {
   cursor: pointer;
   border: solid 2px #ffffff;
   border-radius: 4px;
+  box-shadow: none;
   background-color: transparent;
-  padding: 0.6rem 1.5rem;
-  color: #ffffff;
+  height: auto;
+  line-height: 1;
+  /* The extra 0.1rem on the left offsets the letter-spacing that trails the
+     final letter, which would otherwise pull the label off centre. */
+  padding: 0.7rem 1.5rem 0.7rem 1.6rem;
+  color: #ffffff !important;
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 600;
@@ -65,7 +77,7 @@
 
 #cookie-banner button:hover {
   background-color: #ffffff;
-  color: #1b1f22;
+  color: #1b1f22 !important;
 }
 
 #cookie-banner button.accept {
@@ -76,7 +88,29 @@
 #cookie-banner button.accept:hover {
   background-color: #ffffff;
   border-color: #ffffff;
-  color: #1b1f22;
+  color: #1b1f22 !important;
+}
+
+/* consent.js measures the banner and publishes its height here. Both pages
+   centre their content in the full viewport, so without this the banner simply
+   sits on top of whatever that centring put at the bottom of a short screen --
+   on a 320x568 phone, the register button. */
+/* min-height alone only helps while the content fits. On a small phone the
+   page runs several screens long, so it also needs room to scroll clear of the
+   banner -- otherwise the footer can never be read. This sits on <body> rather
+   than #wrapper because #footer is a sibling of #wrapper, not a child. */
+body.has-cookie-banner {
+  padding-bottom: var(--cookie-banner-height, 0px);
+}
+
+body.has-cookie-banner #wrapper {
+  min-height: calc(100vh - var(--cookie-banner-height, 0px));
+}
+
+/* 404.html has no #wrapper; its <body> is the centred box, and carries 2rem of
+   padding of its own that this must not drop. */
+body.has-cookie-banner.error-page {
+  padding-bottom: calc(2rem + var(--cookie-banner-height, 0px));
 }
 
 @media screen and (max-width: 736px) {
@@ -88,5 +122,50 @@
   #cookie-banner .cookie-actions {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Every line here is a line of hero the visitor cannot see, so keep the
+   notice tight on small screens. */
+@media screen and (max-width: 480px) {
+  #cookie-banner {
+    padding: 0.85rem 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    gap: 0.7rem 1rem;
+  }
+
+  #cookie-banner button {
+    /* Keeps the same left-side letter-spacing offset as the base rule; plain
+       symmetric padding here would put the label back off centre. */
+    padding: 0.55rem 1.1rem 0.55rem 1.2rem;
+  }
+}
+
+/* The accept/decline pair sits just under 44px at the mobile font size. */
+@media (pointer: coarse) {
+  #cookie-banner button {
+    min-height: 44px;
+  }
+
+  /* Grow the policy link's hit area over the inert space around its line
+     rather than padding it, which would add a band of banner across the
+     hero. The gap below is widened to keep that area clear of the buttons. */
+  #cookie-banner {
+    gap: 1.15rem 1.5rem;
+  }
+
+  #cookie-banner a {
+    position: relative;
+  }
+
+  #cookie-banner a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 44px;
+    transform: translateY(-50%);
   }
 }
