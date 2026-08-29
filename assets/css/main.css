@@ -1911,3 +1911,50 @@ body.is-preload #footer {
   color: #888; /* Subtle, soft grey */
   vertical-align: middle; /* Aligns nicely with text */
 }
+
+/* Two-column text + image, stacking on narrow screens.
+   Replaces hardcoded 50% inline widths, which no media query could override
+   and which squeezed the text to ~15 characters per line on a phone. */
+
+.media-split {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.media-split > p {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+.media-split-figure {
+  flex: 1 1 50%;
+  min-width: 0;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.media-split-caption {
+  font-style: italic;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 736px) {
+  .media-split {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .media-split-figure {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .media-split-caption {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
