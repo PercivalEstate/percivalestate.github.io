@@ -27,3 +27,11 @@ body.is-preload #header .content .inner {
   opacity: 1;
   margin: 4rem 0 0 0;
 }
+
+/* Loading screen */
+
+/* Only slideshow.js removes this, so without scripting it would otherwise
+   cover the page indefinitely. */
+#loadingPage {
+  display: none;
+}

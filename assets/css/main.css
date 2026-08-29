@@ -1908,6 +1908,6 @@ body.is-preload #footer {
 .separator {
   font-size: 1.2em; /* Slightly larger for elegance */
   margin: 0 8px; /* Adds balanced spacing */
-  colour: #888; /* Subtle, soft grey */
+  color: #888; /* Subtle, soft grey */
   vertical-align: middle; /* Aligns nicely with text */
 }

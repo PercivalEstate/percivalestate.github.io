@@ -66,9 +66,38 @@
     $body.appendChild($wrapper);
 
     // Preload images and track loading
-    var loadedImages = 0;
+    var settledImages = 0;
     var totalImages = Object.keys(settings.images).length;
     var $bgs = [];
+    var revealed = false;
+    var started = false;
+
+    // The loading screen covers the whole page, so it has to come down whatever
+    // happens to the images -- a single 404 or a stalled request must not leave
+    // visitors looking at a black screen.
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+
+      window.clearTimeout(revealTimeoutId);
+      startSlideshow();
+
+      // Remove loading element completely from DOM
+      if ($loadingPage && $loadingPage.parentNode) {
+        $loadingPage.parentNode.removeChild($loadingPage);
+      }
+      $body.classList.remove('is-preload');
+    }
+
+    var revealTimeoutId = window.setTimeout(reveal, 5000);
+
+    function settle() {
+      settledImages++;
+
+      // Images that arrive after the failsafe fired still join the rotation.
+      if (revealed) startSlideshow();
+      else if (settledImages === totalImages) reveal();
+    }
 
     Object.keys(settings.images).forEach(function (src) {
       var img = new Image();
@@ -80,29 +109,30 @@
         $wrapper.appendChild($bg);
         $bgs.push($bg);
 
-        loadedImages++;
-        if (loadedImages === totalImages) {
-          startSlideshow($bgs);
-          // Remove loading element completely from DOM
-          if ($loadingPage && $loadingPage.parentNode) {
-            $loadingPage.parentNode.removeChild($loadingPage);
-          }
-          $body.classList.remove('is-preload');
-        }
+        settle();
       };
+      img.onerror = settle;
       img.src = src;
     });
 
-    function startSlideshow($bgs) {
+    function startSlideshow() {
+      // Nothing loaded (yet)? Bail -- a later settle() will try again.
+      if (started || $bgs.length == 0) return;
+      started = true;
+
       var pos = 0;
       var lastPos = 0;
 
       $bgs[pos].classList.add('visible');
       $bgs[pos].classList.add('top');
 
-      if ($bgs.length == 1 || !canUse('transition')) return;
+      if (!canUse('transition')) return;
 
       window.setInterval(function () {
+        // Checked per tick rather than once, since $bgs can still grow if
+        // images finish loading after the failsafe started the slideshow.
+        if ($bgs.length < 2) return;
+
         lastPos = pos;
         pos++;
         if (pos >= $bgs.length) pos = 0;
