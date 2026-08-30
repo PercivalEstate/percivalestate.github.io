@@ -378,7 +378,13 @@
       .on('reset', function (event) {
         event.preventDefault();
 
-        $this.find('select').val($('option:first').val());
+        // Was $('option:first'), which reaches past the form and takes the
+        // first option in the whole document, so a reset would put one
+        // select's value into every other. Scope it to each select.
+        $this.find('select').each(function () {
+          var s = $(this);
+          s.val(s.find('option').first().val());
+        });
 
         $this.find('input,textarea').each(function () {
           var i = $(this),
