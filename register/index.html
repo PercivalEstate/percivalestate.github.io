@@ -1,87 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=../#register" />
+    <meta http-equiv="refresh" content="0; url=/#register" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+
+    <!-- This page exists only to forward /register to the panel on the home
+         page, so it should never be indexed in its own right, and it points
+         search engines at the page it forwards to. -->
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://percivalestate.com/" />
+
+    <title>Register &middot; Percival Estate Community</title>
+
+    <!-- Kept because /register is the address that goes on posters and in
+         messages between neighbours, so it is the one people paste into chat
+         apps. Meta tags cost nothing to serve; the stylesheets did. -->
     <meta
       name="description"
-      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+      content="Register your interest in the Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
     />
-    <meta name="author" content="Percival Estate Community" />
-
-    <!-- Open Graph protocol -->
+    <meta property="og:site_name" content="Percival Estate Community" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Percival Estate Community" />
+    <meta property="og:url" content="https://percivalestate.com/#register" />
     <meta
-      prefix="og: http://ogp.me/ns#"
-      property="og:image"
-      itemprop="image"
-      content="https://percivalestate.com/images/meta-cover.png"
-    />
-    <meta
-      prefix="og: http://ogp.me/ns#"
-      property="og:title"
-      content="Percival Estate Community"
-    />
-    <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
-    <meta
-      prefix="og: http://ogp.me/ns#"
-      property="og:url"
-      content="https://percivalestate.com/"
-    />
-    <meta
-      prefix="og: http://ogp.me/ns#"
       property="og:description"
-      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
-    />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Percival Estate Community" />
-    <meta
-      property="twitter:description"
-      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+      content="Register your interest in the Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
     />
     <meta
-      property="twitter:image"
+      property="og:image"
+      content="https://percivalestate.com/images/meta-cover.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Percival Estate Community" />
+    <meta
+      name="twitter:description"
+      content="Register your interest in the Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+    />
+    <meta
+      name="twitter:image"
       content="https://percivalestate.com/images/meta-cover.png"
     />
 
-    <title>Percival Estate Community</title>
+    <!-- Deliberately no stylesheets, icons or fonts: everything this page used
+         to pull in belonged to a home page the visitor is about to be sent to
+         anyway, and none of it was on screen long enough to be seen. -->
+    <style>
+      body {
+        background-color: #1b1f22;
+        color: #ffffff;
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 2rem;
+        text-align: center;
+      }
 
-    <script
-      src="https://kit.fontawesome.com/5e05e77990.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="../assets/css/slideshow.css" />
-
-    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-    <link rel="shortcut icon" href="../favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
-    <meta
-      name="apple-mobile-web-app-title"
-      content="Percival Estate Community"
-    />
-    <link rel="manifest" href="../site.webmanifest" />
-
-    <noscript
-      ><link rel="stylesheet" href="../assets/css/noscript.css"
-    /></noscript>
+      a {
+        color: #ffffff;
+      }
+    </style>
   </head>
   <body>
     <p>
       Redirecting to the
-      <a href="../#register">Percival Estate Community registration form</a>...
+      <a href="/#register">Percival Estate Community registration form</a>...
     </p>
     <script>
       // replace() rather than assignment, so Back doesn't land here and
       // immediately bounce the visitor forward again.
-      window.location.replace('../#register');
+      window.location.replace('/#register');
     </script>
   </body>
 </html>

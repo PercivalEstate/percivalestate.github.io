@@ -615,7 +615,6 @@ input[type='radio'] + label:before {
   text-rendering: auto;
   line-height: 1;
   text-transform: none !important;
-  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
 
@@ -647,7 +646,9 @@ input[type='radio']:checked + label:before {
   background: #ffffff !important;
   border-color: #ffffff !important;
   color: #1b1f22;
-  content: '\f00c';
+  /* Was Font Awesome's \f00c, from a font this site no longer loads, so the
+     tick would have come out as tofu. */
+  content: '\2713';
 }
 
 input[type='checkbox']:focus + label:before,
@@ -731,8 +732,18 @@ input[type='radio'] + label:before {
   font-weight: 400;
 }
 
+/* The glyph carries no text, so display:none here left the social links with
+   no accessible name at all -- a screen reader announced five bare links.
+   Hidden from view, still read aloud. */
 .icon > .label {
-  display: none;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .icon:before {
@@ -1015,13 +1026,33 @@ ul.icons li:last-child {
 }
 
 ul.icons li a {
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
   border-radius: 100%;
   box-shadow: inset 0 0 0 1px #ffffff;
-  display: inline-block;
+  display: -moz-inline-flex;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
   height: 2.25rem;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
   line-height: 2.25rem;
   text-align: center;
   width: 2.25rem;
+}
+
+/* The glyphs are inline SVG rather than a webfont, so they take their colour
+   from the per-network hover rules further down the file the way a character
+   would. */
+ul.icons li a .icon-glyph {
+  fill: currentColor;
+  height: 1.1rem;
+  width: 1.1rem;
 }
 
 ul.icons li a:hover {
@@ -1673,6 +1704,14 @@ body.is-preload #header .content .inner {
   white-space: nowrap;
 }
 
+/* The close control is now in the tab order, so it needs to show where the
+   keyboard is. text-indent hides its label off to the side, which is why the
+   outline is inset rather than drawn around the full 4rem box. */
+#main article .close:focus-visible {
+  outline: solid 2px #ffffff;
+  outline-offset: -0.6rem;
+}
+
 #main article .close:before {
   -moz-transition: background-color 0.2s ease-in-out;
   -webkit-transition: background-color 0.2s ease-in-out;
@@ -1801,11 +1840,6 @@ body.is-preload #footer {
   content: url('../../images/percival-estate-logo-green-padding-circle.png');
 }
 
-/* File */
-.fa-file-lines:hover {
-  color: #da0403;
-}
-
 /* X */
 .fa-x-twitter:hover {
   color: #080808;
@@ -1872,6 +1906,36 @@ body.is-preload #footer {
 
 #loadingPage.hidden {
   display: none;
+}
+
+/* Content images and embeds.
+
+   Both used to be sized with width="100%", which is not a valid HTML width and
+   gave the browser no intrinsic size to reserve, so the panel jumped as each
+   one arrived. The attributes now carry the real pixel dimensions and the
+   sizing lives here. */
+
+.content-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Airtable reports no height of its own, so the frame starts collapsed --
+   otherwise an iframe with no height attribute would sit at its default 150px
+   under the spinner -- and main.js gives it a min-height once it has loaded. */
+.embed {
+  border: 0;
+  display: block;
+  height: 0;
+  width: 100%;
+}
+
+/* Shown by main.js in place of the spinner when an embed never arrives. */
+.embed-fallback {
+  margin: 0 0 2rem 0;
+  text-align: center;
 }
 
 .separator {

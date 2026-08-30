@@ -66,16 +66,56 @@
     locked = false;
 
   // Methods.
-  // Content images inside the panels carry data-src rather than src. The
-  // articles are display:none until opened, which leaves loading="lazy" with
-  // no position to reason about, so the browser fetches them on the home page
-  // anyway -- most of a megabyte of maps that most visitors never open. This
-  // hands them over at the moment the panel is actually shown.
-  function loadDeferredImages($article) {
-    $article.find('img[data-src]').each(function () {
-      this.src = this.getAttribute('data-src');
+  // Content images and Airtable embeds inside the panels carry data-src rather
+  // than src. #main article is opacity:0 rather than display:none, and the
+  // articles are only hidden once this file runs, so loading="lazy" has a
+  // laid-out box to reason about and the browser fetches everything on the
+  // home page anyway -- most of a megabyte of maps, and the whole of
+  // Airtable's embed bundle, for panels most visitors never open. This hands
+  // them over at the moment the panel is actually shown.
+  function loadDeferred($article) {
+    $article.find('img[data-src], iframe[data-src]').each(function () {
+      var src = this.getAttribute('data-src');
+
       this.removeAttribute('data-src');
+
+      if (this.tagName === 'IFRAME') watchEmbed(this, src);
+
+      this.src = src;
     });
+  }
+
+  // Each embed sits behind a spinner that only its own load event takes down,
+  // so a request that never finishes would leave the spinner -- and the
+  // several hundred pixels of space reserved for it -- on screen for good.
+  // Give up after a while and offer the content directly instead.
+  var embedTimeout = 20000;
+
+  function watchEmbed(iframe, src) {
+    var $spinner = $('#' + iframe.getAttribute('data-spinner')),
+      minHeight = iframe.getAttribute('data-min-height'),
+      timeoutId;
+
+    iframe.addEventListener('load', function () {
+      window.clearTimeout(timeoutId);
+      $spinner.hide();
+
+      // Airtable embeds report no height of their own, so the panel would
+      // collapse around a zero-height frame without this.
+      if (minHeight) iframe.style.minHeight = minHeight + 'px';
+    });
+
+    timeoutId = window.setTimeout(function () {
+      $spinner.hide();
+
+      $('<p class="embed-fallback"></p>')
+        .append(
+          $('<a></a>')
+            .attr({ href: src, target: '_blank', rel: 'noopener' })
+            .text('This part of the page could not be loaded. Open it in a new tab.')
+        )
+        .insertAfter(iframe);
+    }, embedTimeout);
   }
 
   $main._show = function (id, initial) {
@@ -84,7 +124,7 @@
     // No such article? Bail.
     if ($article.length == 0) return;
 
-    loadDeferredImages($article);
+    loadDeferred($article);
 
     // Handle lock.
 
@@ -267,11 +307,23 @@
     var $this = $(this);
 
     // Close.
-    $('<div class="close">Close</div>')
+    // A bare <div> is unreachable without a mouse, so it carries a button role
+    // and a tab stop, and answers Enter and Space the way a real button would.
+    // Escape still closes the panel from anywhere.
+    function close() {
+      location.hash = '';
+      history.pushState(null, null, '/');
+    }
+
+    $('<div class="close" role="button" tabindex="0">Close</div>')
       .appendTo($this)
-      .on('click', function () {
-        location.hash = '';
-        history.pushState(null, null, '/');
+      .on('click', close)
+      .on('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+          // Space would otherwise scroll the panel behind the dismissal.
+          event.preventDefault();
+          close();
+        }
       });
 
     // Prevent clicks from inside article from bubbling.

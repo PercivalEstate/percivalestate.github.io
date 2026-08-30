@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -13,39 +13,39 @@
     <meta name="author" content="Percival Estate Community" />
 
     <!-- Open Graph protocol -->
+    <meta property="og:site_name" content="Percival Estate Community" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Percival Estate Community" />
+    <meta property="og:url" content="https://percivalestate.com/" />
     <meta
-      prefix="og: http://ogp.me/ns#"
+      property="og:description"
+      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+    />
+    <meta
       property="og:image"
       itemprop="image"
       content="https://percivalestate.com/images/meta-cover.png"
     />
     <meta
-      prefix="og: http://ogp.me/ns#"
-      property="og:title"
-      content="Percival Estate Community"
-    />
-    <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
-    <meta
-      prefix="og: http://ogp.me/ns#"
-      property="og:url"
-      content="https://percivalestate.com/"
-    />
-    <meta
-      prefix="og: http://ogp.me/ns#"
-      property="og:description"
-      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+      property="og:image:alt"
+      content="The Percival Estate Community logo above the name of the estate"
     />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Percival Estate Community" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Percival Estate Community" />
     <meta
-      property="twitter:description"
+      name="twitter:description"
       content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
     />
     <meta
-      property="twitter:image"
+      name="twitter:image"
       content="https://percivalestate.com/images/meta-cover.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="The Percival Estate Community logo above the name of the estate"
     />
 
     <title>Percival Estate Community</title>
@@ -95,11 +95,6 @@
       gtag("config", "G-N85MHLCZ5L");
     </script>
 
-    <script
-      src="https://kit.fontawesome.com/5e05e77990.js"
-      crossorigin="anonymous"
-    ></script>
-
     <!-- Self-hosted rather than fetched from Google; see assets/css/fonts.css
          for why. Preloading the two weights the hero uses starts them during
          parse instead of after fonts.css has been fetched and parsed, which
@@ -127,9 +122,13 @@
     <link rel="stylesheet" href="assets/css/slideshow.css" />
     <link rel="stylesheet" href="assets/css/consent.css" />
 
+    <!-- Only the PNG is declared. favicon.svg was not a vector at all: it
+         wrapped a 180x180 raster, embedded twice over for a light/dark swap
+         between two byte-identical copies, and browsers preferred it -- 65KB
+         to show what the 8KB PNG beside it already shows. The .ico stays on
+         disk, undeclared, so only the browsers that actually need it go
+         looking for it. -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta
       name="apple-mobile-web-app-title"
@@ -142,13 +141,18 @@
     /></noscript>
   </head>
 
+  <!-- The social glyphs below are Font Awesome Free 6.7.2 brand icons,
+       inlined rather than fetched from the Font Awesome kit: the kit was a
+       render-blocking third-party script, and a webfont from a further
+       origin, for five pictures. Icons: CC BY 4.0, Fonticons, Inc.
+       https://fontawesome.com/license/free -->
   <body class="is-preload">
     <div id="loadingPage">
       <img
         src="images/loading.gif"
         alt=""
-        height="50px"
-        width="50px"
+        height="50"
+        width="50"
         style="display: block; margin-bottom: 5px"
       />
       <p style="height: 25px; text-align: center; font-size: 1rem">
@@ -261,23 +265,27 @@
             properties.
           </p>
           <img
+            class="content-image"
             data-src="images/percival-estate-map.webp"
             alt="Map of the Percival Estate showing its six buildings"
-            width="100%"
+            width="1266"
+            height="657"
             loading="lazy"
           />
           <img
+            class="content-image"
             data-src="images/percival-estate-map-detailed.webp"
             alt="Detailed map of the Percival Estate showing the layout and name of each block"
-            width="100%"
+            width="2600"
+            height="1800"
             loading="lazy"
           />
           <div id="loadingAbout">
             <img
               src="images/loading.gif"
               alt=""
-              height="50px"
-              width="50px"
+              height="50"
+              width="50"
               style="display: block; margin: 690px auto 5px auto"
             />
             <p
@@ -293,12 +301,12 @@
           </div>
           <iframe
             id="iframeAbout"
+            class="embed"
             title="Buildings of the Percival Estate"
-            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr2kbJXZYFex9lFf"
-            width="100%"
-            height="0px"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr2kbJXZYFex9lFf"
+            data-spinner="loadingAbout"
+            data-min-height="1460"
             loading="lazy"
-            onload="document.getElementById('loadingAbout').style.display='none';document.getElementById('iframeAbout').style.minHeight='1460px';"
           ></iframe>
 
           <br />
@@ -370,11 +378,11 @@
             </p>
             <div class="media-split-figure">
               <img
+                class="content-image"
                 data-src="images/grimthorpe-house-historical.jpg"
                 alt="Black and white photograph of Grimthorpe House seen from the north-west in 1952"
-                width="100%"
-                height="auto"
-                style="aspect-ratio: 950 / 597"
+                width="950"
+                height="597"
                 loading="lazy"
               />
               <p class="media-split-caption">
@@ -496,8 +504,8 @@
             <img
               src="images/loading.gif"
               alt=""
-              height="50px"
-              width="50px"
+              height="50"
+              width="50"
               style="display: block; margin: 460px auto 5px auto"
             />
             <p
@@ -513,12 +521,12 @@
           </div>
           <iframe
             id="iframeNews"
+            class="embed"
             title="Percival Estate Community news"
-            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrAyVmVDUVIbNHHs"
-            width="100%"
-            height="0px"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrAyVmVDUVIbNHHs"
+            data-spinner="loadingNews"
+            data-min-height="1000"
             loading="lazy"
-            onload="document.getElementById('loadingNews').style.display='none';document.getElementById('iframeNews').style.minHeight='1000px';"
           ></iframe>
         </article>
 
@@ -529,8 +537,8 @@
             <img
               src="images/loading.gif"
               alt=""
-              height="50px"
-              width="50px"
+              height="50"
+              width="50"
               style="display: block; margin: 285px auto 5px auto"
             />
             <p
@@ -546,26 +554,28 @@
           </div>
           <iframe
             id="iframeRegister"
+            class="embed"
             title="Register your interest in the Percival Estate Community"
-            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrT6agpqL3nUji4p"
-            width="100%"
-            height="0px"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrT6agpqL3nUji4p"
+            data-spinner="loadingRegister"
+            data-min-height="650"
             loading="lazy"
-            onload="document.getElementById('loadingRegister').style.display='none';document.getElementById('iframeRegister').style.minHeight='650px';"
           ></iframe>
         </article>
 
         <!-- Facilities -->
         <article id="facilities">
           <h2 class="major">Facilities</h2>
-          Below is a list of facilities shared between residents of the Percival
-          Estate:
+          <p>
+            Below is a list of facilities shared between residents of the
+            Percival Estate:
+          </p>
           <div id="loadingFacilities">
             <img
               src="images/loading.gif"
               alt=""
-              height="50px"
-              width="50px"
+              height="50"
+              width="50"
               style="display: block; margin: 260px auto 5px auto"
             />
             <p
@@ -581,12 +591,12 @@
           </div>
           <iframe
             id="iframeFacilities"
+            class="embed"
             title="Facilities shared between Percival Estate residents"
-            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrYj3Ty7mf8rWif5"
-            width="100%"
-            height="0px"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrYj3Ty7mf8rWif5"
+            data-spinner="loadingFacilities"
+            data-min-height="600"
             loading="lazy"
-            onload="document.getElementById('loadingFacilities').style.display='none';document.getElementById('iframeFacilities').style.minHeight='600px';"
           ></iframe>
           <br /><br />
           <p>
@@ -610,7 +620,7 @@
             <ul>
               <li>
                 <strong>Info:</strong>
-                <a href="https://www.islington.gov.uk/parking"
+                <a href="https://www.islington.gov.uk/parking" target="_blank" rel="noopener"
                   >https://www.islington.gov.uk/parking</a
                 >
               </li>
@@ -635,6 +645,8 @@
                 <strong>Info:</strong>
                 <a
                   href="https://www.islington.gov.uk/parking/parking-permits/estate-parking/renting-a-garage"
+                  target="_blank"
+                  rel="noopener"
                   >https://www.islington.gov.uk/parking/parking-permits/estate-parking/renting-a-garage</a
                 >
               </li>
@@ -642,6 +654,8 @@
                 <strong>Costs:</strong>
                 <a
                   href="https://www.islington.gov.uk/parking/parking-permits/estate-parking/estate-parking-costs-table"
+                  target="_blank"
+                  rel="noopener"
                   >https://www.islington.gov.uk/parking/parking-permits/estate-parking/estate-parking-costs-table</a
                 >
               </li>
@@ -649,6 +663,8 @@
                 <strong>Apply:</strong>
                 <a
                   href="https://www.islington.gov.uk/parking/parking-permits/estate-parking/apply-for-estate-parking-space"
+                  target="_blank"
+                  rel="noopener"
                   >https://www.islington.gov.uk/parking/parking-permits/estate-parking/apply-for-estate-parking-space</a
                 >
               </li>
@@ -662,6 +678,8 @@
                 <strong>Info:</strong>
                 <a
                   href="https://www.islington.gov.uk/parking/parking-permits/buy-or-renew-a-resident-parking-permit"
+                  target="_blank"
+                  rel="noopener"
                   >https://www.islington.gov.uk/parking/parking-permits/buy-or-renew-a-resident-parking-permit</a
                 >
               </li>
@@ -669,6 +687,8 @@
                 <strong>Costs:</strong>
                 <a
                   href="https://www.islington.gov.uk/parking/parking-permits/parking-permit-costs-table"
+                  target="_blank"
+                  rel="noopener"
                   >https://www.islington.gov.uk/parking/parking-permits/parking-permit-costs-table</a
                 >
               </li>
@@ -676,6 +696,8 @@
                 <strong>Purchase:</strong>
                 <a
                   href="https://www.islington.gov.uk/parking/parking-permits/buy-or-renew-a-parking-permit-form"
+                  target="_blank"
+                  rel="noopener"
                   >https://www.islington.gov.uk/parking/parking-permits/buy-or-renew-a-parking-permit-form</a
                 >
               </li>
@@ -696,10 +718,12 @@
             </p>
             <p>
               Within these times your visitor can use
-              <a href="https://www.myringgo.co.uk">RingGo</a> to pay for their
+              <a href="https://www.myringgo.co.uk" target="_blank" rel="noopener">RingGo</a> to pay for their
               visitor short-stay parking or you can purchase a
               <a
                 href="https://www.islington.gov.uk/parking/parking-permits/visitor-e-vouchers"
+                target="_blank"
+                rel="noopener"
                 >Visitor e-voucher</a
               >
               on their behalf. To do so you will need:
@@ -709,7 +733,7 @@
               <li>To enter the amount of time you want to park for</li>
               <li>
                 Pay by phone by calling 020 7125 0039 or pay via the
-                <a href="https://www.myringgo.co.uk">RingGo app</a>
+                <a href="https://www.myringgo.co.uk" target="_blank" rel="noopener">RingGo app</a>
               </li>
               <li>Your debit or credit card details</li>
               <li>Your vehicle registration number</li>
@@ -740,8 +764,8 @@
             <img
               src="images/loading.gif"
               alt=""
-              height="50px"
-              width="50px"
+              height="50"
+              width="50"
               style="display: block; margin: 260px auto 5px auto"
             />
             <p
@@ -757,12 +781,12 @@
           </div>
           <iframe
             id="iframeRecycling"
+            class="embed"
             title="Recycling facilities on the Percival Estate"
-            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrUj0uobvpPBRNst"
-            width="100%"
-            height="0px"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrUj0uobvpPBRNst"
+            data-spinner="loadingRecycling"
+            data-min-height="600"
             loading="lazy"
-            onload="document.getElementById('loadingRecycling').style.display='none';document.getElementById('iframeRecycling').style.minHeight='600px';"
           ></iframe>
           <br /><br />
           <p>
@@ -832,6 +856,8 @@
             example,
             <a
               href="https://www.islington.gov.uk/housing/repairs-and-estate-management/home-safety/damp-and-mould"
+              target="_blank"
+              rel="noopener"
               >damp and mould issues can be reported to Islington Council
               repairs team</a
             >. Communal areas are managed by Islington Council Estate Services
@@ -944,6 +970,8 @@
             can access the FRA for their building via
             <a
               href="https://www.islington.gov.uk/housing/fire-safety-in-islington/fire-risk-assessments"
+              target="_blank"
+              rel="noopener"
               >the Islington Council website</a
             >
             or by emailing
@@ -991,8 +1019,8 @@
             <img
               src="images/loading.gif"
               alt=""
-              height="50px"
-              width="50px"
+              height="50"
+              width="50"
               style="display: block; margin: 460px auto 5px auto"
             />
             <p
@@ -1008,12 +1036,12 @@
           </div>
           <iframe
             id="iframeTeam"
+            class="embed"
             title="Percival Estate Community founding committee"
-            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr17hNlGjiRksyek"
-            width="100%"
-            height="0px"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr17hNlGjiRksyek"
+            data-spinner="loadingTeam"
+            data-min-height="1000"
             loading="lazy"
-            onload="document.getElementById('loadingTeam').style.display='none';document.getElementById('iframeTeam').style.minHeight='1000px';"
           ></iframe>
         </article>
 
@@ -1068,8 +1096,9 @@
                 href="https://x.com/PercivalEstate/"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-x-twitter nav-link grow icon"
+                class="fa-x-twitter nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
                 <span class="label">X</span>
               </a>
             </li>
@@ -1078,8 +1107,9 @@
                 href="https://www.instagram.com/PercivalEstate/"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-instagram nav-link grow icon"
+                class="fa-instagram nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg>
                 <span class="label">Instagram</span>
               </a>
             </li>
@@ -1088,8 +1118,9 @@
                 href="https://www.facebook.com/PercivalEstate/"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-facebook nav-link grow icon"
+                class="fa-facebook nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" /></svg>
                 <span class="label">Facebook</span>
               </a>
             </li>
@@ -1098,8 +1129,9 @@
                 href="https://www.youtube.com/@PercivalEstate"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-youtube nav-link grow icon"
+                class="fa-youtube nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></svg>
                 <span class="label">YouTube</span>
               </a>
             </li>
@@ -1108,8 +1140,9 @@
                 href="https://github.com/PercivalEstate"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-github nav-link grow icon"
+                class="fa-github nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" /></svg>
                 <span class="label">GitHub</span>
               </a>
             </li>
@@ -1130,8 +1163,8 @@
             <img
               src="images/loading.gif"
               alt=""
-              height="50px"
-              width="50px"
+              height="50"
+              width="50"
               style="display: block; margin: 395px auto 5px auto"
             />
             <p
@@ -1147,12 +1180,12 @@
           </div>
           <iframe
             id="iframeContact"
+            class="embed"
             title="Islington Council contact details"
-            src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrlRumOTwu9t4Bi2"
-            width="100%"
-            height="0px"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrlRumOTwu9t4Bi2"
+            data-spinner="loadingContact"
+            data-min-height="830"
             loading="lazy"
-            onload="document.getElementById('loadingContact').style.display='none';document.getElementById('iframeContact').style.minHeight='830px';"
           ></iframe>
         </article>
 
@@ -1171,8 +1204,9 @@
                 href="https://x.com/PercivalEstate/"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-x-twitter nav-link grow icon"
+                class="fa-x-twitter nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
                 <span class="label">X</span>
               </a>
             </li>
@@ -1181,8 +1215,9 @@
                 href="https://www.instagram.com/PercivalEstate/"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-instagram nav-link grow icon"
+                class="fa-instagram nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg>
                 <span class="label">Instagram</span>
               </a>
             </li>
@@ -1191,8 +1226,9 @@
                 href="https://www.facebook.com/PercivalEstate/"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-facebook nav-link grow icon"
+                class="fa-facebook nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" /></svg>
                 <span class="label">Facebook</span>
               </a>
             </li>
@@ -1201,8 +1237,9 @@
                 href="https://www.youtube.com/@PercivalEstate"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-youtube nav-link grow icon"
+                class="fa-youtube nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></svg>
                 <span class="label">YouTube</span>
               </a>
             </li>
@@ -1211,8 +1248,9 @@
                 href="https://github.com/PercivalEstate"
                 target="_blank"
                 rel="noopener"
-                class="fa-brands fa-github nav-link grow icon"
+                class="fa-github nav-link grow icon"
               >
+                <svg class="icon-glyph" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" /></svg>
                 <span class="label">GitHub</span>
               </a>
             </li>
@@ -1220,8 +1258,8 @@
         </article>
 
         <article id="privacy-policy">
-          <h2>Privacy Policy</h2>
-          <p><strong>Last updated:</strong> 29 August 2026</p>
+          <h2 class="major">Privacy Policy</h2>
+          <p><strong>Last updated:</strong> 30 August 2026</p>
 
           <h3>Who we are</h3>
           <p>
@@ -1354,11 +1392,6 @@
               <strong>GitHub Pages</strong> &mdash; hosts this website and keeps
               standard server logs, which include visitors' IP addresses.
             </li>
-            <li>
-              <strong>Font Awesome</strong> &mdash; supplies the icons used on
-              this site from its content delivery network, which receives your
-              IP address when the page loads.
-            </li>
           </ul>
           <p>
             Members of the Percival Estate Community committee can see
@@ -1439,8 +1472,8 @@
         </article>
 
         <article id="terms-and-conditions">
-          <h2>Terms and Conditions</h2>
-          <p><strong>Last updated:</strong> 29 August 2026</p>
+          <h2 class="major">Terms and Conditions</h2>
+          <p><strong>Last updated:</strong> 30 August 2026</p>
 
           <p>
             These terms apply to your use of
@@ -1562,8 +1595,9 @@
               href="https://x.com/PercivalEstate/"
               target="_blank"
               rel="noopener"
-              class="fa-brands fa-x-twitter nav-link grow icon"
+              class="fa-x-twitter nav-link grow icon"
             >
+              <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
               <span class="label">X</span>
             </a>
           </li>
@@ -1572,8 +1606,9 @@
               href="https://www.instagram.com/PercivalEstate/"
               target="_blank"
               rel="noopener"
-              class="fa-brands fa-instagram nav-link grow icon"
+              class="fa-instagram nav-link grow icon"
             >
+              <svg class="icon-glyph" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg>
               <span class="label">Instagram</span>
             </a>
           </li>
@@ -1582,8 +1617,9 @@
               href="https://www.facebook.com/PercivalEstate/"
               target="_blank"
               rel="noopener"
-              class="fa-brands fa-facebook nav-link grow icon"
+              class="fa-facebook nav-link grow icon"
             >
+              <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" /></svg>
               <span class="label">Facebook</span>
             </a>
           </li>
@@ -1592,8 +1628,9 @@
               href="https://www.youtube.com/@PercivalEstate"
               target="_blank"
               rel="noopener"
-              class="fa-brands fa-youtube nav-link grow icon"
+              class="fa-youtube nav-link grow icon"
             >
+              <svg class="icon-glyph" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></svg>
               <span class="label">YouTube</span>
             </a>
           </li>
@@ -1602,8 +1639,9 @@
               href="https://github.com/PercivalEstate"
               target="_blank"
               rel="noopener"
-              class="fa-brands fa-github nav-link grow icon"
+              class="fa-github nav-link grow icon"
             >
+              <svg class="icon-glyph" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" /></svg>
               <span class="label">GitHub</span>
             </a>
           </li>
