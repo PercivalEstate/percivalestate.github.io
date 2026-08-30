@@ -66,11 +66,25 @@
     locked = false;
 
   // Methods.
+  // Content images inside the panels carry data-src rather than src. The
+  // articles are display:none until opened, which leaves loading="lazy" with
+  // no position to reason about, so the browser fetches them on the home page
+  // anyway -- most of a megabyte of maps that most visitors never open. This
+  // hands them over at the moment the panel is actually shown.
+  function loadDeferredImages($article) {
+    $article.find('img[data-src]').each(function () {
+      this.src = this.getAttribute('data-src');
+      this.removeAttribute('data-src');
+    });
+  }
+
   $main._show = function (id, initial) {
     var $article = $main_articles.filter('#' + id);
 
     // No such article? Bail.
     if ($article.length == 0) return;
+
+    loadDeferredImages($article);
 
     // Handle lock.
 
