@@ -50,6 +50,11 @@
     <script>
       window.pecPrivacyPolicyHref = "/#privacy-policy";
     </script>
+    <!-- The page declared Source Sans Pro but never loaded it, so it had
+         always rendered in Helvetica. Now that the files are served from
+         here rather than Google, there is no reason for the error page not
+         to match the rest of the site. -->
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
     <link rel="stylesheet" href="/assets/css/consent.css" />
 
     <!-- Deliberately avoids main.css and slideshow.js: together they hide the
