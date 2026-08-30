@@ -2069,3 +2069,20 @@ body.is-preload #footer {
     transform: translateY(-50%);
   }
 }
+
+/* The same request, applied to everything else on the page: the glow on the
+   register button, and the transitions on the panels, nav and hover states.
+
+   Durations are collapsed rather than set to none so that transitionend and
+   animationend still fire -- nothing on the site listens for them today, but
+   a rule this broad should not be the reason a future listener never runs. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

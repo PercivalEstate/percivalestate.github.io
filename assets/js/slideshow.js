@@ -30,6 +30,16 @@
     );
   };
 
+  // Whether the visitor has asked their system for less motion. Read once
+  // at startup: the slideshow only ever decides this at the point it would
+  // start, so there is nothing later to keep in sync.
+  function prefersReducedMotion() {
+    return !!(
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }
+
   // window.addEventListener
   (function () {
     if ('addEventListener' in window) return;
@@ -175,6 +185,11 @@
       $bgs[pos].classList.add('top');
 
       if (!canUse('transition')) return;
+
+      // The first image is showing by now, so returning here leaves a still
+      // background rather than an empty one. slideshow.css stops the pan on
+      // the same condition.
+      if (prefersReducedMotion()) return;
 
       window.setInterval(function () {
         // Checked per tick rather than once, since $bgs can still grow if

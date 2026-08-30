@@ -8,9 +8,20 @@ Percival Estate Community
 2. Select Open with Live Server
 3. http://127.0.0.1:5500/index.html
 
+# Build
+
+There is no build step. The files in this repository are what GitHub Pages
+serves, so `assets/css/main.css` is edited directly rather than compiled from
+anything.
+
 # Dependencies
 
-- Uses Font Awesome kit: https://fontawesome.com/
+- jQuery 3.7.1, self-hosted in `assets/js/`
+- Source Sans Pro, self-hosted in `assets/webfonts/` (SIL OFL 1.1)
+- Font Awesome Free 6.7.2 brand glyphs, inlined as SVG in `index.html`
+  (CC BY 4.0) -- the kit is deliberately not loaded
+- Airtable embeds, loaded only when a panel is opened
+- Google Analytics, which sets no cookie until the consent banner is accepted
 
 # Tools
 

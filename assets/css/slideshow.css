@@ -123,3 +123,24 @@ body.is-preload #bg {
     transform: translateX(-25%);
   }
 }
+
+/* Someone who has asked their system for less motion keeps the photographs
+   but not the movement. The 45s pan stops here; slideshow.js separately
+   leaves the first image up instead of starting the five-second crossfade,
+   so the background becomes a single still photograph.
+
+   translateX(0) is restated because the element is 110% wide and only fully
+   covers the viewport at the start of the pan -- parking it anywhere else
+   would leave a strip of the right-hand edge uncovered. */
+@media (prefers-reduced-motion: reduce) {
+  #bg div.visible {
+    -moz-animation: none;
+    -webkit-animation: none;
+    -ms-animation: none;
+    animation: none;
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
