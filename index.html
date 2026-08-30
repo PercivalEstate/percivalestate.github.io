@@ -136,6 +136,37 @@
     />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Tells search engines that the estate name, address, contact and
+         social accounts scattered through this page all describe one
+         organisation, rather than leaving them to infer it. Every value
+         below is repeated from copy that is visible on the page. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Percival Estate Community",
+        "url": "https://percivalestate.com/",
+        "logo": "https://percivalestate.com/web-app-manifest-512x512.png",
+        "image": "https://percivalestate.com/images/meta-cover.png",
+        "email": "tra@percivalestate.com",
+        "description": "Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tompion Community Hall, 40 Percival Street",
+          "addressLocality": "London",
+          "postalCode": "EC1V 0EB",
+          "addressCountry": "GB"
+        },
+        "sameAs": [
+          "https://x.com/PercivalEstate/",
+          "https://www.instagram.com/PercivalEstate/",
+          "https://www.facebook.com/PercivalEstate/",
+          "https://www.youtube.com/@PercivalEstate",
+          "https://github.com/PercivalEstate"
+        ]
+      }
+    </script>
+
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
@@ -147,6 +178,7 @@
        origin, for five pictures. Icons: CC BY 4.0, Fonticons, Inc.
        https://fontawesome.com/license/free -->
   <body class="is-preload">
+    <a class="skip-link" href="#main">Skip to content</a>
     <div id="loadingPage">
       <img
         src="images/loading.gif"
@@ -227,7 +259,7 @@
       </header>
 
       <!-- Main -->
-      <div id="main">
+      <main id="main">
         <!-- About -->
         <article id="about">
           <h2 class="major">About</h2>
@@ -1573,7 +1605,7 @@
             0EB, United Kingdom
           </address>
         </article>
-      </div>
+      </main>
 
       <!-- Footer -->
     </div>
