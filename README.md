@@ -1,6 +1,6 @@
 # percivalestate.github.io
 
-Percival Street Estate Community
+Percival Estate Community
 
 # Start Here:
 
