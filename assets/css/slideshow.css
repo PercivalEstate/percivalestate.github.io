@@ -64,6 +64,15 @@ body.is-preload #bg {
   opacity: 0;
 }
 
+/* -9%, not more. A percentage translation resolves against the element's own
+   width, and #bg div is 110% of the viewport, so -9% travels 9.9vw into the
+   10vw of slack that the extra width provides. The previous -25% travelled
+   27.5vw, which left the right-hand edge uncovered for the last 28.6s of
+   every 45s cycle -- a 252px band at 1440px wide -- before snapping back on
+   the loop. Any change to the width here needs this value changed with it.
+
+   All four blocks are kept in step: a browser old enough to be driving this
+   from -webkit-animation reads @-webkit-keyframes, not @keyframes. */
 @-moz-keyframes bg {
   0% {
     -moz-transform: translateX(0);
@@ -72,10 +81,10 @@ body.is-preload #bg {
     transform: translateX(0);
   }
   100% {
-    -moz-transform: translateX(-25%);
-    -webkit-transform: translateX(-25%);
-    -ms-transform: translateX(-25%);
-    transform: translateX(-25%);
+    -moz-transform: translateX(-9%);
+    -webkit-transform: translateX(-9%);
+    -ms-transform: translateX(-9%);
+    transform: translateX(-9%);
   }
 }
 
@@ -87,10 +96,10 @@ body.is-preload #bg {
     transform: translateX(0);
   }
   100% {
-    -moz-transform: translateX(-25%);
-    -webkit-transform: translateX(-25%);
-    -ms-transform: translateX(-25%);
-    transform: translateX(-25%);
+    -moz-transform: translateX(-9%);
+    -webkit-transform: translateX(-9%);
+    -ms-transform: translateX(-9%);
+    transform: translateX(-9%);
   }
 }
 
@@ -102,10 +111,10 @@ body.is-preload #bg {
     transform: translateX(0);
   }
   100% {
-    -moz-transform: translateX(-25%);
-    -webkit-transform: translateX(-25%);
-    -ms-transform: translateX(-25%);
-    transform: translateX(-25%);
+    -moz-transform: translateX(-9%);
+    -webkit-transform: translateX(-9%);
+    -ms-transform: translateX(-9%);
+    transform: translateX(-9%);
   }
 }
 
@@ -117,10 +126,10 @@ body.is-preload #bg {
     transform: translateX(0);
   }
   100% {
-    -moz-transform: translateX(-25%);
-    -webkit-transform: translateX(-25%);
-    -ms-transform: translateX(-25%);
-    transform: translateX(-25%);
+    -moz-transform: translateX(-9%);
+    -webkit-transform: translateX(-9%);
+    -ms-transform: translateX(-9%);
+    transform: translateX(-9%);
   }
 }
 
