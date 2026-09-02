@@ -1104,6 +1104,16 @@
             >
           </p>
           <form method="post" action="https://form.taxi/s/3uyqdb8n">
+            <!-- Without this, where a sender lands after submitting is
+                 whatever the Form Taxi dashboard happens to say, and the
+                 #success panel below is unreachable. Form Taxi reads the
+                 redirect from a _next field, which must carry an absolute
+                 URL, so the destination lives in the markup instead. -->
+            <input
+              type="hidden"
+              name="_next"
+              value="https://percivalestate.com/#success"
+            />
             <div class="fields">
               <div class="field half">
                 <label for="name">Name</label>
