@@ -16,7 +16,7 @@ anything.
 
 # Dependencies
 
-- jQuery 3.7.1, self-hosted in `assets/js/`
+- No JavaScript libraries. `assets/js/` is all first-party.
 - Source Sans Pro, self-hosted in `assets/webfonts/` (SIL OFL 1.1)
 - Font Awesome Free 6.7.2 brand glyphs, inlined as SVG in `index.html`
   (CC BY 4.0) -- the kit is deliberately not loaded
