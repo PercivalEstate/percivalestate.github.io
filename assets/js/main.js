@@ -20,8 +20,9 @@
   });
 
   // Nav.
-  // The header holds more than one nav, so evaluate each one on its own item
-  // count -- otherwise the combined total decides the divider for all of them.
+  // The divider is drawn at the halfway mark, which only lands between two
+  // items when the count is even. Left as an each() so that a second nav
+  // would be measured on its own count rather than a combined total.
   $header.children('nav').each(function () {
     var $nav = $(this),
       $nav_li = $nav.find('li');

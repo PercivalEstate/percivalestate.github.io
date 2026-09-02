@@ -1411,7 +1411,8 @@ button {
   line-height: 2;
 }
 
-#header nav ul {
+#header nav ul,
+#header .cta ul {
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -1423,16 +1424,19 @@ button {
   border-radius: 4px;
 }
 
-#header nav ul li {
+#header nav ul li,
+#header .cta ul li {
   padding-left: 0;
   border-left: solid 1px #ffffff;
 }
 
-#header nav ul li:first-child {
+#header nav ul li:first-child,
+#header .cta ul li:first-child {
   border-left: 0;
 }
 
-#header nav ul li a {
+#header nav ul li a,
+#header .cta ul li a {
   display: block;
   min-width: 7.5rem;
   height: 2.75rem;
@@ -1444,13 +1448,15 @@ button {
   border-bottom: 0;
 }
 
-#header nav ul li a:hover {
+#header nav ul li a:hover,
+#header .cta ul li a:hover {
   background-color: rgba(255, 255, 255, 0.15);
   /* background-color: rgba(40, 133, 72, 0.15); */
   cursor: pointer;
 }
 
-#header nav ul li a:active {
+#header nav ul li a:active,
+#header .cta ul li a:active {
   background-color: rgba(255, 255, 255, 0.175);
 }
 
@@ -1543,7 +1549,8 @@ body.is-preload #header .content .inner {
     padding: 2.5rem 0;
   }
 
-  #header nav ul {
+  #header nav ul,
+  #header .cta ul {
     -moz-flex-direction: column;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
@@ -1552,16 +1559,19 @@ body.is-preload #header .content .inner {
     max-width: 100%;
   }
 
-  #header nav ul li {
+  #header nav ul li,
+  #header .cta ul li {
     border-left: 0;
     border-top: solid 1px #ffffff;
   }
 
-  #header nav ul li:first-child {
+  #header nav ul li:first-child,
+  #header .cta ul li:first-child {
     border-top: 0;
   }
 
-  #header nav ul li a {
+  #header nav ul li a,
+  #header .cta ul li a {
     /* Absolute, not rem: the root drops to 10pt at 360px and under, which
        would shrink these rows below a comfortable 44px touch target. */
     height: 44px;
@@ -1603,7 +1613,8 @@ body.is-preload #header .content .inner {
     padding: 1.25rem 1rem;
   }
 
-  #header nav ul {
+  #header nav ul,
+  #header .cta ul {
     -moz-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
@@ -1615,7 +1626,8 @@ body.is-preload #header .content .inner {
     max-width: 100%;
   }
 
-  #header nav ul li a {
+  #header nav ul li a,
+  #header .cta ul li a {
     min-width: 0;
     height: 44px;
     line-height: 44px;
