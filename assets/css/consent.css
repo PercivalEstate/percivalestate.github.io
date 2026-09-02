@@ -142,6 +142,24 @@ body.has-cookie-banner.error-page {
   }
 }
 
+/* Every pixel here is a pixel of hero the banner is standing on, and on a
+   short window it is standing on the register button.
+
+   The saving comes from the padding and the leading only. The buttons keep
+   their 44px, which is a touch target rather than decoration, and the gap set
+   below for coarse pointers is left to win on a phone: it exists to hold the
+   policy link's own 44px hit area clear of those buttons, so tightening it
+   here would buy a few pixels by overlapping two touch targets. The gap below
+   therefore applies on a short mouse-driven window and not on a phone, which
+   is the intended way round. */
+@media screen and (max-height: 780px) {
+  #cookie-banner {
+    padding: 0.6rem 0.75rem;
+    line-height: 1.35;
+    gap: 0.55rem 1rem;
+  }
+}
+
 /* The accept/decline pair sits just under 44px at the mobile font size. */
 @media (pointer: coarse) {
   #cookie-banner button {

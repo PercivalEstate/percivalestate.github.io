@@ -1988,6 +1988,29 @@ body.is-preload #footer {
   }
 }
 
+/* Short windows.
+
+   The cookie banner is fixed to the foot of the window and takes about 140px
+   of it on a phone. On a short screen that strip lands exactly on the register
+   button, which stays visible and looks pressable while the banner quietly
+   takes the tap -- measured at 375x667, an iPhone SE, and at 1280x700. The
+   page can be scrolled clear of it, but nobody scrolls a button they can
+   already see.
+
+   So on a short window the hero gives back some of its vertical rhythm and the
+   button rises above the strip. Nothing moves on a window tall enough for the
+   two never to meet. */
+@media screen and (max-height: 780px) {
+  #header > * {
+    margin-top: 1.25rem;
+  }
+
+  #header .content .inner {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
 /* The same request, applied to everything else on the page: the glow on the
    register button, and the transitions on the panels, nav and hover states.
 
