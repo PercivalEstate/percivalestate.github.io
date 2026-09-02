@@ -1766,10 +1766,19 @@ body.is-preload #footer {
 }
 
 /* logo */
-.circle:hover {
-  /* color: #a6aeed; */
-  /* filter: brightness(0) saturate(0%); */
-  content: url('../../images/percival-estate-logo-green-padding-circle.png');
+
+/* The hover state used to swap the img for a second PNG of the same mark on a
+   green disc, through content: url(). That file was 97KB and was not fetched
+   until the moment of the hover, so the first hover of a visit showed a gap
+   where the logo had been while it downloaded. Preloading it would have put
+   97KB on every desktop visit to pay for a hover.
+
+   The container is already a circle -- 10.5rem, round, white border -- and the
+   mark inside it is already white on transparent. Filling that circle green
+   gives the same picture with no second file, so the swap is instant and there
+   is nothing to download. */
+#header .logo:hover {
+  background-color: #288548;
 }
 
 /* X */
