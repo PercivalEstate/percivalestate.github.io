@@ -27,6 +27,11 @@ anything.
 
 - To generate favicons: https://realfavicongenerator.net/
 
+# Open work
+
+See [TODO.md](TODO.md) for the current backlog, and [CLAUDE.md](CLAUDE.md)
+for how the repository is put together and how to verify a change.
+
 # Known Issues
 
 - [Cannot push commit to GitHub](https://stackoverflow.com/questions/62753648/rpc-failed-http-400-curl-22-the-requested-url-returned-error-400-bad-request)
