@@ -184,29 +184,6 @@ body {
   background: #1b1f22;
 }
 
-/* Hidden until it is tabbed to, so a keyboard reaches the articles without
-   walking the whole nav first. It clears the loading overlay's z-index
-   (9999), which is still up if focus arrives during a cold load, and it
-   snaps rather than slides because body.is-preload kills transitions. */
-.skip-link {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-  padding: 0.7em 1.25em;
-  background: #288548;
-  color: #ffffff;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 0.9rem;
-  text-decoration: none;
-  border-bottom-right-radius: 4px;
-  transform: translateY(-150%);
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
 body.is-preload *,
 body.is-preload *:before,
 body.is-preload *:after {
@@ -1712,6 +1689,15 @@ body.is-preload #header .content .inner {
   -ms-transform: translateY(0);
   transform: translateY(0);
   opacity: 1;
+}
+
+/* main.js gives the open panel a tabindex of -1 and focuses it, so the
+   keyboard lands inside rather than back at the top of the document. The
+   panel is a container, not a control, and the focus is never the visitor's
+   own doing, so it should not draw a ring. Every control inside it keeps
+   its own. */
+#main article:focus {
+  outline: none;
 }
 
 #main article .close {

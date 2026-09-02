@@ -118,6 +118,42 @@
     }, embedTimeout);
   }
 
+  // Focus.
+  // Opening a panel hides the header, so whatever the keyboard was on stops
+  // being focusable and the browser drops focus to <body> -- the next Tab
+  // then starts over from the top of the document. Move focus into the panel
+  // instead, and hand it back to the link that opened it on the way out.
+  //
+  // Only the outermost open is remembered: About links to #register, and the
+  // link that does it sits inside the panel that is about to be hidden, so it
+  // is no use as a return target.
+  var $returnFocus = null;
+
+  // Reading document.activeElement in _show is too late. Following a fragment
+  // link resets focus, and because the article it points at is still
+  // display:none there is nothing to hand focus to, so the reset lands on
+  // <body> -- all of it before hashchange fires. Catch the link on the way
+  // through instead.
+  $body.on('click', 'a[href^="#"]', function () {
+    if ($body.hasClass('is-article-visible')) return;
+
+    $returnFocus = $(this);
+  });
+
+  // tabindex -1 rather than markup: the articles are only ever focused from
+  // here, and a container in the tab order proper would be a stop with
+  // nothing to do.
+  function focusArticle($article) {
+    $article.attr('tabindex', '-1').focus();
+  }
+
+  function restoreFocus() {
+    if ($returnFocus && $returnFocus.length && $returnFocus.is(':visible'))
+      $returnFocus.focus();
+
+    $returnFocus = null;
+  }
+
   $main._show = function (id, initial) {
     var $article = $main_articles.filter('#' + id);
 
@@ -149,6 +185,11 @@
 
       // Activate article.
       $article.addClass('active');
+
+      // A deep link arrives with focus on <body> and no header behind the
+      // panel to tab through, so there is nothing to move and, later,
+      // nothing to give back.
+      if (!initial) focusArticle($article);
 
       // Unlock.
       locked = false;
@@ -186,6 +227,8 @@
         setTimeout(function () {
           $article.addClass('active');
 
+          focusArticle($article);
+
           // Window stuff.
           $window.scrollTop(0).triggerHandler('resize.flexbox-fix');
 
@@ -215,6 +258,8 @@
         // Activate article.
         setTimeout(function () {
           $article.addClass('active');
+
+          focusArticle($article);
 
           // Window stuff.
           $window.scrollTop(0).triggerHandler('resize.flexbox-fix');
@@ -265,6 +310,10 @@
       // Unmark as switching.
       $body.removeClass('is-switching');
 
+      // The header is back and unblurred, so the link that opened the panel
+      // can hold focus again.
+      restoreFocus();
+
       // Window stuff.
       $window.scrollTop(0).triggerHandler('resize.flexbox-fix');
 
@@ -290,6 +339,10 @@
       // Unmark as visible.
       setTimeout(function () {
         $body.removeClass('is-article-visible');
+
+        // The header is back and unblurred, so the link that opened the panel
+        // can hold focus again.
+        restoreFocus();
 
         // Window stuff.
         $window.scrollTop(0).triggerHandler('resize.flexbox-fix');
