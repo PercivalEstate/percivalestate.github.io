@@ -253,7 +253,7 @@
 
     // Add state?
     if (typeof addState != 'undefined' && addState === true)
-      history.pushState(null, null, '/');
+      history.pushState(null, null, location.pathname + location.search);
 
     // Handle lock.
 
@@ -336,8 +336,7 @@
     // and a tab stop, and answers Enter and Space the way a real button would.
     // Escape still closes the panel from anywhere.
     function close() {
-      location.hash = '';
-      history.pushState(null, null, '/');
+      $main._hide(true);
     }
 
     $('<div class="close" role="button" tabindex="0">Close</div>')
