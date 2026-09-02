@@ -127,8 +127,19 @@
     $returnFocus = null;
   }
 
+  // A fragment is whatever someone put after the # -- it arrives from the
+  // address bar and from other people's links, so it is not necessarily a
+  // usable selector. '#a"b' or '#*' would make jQuery throw a parse error out
+  // of filter() rather than simply not match. Resolve it as an id and check
+  // the element is one of ours, which asks nothing of the selector engine.
+  function articleFor(id) {
+    var el = id ? document.getElementById(id) : null;
+
+    return el && $main_articles.index(el) !== -1 ? $(el) : $();
+  }
+
   $main._show = function (id, initial) {
-    var $article = $main_articles.filter('#' + id);
+    var $article = articleFor(id);
 
     // No such article? Bail.
     if ($article.length == 0) return;
@@ -388,7 +399,7 @@
     }
 
     // Otherwise, check for a matching article.
-    else if ($main_articles.filter(location.hash).length > 0) {
+    else if (articleFor(location.hash.substr(1)).length > 0) {
       // Prevent default.
       event.preventDefault();
       event.stopPropagation();
