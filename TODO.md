@@ -11,25 +11,6 @@ reasoning in the message.
 
 ## Needs a person, not a change
 
-### Confirm the Guinness Partnership link works
-
-`index.html`, About panel — the words "The Guinness Partnership".
-
-`https://www.guinnesspartnership.com/` returns a bare `403 Forbidden` from
-`server: awselb/2.0` on every path tried, with an ordinary Chrome user-agent and
-`navigator.webdriver` hidden. Re-checked 3 September 2026 from a second,
-unrelated network: same 403, so it is not this connection.
-
-That looks like a datacentre or bot block rather than a dead site, and the link
-sweep in the same session supports it — of 55 external links, 49 return 200 and
-the six that do not are all of this kind. Guinness is one; the others are three
-`met.police.uk` pages and `theundergroundmap.com` at 403, and
-`facebook.com/PercivalEstate` at 400. Every one of those is a site known to be
-up and serving browsers.
-
-So: still almost certainly fine from a home connection. **Open it on a phone or
-laptop.** If it 403s there too, point the link at their contact page or drop it.
-
 ### Ask Islington about the estate's fire risk assessments
 
 Not a website change. Islington's published FRA list covers 133 assessments, and
@@ -195,5 +176,10 @@ heading-level jumps, every form control labelled except the deliberate honeypot,
 no `target="_blank"` without `rel="noopener"`, zoom not disabled, `lang` set.
 `404.html` and the `/register` redirect both work.
 
-External links, swept 4 September 2026: 57 of them, 51 return 200. The other
-six are listed under the Guinness item above.
+External links, swept 4 September 2026: 56 of them, 51 return 200. The five
+that do not are bot blocks on sites that are plainly up and serving browsers —
+three `met.police.uk` pages and `theundergroundmap.com` at 403, and
+`facebook.com/PercivalEstate` at 400. Worth knowing before anyone reads a 403
+here as a broken link; equally, `guinnesspartnership.com` looked like exactly
+this and turned out to be genuinely unreachable, so a 403 is a reason to check
+in a real browser rather than to assume either way.
