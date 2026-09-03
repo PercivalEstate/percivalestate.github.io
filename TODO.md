@@ -83,15 +83,38 @@ Extracted with macOS PDFKit via `osascript -l JavaScript` (no `pdftotext` or
 nothing). Two of the eight use a labelled field layout and six a tabular one,
 which is why a naive grep for a status word miscounts them.
 
-### Check whether the buildings insurance document is still current
+### Get the current buildings insurance summary from Islington
 
-`index.html`, Safety panel — "buildings insurance" links
-`documents/buildings-insurance-policy-2024-2025.pdf`.
+`index.html`, Safety panel — `documents/buildings-insurance-policy-2024-2025.pdf`.
 
-It is the 2024–25 policy year and it is now late 2026, so it may be two renewals
-behind. Leaseholders could be reading superseded cover on a page that presents it
-as current. Either replace the file with the current policy or say which year the
-one on the site covers.
+Settled: the document's own Summary of Cover page reads **Period of Insurance:
+01/04/2024 – 31/03/2025**, policy number 3137443-2, holder "London Borough of
+Islington and Leaseholders", cover arranged for Right to Buy leaseholders. It
+expired 31 March 2025 and is two renewals behind. Its `ModDate` is 2024-04-09,
+consistent with that year.
+
+The page half of this is done — the link now reads "summary of cover for 1 April
+2024 to 31 March 2025" and the paragraph says the period has ended. What is left
+needs a person: **ask Islington leasehold services for the current year's
+summary** and replace the file. Until then the excesses on the site (general
+£100, accidental damage £100, flood/storm/escape of water £150, subsidence
+£1,000) and the £5,000,000 property owners' liability limit are 2024–25 figures.
+
+Two further problems in the same file, found while dating it. Neither is urgent
+but both argue for replacing it rather than keeping it:
+
+- **It contains no text at all.** No fonts, no `ToUnicode`, and zero text-showing
+  operators across all 73 decompressed streams; the body is 8,265 `m` and 20,784
+  `l` path operators with 5,750 fills, i.e. lettering drawn as outlines. Even the
+  headings are JPEGs. So it cannot be searched, selected, or read by a screen
+  reader — on the one document on the site about money a leaseholder might claim.
+- **2.4 MB, mostly decoration.** Of eight embedded JPEGs, three account for
+  785 KB: a flat orange gradient at 4960×2796 (230 KB), a flat green one at
+  4959×3103 (250 KB), and a Manchester skyline at 2480×1552 (304 KB — Protector's
+  registered office is in Manchester). The document is four pages, two of which
+  are a cover and a two-line contents list.
+
+Read with macOS PDFKit and QuickLook; see the note under the FRA item for why.
 
 ---
 
