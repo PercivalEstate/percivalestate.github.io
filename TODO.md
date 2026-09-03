@@ -195,6 +195,5 @@ heading-level jumps, every form control labelled except the deliberate honeypot,
 no `target="_blank"` without `rel="noopener"`, zoom not disabled, `lang` set.
 `404.html` and the `/register` redirect both work.
 
-External links, swept 3 September 2026: 55 of them, 49 return 200. The other
-six are bot blocks on live sites, listed under the Guinness item above — worth
-knowing before anyone reads a 403 here as a broken link.
+External links, swept 4 September 2026: 57 of them, 51 return 200. The other
+six are listed under the Guinness item above.
