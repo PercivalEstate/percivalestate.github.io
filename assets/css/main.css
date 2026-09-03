@@ -1849,6 +1849,46 @@ body.is-preload #footer {
   display: none;
 }
 
+/* The spinner shown by the page overlay above and by each panel's embed
+   placeholder. It replaces images/loading.gif: 47KB, 120x120, drawn at 50x50,
+   asked for in eight places. Drawn from a border here instead -- no request,
+   a few hundred bytes in this file, and sharp at any size.
+
+   Geometry and colour are taken from the GIF it replaces, so nothing about the
+   page's appearance changes on purpose: a ring filling the box, 17.4/120 of it
+   thick (7px at 50px), track #b2eed5 with a #00a05d arc, one turn in about
+   1.4s. The GIF's arc grew and shrank as it turned, between 5% and 33% of the
+   ring; a border draws a fixed quarter, inside that range.
+
+   No prefers-reduced-motion rule. Unlike the slideshow's pan, this movement is
+   the whole message -- a spinner that has stopped says the page has hung. */
+.spinner {
+  animation: spinner 1.4s linear infinite;
+  border: solid 7px #b2eed5;
+  border-radius: 50%;
+  border-top-color: #00a05d;
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+
+/* The page overlay is on screen precisely while body carries is-preload, and
+   the blanket rule near the top of this file switches every animation off with
+   !important for that period. The GIF was unaffected by it, being an image.
+   Without this the first spinner a visitor sees would be a still ring. */
+body.is-preload .spinner {
+  animation: spinner 1.4s linear infinite !important;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Content images and embeds.
 
    Both used to be sized with width="100%", which is not a valid HTML width and

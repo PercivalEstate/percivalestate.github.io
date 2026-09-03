@@ -92,12 +92,6 @@ Options, roughly in order of return:
 4. Serve a narrower set to phones. `#bg div` is 110% of viewport width, so a
    375px phone needs ~826px at 2×, not 1280px.
 
-### `images/loading.gif` is 47KB for a spinner
-
-120×120, displayed at 50×50, used in seven places (the page overlay and six
-embed spinners). A CSS animation would be a few hundred bytes and would look
-sharper. It is also the only GIF left on the site.
-
 ### The logo PNG is 78KB at 900×900
 
 `images/percival-estate-logo-white-padding.png` is displayed at about 168px in
