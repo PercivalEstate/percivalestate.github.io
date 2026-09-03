@@ -127,24 +127,6 @@ it, which is why it is last here. It is displayed at panel width, well under
 
 ## Smaller
 
-### Document links do not say what they are or how big
-
-Five of seven links to `documents/` give no indication of file type or size:
-
-| Link text | File | Size | Says type? |
-| --- | --- | ---: | --- |
-| Tenants and Residents Association (TRA) | tra-handbook.pdf | **3.3 MB** | no |
-| Constituting a TRA | tra-model-constitution.pdf | 70 KB | no |
-| info pack | tra-info-pack.pdf | 303 KB | yes |
-| PDF | conditions-of-tenancy.pdf | 1.3 MB | yes |
-| summary of cover for 1 April 2026 to 31 March 2027 | buildings-insurance-summary-2026-2027.pdf | 412 KB | no |
-| Protector Insurance | protector-insurance-leasehold-buildings-policy.pdf | 345 KB | no |
-| First Notification of Loss | first-notification-of-loss.docx | 12 KB | no |
-
-Two carry `aria-label="…, PDF"`, so the page is inconsistent as well as quiet
-about it. Tapping a link that reads like a page and getting 3.3MB is a poor deal
-on mobile data, and the `.docx` will download rather than open.
-
 ### The register button is still under the cookie banner at 375×568
 
 Fixed for every size tested except an iPhone 5 / SE1 viewport, where the banner
@@ -182,7 +164,15 @@ Recorded so the next audit need not repeat it: no missing `alt` text, no
 untitled iframes, no links without an accessible name, no duplicate ids, no
 heading-level jumps, every form control labelled except the deliberate honeypot,
 no `target="_blank"` without `rel="noopener"`, zoom not disabled, `lang` set.
-`404.html` and the `/register` redirect both work.
+`404.html` and the `/register` redirect both work. All seven links to
+`documents/` now carry type and size in their own link text, checked against the
+files' actual byte counts.
+
+Islington does not publish the full Conditions of Tenancy. Its
+tenancy-conditions page links only an introductory tenancies factsheet, so the
+2013 edition kept here is not a stale copy of something newer — there is nothing
+to replace it with, and the page now says which edition it is. Do not file that
+as an action again.
 
 External links, swept 4 September 2026: 56 of them, 51 return 200. The five
 that do not are bot blocks on sites that are plainly up and serving browsers —
