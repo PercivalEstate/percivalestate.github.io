@@ -78,17 +78,17 @@ which is why a naive grep for a status word miscounts them.
 
 The site has had several rounds of weight work and the JavaScript is now 26,929
 bytes across three files, down from 128,693 across seven. Images are what is
-left, and the slideshow is still three quarters of a first load on its own.
+left, and the slideshow is now four fifths of a first load on its own.
 
-### The slideshow is 76% of the home page
+### The slideshow is 79% of the home page
 
-Measured 3 September 2026, file bytes, after the re-encode:
+Measured 4 September 2026, file bytes:
 
 | | Bytes |
 | --- | ---: |
 | Slideshow, 13 images | **932,048** |
-| Everything else on first load | 300,845 |
-| **Total** | **1,232,893** |
+| Everything else on first load | 240,994 |
+| **Total** | **1,173,042** |
 
 All thirteen are still fetched on every visit. `slideshow.js` gates the reveal
 on the first image and the webfont, then `loadRest()` requests the other twelve.
@@ -107,15 +107,6 @@ rather than how big they are:
 2. Load the first few, and fetch the rest only if the visitor is still there.
 3. Serve a narrower set to phones. `#bg div` is 110% of viewport width, so a
    390px phone at 3× asks for 1287px but a 390px phone at 2× only 858px.
-
-### The logo PNG is 78KB at 900×900
-
-`images/percival-estate-logo-white-padding.png` is displayed at about 168px in
-the header (10.5rem × 83%) and 8rem on `404.html`. A correctly sized copy, or an
-SVG of a mark this simple, would be a fraction of it.
-
-Note the history here: a previous commit removed a `favicon.svg` that was not a
-vector at all, just a wrapped raster. If an SVG is made, make it a real one.
 
 ### `images/percival-estate-map-detailed.webp` is 307KB at 2600×1800
 
