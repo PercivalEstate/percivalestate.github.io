@@ -64,33 +64,35 @@ one on the site covers.
 
 The site has had several rounds of weight work and the JavaScript is now 26,929
 bytes across three files, down from 128,693 across seven. Images are what is
-left, and one of them dwarfs everything.
+left, and the slideshow is still three quarters of a first load on its own.
 
-### The slideshow is 85% of the home page
+### The slideshow is 76% of the home page
+
+Measured 3 September 2026, file bytes, after the re-encode:
 
 | | Bytes |
 | --- | ---: |
-| Slideshow, 13 images | **1,939,360** |
-| Everything else on first load | 341,771 |
-| **Total** | **2,281,131** |
+| Slideshow, 13 images | **932,048** |
+| Everything else on first load | 300,845 |
+| **Total** | **1,232,893** |
 
-All thirteen are fetched on every visit. `slideshow.js` gates the reveal on the
-first image, then `loadRest()` requests the other twelve. They are 1280px wide
-WebP, 78KB–227KB each.
+All thirteen are still fetched on every visit. `slideshow.js` gates the reveal
+on the first image and the webfont, then `loadRest()` requests the other twelve.
+They are 1024px wide WebP at q45, 40KB–108KB each.
 
-What makes this worth revisiting: `slideshow.css` renders `#bg` at
-`opacity: 0.25`, behind a dark overlay, rotating every five seconds. Nearly two
-megabytes of photography is being spent on a backdrop nobody can see clearly.
+What keeps this open: `slideshow.css` renders `#bg` at `opacity: 0.25`, behind a
+dark overlay, rotating every five seconds. Even re-encoded it is most of the
+page, spent on a backdrop nobody can see clearly.
 
-Options, roughly in order of return:
+Re-encoding is done — 1280px q80 to 1024px q45, half the bytes, SSIM 0.955–0.992
+composited the way the page draws it. What is left changes how many are fetched
+rather than how big they are:
 
-1. Re-encode at lower quality. At a quarter opacity behind an overlay, artefacts
-   that would be obvious in a gallery are invisible.
-2. Ship fewer. Thirteen at five seconds each is over a minute of rotation; most
+1. Ship fewer. Thirteen at five seconds each is over a minute of rotation; most
    visits will not see them all.
-3. Load the first few, and fetch the rest only if the visitor is still there.
-4. Serve a narrower set to phones. `#bg div` is 110% of viewport width, so a
-   375px phone needs ~826px at 2×, not 1280px.
+2. Load the first few, and fetch the rest only if the visitor is still there.
+3. Serve a narrower set to phones. `#bg div` is 110% of viewport width, so a
+   390px phone at 3× asks for 1287px but a 390px phone at 2× only 858px.
 
 ### The logo PNG is 78KB at 900×900
 
