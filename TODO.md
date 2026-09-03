@@ -9,12 +9,17 @@ reasoning in the message.
 
 ---
 
-## Needs a person, not a change
+## Waiting on someone else
 
-### Ask Islington about the estate's fire risk assessments
+### Islington's reply about the estate's fire risk assessments
 
-Not a website change. Islington's published FRA list covers 133 assessments, and
-only three of the six blocks appear:
+**Email sent to FireSafety@islington.gov.uk on 4 September 2026. Awaiting a
+reply.** Not a website change either way; the evidence is kept below because a
+chaser or a follow-up rests on it, and because a reply may only answer part of
+it.
+
+Islington's published FRA list covers 133 assessments, and only three of the six
+blocks appear:
 
 | Block | On the published list |
 | --- | --- |
@@ -55,9 +60,12 @@ that is used: OPEN is the status as at report generation in 2021, so it is not
 evidence the work is still outstanding. The point is the opposite — there is no
 later published assessment, so a resident cannot tell either way.
 
-Worth putting to the Building Safety Team on FireSafety@islington.gov.uk. Ask
-for the three missing blocks, a current assessment for Grimthorpe 1–48, and
-confirmation of what happened to the actions.
+What was asked: whether assessments exist for Crayle, Partridge and Cyrus and
+where to read them; when the estate is next due to be reassessed, Grimthorpe
+1–48 especially; and the current status of the outstanding actions.
+
+If nothing comes back, the Building Safety Team is the right desk and the three
+missing blocks are the part with the least room for argument.
 
 Extracted with macOS PDFKit via `osascript -l JavaScript` (no `pdftotext` or
 `pypdf` on this machine, and the streams are compressed so `strings` finds
