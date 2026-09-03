@@ -16,13 +16,18 @@ reasoning in the message.
 `index.html`, About panel — the words "The Guinness Partnership".
 
 `https://www.guinnesspartnership.com/` returns a bare `403 Forbidden` from
-`server: awselb/2.0` on every path tried, from this network, with an ordinary
-Chrome user-agent and `navigator.webdriver` hidden. That is a rule at their load
-balancer rejecting the network, not a reaction to how the request was made, so
-it cannot be checked from here.
+`server: awselb/2.0` on every path tried, with an ordinary Chrome user-agent and
+`navigator.webdriver` hidden. Re-checked 3 September 2026 from a second,
+unrelated network: same 403, so it is not this connection.
 
-Almost certainly fine from a home connection — it is a large housing
-association's public site and search engines index it. **Open it on a phone or
+That looks like a datacentre or bot block rather than a dead site, and the link
+sweep in the same session supports it — of 55 external links, 49 return 200 and
+the six that do not are all of this kind. Guinness is one; the others are three
+`met.police.uk` pages and `theundergroundmap.com` at 403, and
+`facebook.com/PercivalEstate` at 400. Every one of those is a site known to be
+up and serving browsers.
+
+So: still almost certainly fine from a home connection. **Open it on a phone or
 laptop.** If it 403s there too, point the link at their contact page or drop it.
 
 ### Ask Islington about the estate's fire risk assessments
@@ -169,3 +174,7 @@ untitled iframes, no links without an accessible name, no duplicate ids, no
 heading-level jumps, every form control labelled except the deliberate honeypot,
 no `target="_blank"` without `rel="noopener"`, zoom not disabled, `lang` set.
 `404.html` and the `/register` redirect both work.
+
+External links, swept 3 September 2026: 55 of them, 49 return 200. The other
+six are bot blocks on live sites, listed under the Guinness item above — worth
+knowing before anyone reads a 403 here as a broken link.
