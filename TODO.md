@@ -44,14 +44,44 @@ only three of the six blocks appear:
 | Partridge Court | **no** |
 | Cyrus House | **no** |
 
+Re-checked 3 September 2026 against the live list and the PDFs themselves: 133
+assessments, eight for this estate, and Crayle, Partridge and Cyrus still absent
+— the words do not appear on the page at all.
+
 Residents of the three missing blocks have only the email route. The eight that
-are published are 2021 assessments whose own review dates fell in 2022:
+are published carry their own audit and suggested-review dates, all of which
+have passed:
 
-- Grimthorpe 49–128 — review due 16/03/2022
-- Tompion 1–15 … 66–80 — review due 04/05/2022
-- Earnshaw House — review due 16/03/2022
+| Assessment | Audited | Suggested review | Overall risk |
+| --- | --- | --- | --- |
+| Earnshaw House | 16/03/2021 | 16/03/2022 | Tolerable |
+| Grimthorpe 1–48 | **09/09/2020** | **blank** | **Moderate** |
+| Grimthorpe 49–128 | 16/03/2021 | 16/03/2022 | Tolerable |
+| Tompion 1–15 | 04/05/2021 | 04/05/2022 | Tolerable |
+| Tompion 16–30 | 04/05/2021 | 04/05/2022 | Tolerable |
+| Tompion 31–45 | 04/05/2021 | 04/05/2022 | Tolerable |
+| Tompion 46–65 | 04/05/2021 | 04/05/2022 | Tolerable |
+| Tompion 66–80 | 04/05/2021 | 04/05/2022 | Tolerable |
 
-Worth putting to the Building Safety Team on FireSafety@islington.gov.uk.
+Grimthorpe 1–48 is the one to lead on. It is a year older than the rest, it is
+the only block rated Moderate rather than Tolerable, and its "Suggested Review"
+field is printed with nothing after it — the label is there and the date is
+absent, which is in the document rather than an artefact of reading it.
+
+Across the eight, 53 actions are listed and 24 are marked OPEN, 19 of those with
+a due date that has now passed; the oldest two were due 09/03/2021. Careful how
+that is used: OPEN is the status as at report generation in 2021, so it is not
+evidence the work is still outstanding. The point is the opposite — there is no
+later published assessment, so a resident cannot tell either way.
+
+Worth putting to the Building Safety Team on FireSafety@islington.gov.uk. Ask
+for the three missing blocks, a current assessment for Grimthorpe 1–48, and
+confirmation of what happened to the actions.
+
+Extracted with macOS PDFKit via `osascript -l JavaScript` (no `pdftotext` or
+`pypdf` on this machine, and the streams are compressed so `strings` finds
+nothing). Two of the eight use a labelled field layout and six a tabular one,
+which is why a naive grep for a status word miscounts them.
 
 ### Check whether the buildings insurance document is still current
 
