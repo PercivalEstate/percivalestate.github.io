@@ -111,19 +111,6 @@ it, which is why it is last here. It is displayed at panel width, well under
 
 ---
 
-## Broken link
-
-### Tower Block UK reference 404s
-
-`index.html`, About panel, in the list of history links.
-
-`https://www.towerblock.eca.ed.ac.uk/development/percival-street` returns 404.
-Their site is up (homepage 200) but that path is gone, and their own search at
-`/search/site/percival` also 404s, so the replacement is not obvious. Either
-find where the record moved or drop the entry.
-
----
-
 ## Smaller
 
 ### Document links do not say what they are or how big
