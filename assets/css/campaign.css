@@ -162,6 +162,41 @@
   font-size: 1.05rem;
 }
 
+/* The photograph of the Community Hall. Not lazy-loaded: it sits in the first
+   screen and is almost certainly the largest thing painted there, so deferring
+   it would only make the page look slower. The reset in main.css already
+   zeroes the figure's own margins. */
+.campaign-figure {
+  margin: 0 0 2rem 0;
+}
+
+.campaign-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.campaign-figure figcaption {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin-top: 0.6rem;
+}
+
+/* On a phone the photograph is standing between a resident and the form, and
+   every pixel of it is a pixel of first screen that the form does not get. At
+   its own 1200x640 it takes 182px of a 390px-wide screen and puts the first
+   field 842px down; capped it takes 130px. Cropped rather than squashed, from
+   the middle, which is where the gate, the sign and the shuttered windows are. */
+@media screen and (max-width: 736px) {
+  .campaign-figure img {
+    height: 130px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
 /* The application reference, set apart so it can be read off the screen and
    typed into the council's search box. */
 .campaign-reference {

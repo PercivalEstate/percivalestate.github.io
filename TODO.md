@@ -254,6 +254,15 @@ the register indexes, so **42 Percival Street, London EC1V 0EB** is what the
 objection quotes. Do not "correct" it to the estate's own 40 Percival Street
 again: that was in the generated letter until the documents were read.
 
+**The sign on the building itself says 40.** Legible in the photograph taken on
+9 May 2025 and now on the campaign page: a plaque beside the gate reading
+"Tompion Centre / 40 Percival Street". So the number the building wears is a
+fifth data point, and it agrees with the Existing Use answer and with the
+estate's own address rather than with the field the application is registered
+under. The objection still quotes 42, because that is what the register
+indexes and the reference makes it unambiguous either way — but if anyone ever
+needs to argue the point, the sign is in the picture.
+
 The lease term is inconsistent too — the form says 35 years from 2009, the CNA
 says 25 years and separately "until 2034". 2009 + 25 = 2034, so the CNA is
 self-consistent and the form is the odd one out. The page says "until at least
