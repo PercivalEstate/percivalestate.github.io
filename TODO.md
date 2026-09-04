@@ -5,13 +5,14 @@ than guessed; the evidence is quoted so nobody has to take it on trust or
 re-derive it.
 
 Most of what is open is waiting on a reply from someone else. The one item that
-is ours to do is the focus-ring gap in `main.css`, below. The two sections at
-the end are closed records kept so the same ground is not covered twice.
+is ours to do is the focus-ring gap in `main.css`, below. The three sections
+at the end are closed records kept so the same ground is not covered twice.
 
-The campaign page is not waiting on anything: the objection goes to
+The campaign page is not waiting on anything. The objection goes to
 `Marc.Davis@islington.gov.uk`, copied to the planning inbox, three councillors
-and `tra@percivalestate.com`, all confirmed by the association on 4 September
-2026 and all set in `assets/js/objection.js`.
+and `tra@percivalestate.com`; the register link points at the application
+itself. All of it is set in `assets/js/objection.js`, and what the application
+actually says is recorded below.
 
 Fixed items are not listed. `git log` has them, one commit each, with the
 reasoning in the message.
@@ -19,18 +20,6 @@ reasoning in the message.
 ---
 
 ## Waiting on someone else
-
-### A direct link to P2026/1577/FUL on the planning register
-
-`PLANNING_APPLICATION_URL` in `assets/js/objection.js` currently points at
-`https://planning.agileapplications.co.uk/islington/search-applications`, which
-is real and current but is the search page rather than the application. The
-register is an Angular app that builds its routes at runtime, so an
-application's own address cannot be constructed from its reference — the same
-thing that stopped the cladding-date search below. Open the application once,
-check the address in the bar still works pasted fresh, and put it in the
-constant; the wording on the page tells residents to search for the reference
-either way, so it is an improvement rather than a blocker.
 
 ### Islington's reply about the estate's fire risk assessments
 
@@ -150,6 +139,70 @@ belongs in its own commit rather than inside a campaign one.
 Verified with a real Tab walk over both pages rather than by reading the CSS:
 21 stops on the campaign page, every one showing an outline, a box-shadow or a
 tick-box ring.
+
+---
+
+## The P2026/1577/FUL application, as submitted
+
+Read 4 September 2026 from the eight documents on the register. Recorded so
+that the campaign copy can be checked against it without extracting them again,
+and because the objection residents send quotes it.
+
+**What is proposed.** Change of use of Tompion Hall from community use
+(Class F1) to offices (Class E(g)(i)) for occupation by Islington Council as an
+operational base for its **Parking Service** — "primarily office-based and
+operational in nature, with no public-facing community function". Single storey,
+208 m². Applicant Islington Council; Planning Portal ref PP-14997012; works
+expected 08/2026 to 07/2027. Register id 537571, which is what the direct link
+uses and which bears no relation to the reference.
+
+**The dates, from the Council's own Community Needs Assessment and the
+Existing Use answer on the form.** These are what the objection rests on, and
+all of them are the applicant's own account:
+
+| | |
+| --- | --- |
+| Leased from the Guinness Trust to Islington for community use | 2009 |
+| Managed for community use by Community Partnerships | until 2019 |
+| Closed for refurbishment works; end of use given on the form as | **02/06/2019** |
+| Used temporarily for the Covid vaccination programme | 2020–21 |
+| Council decides not to recommission it as a community centre | 2021 |
+| Used by **Council Estate Services as an office base** | 2021/22 – **Nov 2024** |
+| Declared surplus to Housing Revenue Account requirements | July 2025 |
+| Lease runs until | at least 2034 |
+
+Two things in that table do the work. The Hall "has not been available for
+community bookings" because the Council closed it and then decided not to
+reopen it — so six years of no bookings is a consequence of the Council's own
+decisions, not evidence of no demand. And the building has been genuinely empty
+only since November 2024, because the Council was using it as an office itself
+for the three years before that.
+
+The CNA also records, and then sets aside, "some interest from a local resident
+to return the site to community use", and lists seven alternative venues at 5–15
+minutes' walk. The Hall has continued in use as a polling station throughout.
+
+**The address is not consistent within the application.** Four documents give
+four combinations:
+
+| Where | Address given |
+| --- | --- |
+| Application form, Site Location fields | 42 Percival Street, London **EC1V 0EB** |
+| Location Plan | 42 Percival Street, London **EC1V 0EB** |
+| Application form, Description | 42 Percival Street, London EC1V 0HX |
+| Application form, Existing Use answer | **40** Percival Street, EC1V 0EB |
+| Cover letter | 42 Percival Street, London EC1V 0HX |
+| Community Needs Assessment | 42 on one page, 40 on another, EC1V 0EB |
+
+The Site Location block and the Location Plan agree, and those are the fields
+the register indexes, so **42 Percival Street, London EC1V 0EB** is what the
+objection quotes. Do not "correct" it to the estate's own 40 Percival Street
+again: that was in the generated letter until the documents were read.
+
+The lease term is inconsistent too — the form says 35 years from 2009, the CNA
+says 25 years and separately "until 2034". 2009 + 25 = 2034, so the CNA is
+self-consistent and the form is the odd one out. The page says "until at least
+2034", which both support.
 
 ---
 
