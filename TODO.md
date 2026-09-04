@@ -120,11 +120,19 @@ audit does not reopen it.
 
 | | Bytes |
 | --- | ---: |
-| What a visitor arrives with | **422,239** |
+| What a visitor arrives with | **418,957** |
 | Of which the slideshow, 3 images | 180,026 |
-| Someone with `prefers-reduced-motion` | **302,651** |
-| A visitor who stays past a minute | 1,174,261 |
+| Someone with `prefers-reduced-motion` | **299,369** |
+| A visitor who stays past a minute | 1,170,979 |
 | For comparison, when the audit opened | 2,281,131 |
+
+Icons are 11,739 of that arrival figure across two files, having been 25,263.
+All five icon files were 32-bit RGBA with an alpha channel no pixel used and
+only 634–1,250 distinct colours, nearly all of them antialiasing between the
+green and the white; they are now 8-bit palette PNGs. `favicon.ico` is left
+alone: 15,086 bytes, but nothing fetches it now that `index.html` declares a
+PNG icon, so it costs a visitor nothing and some old consumer may still probe
+for it.
 
 The slideshow stays at thirteen images: with fetching paced to the rotation the
 other ten cost an arriving visitor nothing, so the count is a question about how
