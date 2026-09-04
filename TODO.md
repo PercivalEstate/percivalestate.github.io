@@ -4,9 +4,14 @@ From the site audits of 2–4 September 2026. Everything here was measured rathe
 than guessed; the evidence is quoted so nobody has to take it on trust or
 re-derive it.
 
-Nothing here is waiting on a change to the site. Both open items are waiting on
-a reply from someone else, and the two sections after them are closed records
-kept so the same ground is not covered twice.
+Most of what is open is waiting on a reply from someone else. The one item that
+is ours to do is the focus-ring gap in `main.css`, below. The two sections at
+the end are closed records kept so the same ground is not covered twice.
+
+The campaign page is not waiting on anything: the objection goes to
+`Marc.Davis@islington.gov.uk`, copied to the planning inbox, three councillors
+and `tra@percivalestate.com`, all confirmed by the association on 4 September
+2026 and all set in `assets/js/objection.js`.
 
 Fixed items are not listed. `git log` has them, one commit each, with the
 reasoning in the message.
@@ -14,6 +19,18 @@ reasoning in the message.
 ---
 
 ## Waiting on someone else
+
+### A direct link to P2026/1577/FUL on the planning register
+
+`PLANNING_APPLICATION_URL` in `assets/js/objection.js` currently points at
+`https://planning.agileapplications.co.uk/islington/search-applications`, which
+is real and current but is the search page rather than the application. The
+register is an Angular app that builds its routes at runtime, so an
+application's own address cannot be constructed from its reference — the same
+thing that stopped the cladding-date search below. Open the application once,
+check the address in the bar still works pasted fresh, and put it in the
+constant; the wording on the page tells residents to search for the reference
+either way, so it is an improvement rather than a blocker.
 
 ### Islington's reply about the estate's fire risk assessments
 
@@ -110,6 +127,29 @@ Failing that: a building control completion certificate for the facade works, or
 a residents' notice from the time. The planning register is at
 `planning.agileapplications.co.uk/islington` — an Angular app, so it needs a real
 browser; its API rejects direct calls with "Client has not beeing selected".
+
+---
+
+## Open, and ours to fix
+
+### Buttons on the home page have no focus indicator
+
+`main.css` sets `outline: 0` on `input[type=submit]`, `input[type=reset]`,
+`input[type=button]`, `button` and `.button` (line 1078) and puts nothing in its
+place, so tabbing to **Send Message** or **Reset** on the contact form shows
+nothing at all. Text fields are fine — they take a white `box-shadow` on focus
+— and so are tick boxes, whose label `::before` takes one; it is buttons and
+plain links that are bare. WCAG 2.4.7.
+
+`/save-our-community-hall/` is almost entirely buttons, so it carries its own
+fix in `campaign.css`, scoped to `.campaign-page`. Lifting those four lines into
+`main.css` without the scope would fix the contact form too. It was left scoped
+deliberately: it is a change to a shared file that nobody asked for, and it
+belongs in its own commit rather than inside a campaign one.
+
+Verified with a real Tab walk over both pages rather than by reading the CSS:
+21 stops on the campaign page, every one showing an outline, a box-shadow or a
+tick-box ring.
 
 ---
 
