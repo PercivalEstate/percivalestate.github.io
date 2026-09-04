@@ -572,15 +572,24 @@
 
           <ul class="campaign-actions">
             <li data-requires-email hidden>
+              <!-- target="_blank" is not decoration. Following a mailto in
+                   this tab navigates away from the page, and on any device
+                   that does not hand off to a mail client cleanly the
+                   resident comes back to a blank form with their edited
+                   objection gone. Handing it to a new context leaves this
+                   page, and their letter, exactly where it was. -->
               <a
                 id="objection-mail-link"
                 class="button primary button-wrap"
                 href="#"
+                target="_blank"
+                rel="noopener"
                 >Open email and send objection</a
               >
               <p class="campaign-hint campaign-hint-under">
                 This will open your email app with the objection filled in.
-                Please review it and press Send in your email app.
+                Please review it and press Send in your email app. This page
+                stays open, so you can come back to it.
               </p>
               <p class="campaign-hint campaign-hint-under">
                 It is addressed to

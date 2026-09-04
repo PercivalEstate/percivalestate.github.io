@@ -581,7 +581,9 @@
        so an edit made after generating is the text that reaches the mail
        client. An <a href="mailto:"> rather than a scripted navigation on
        purpose: assigning location.href from a handler is what mobile popup
-       blockers and in-app browsers refuse, and a plain link is not. */
+       blockers and in-app browsers refuse, and a plain link is not. The
+       link carries target="_blank" so that following it cannot take the
+       resident away from the letter they have just written; see the markup. */
     function syncMailLink() {
       if (!hasPlanningEmail) return;
 
