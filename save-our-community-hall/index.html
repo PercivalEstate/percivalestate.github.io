@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
@@ -70,11 +70,11 @@
       // until the visitor accepts in the banner that assets/js/consent.js
       // shows. Granting a stored consent here rather than waiting for that
       // file keeps the pageview from being missed.
-      gtag("consent", "default", { analytics_storage: "denied" });
+      gtag('consent', 'default', { analytics_storage: 'denied' });
 
       try {
-        if (localStorage.getItem("pec-cookie-consent") === "granted") {
-          gtag("consent", "update", { analytics_storage: "granted" });
+        if (localStorage.getItem('pec-cookie-consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
         }
       } catch (e) {
         // Storage is blocked; the denied default stands.
@@ -85,15 +85,15 @@
       src="https://www.googletagmanager.com/gtag/js?id=G-N85MHLCZ5L"
     ></script>
     <script>
-      gtag("js", new Date());
+      gtag('js', new Date());
 
-      gtag("config", "G-N85MHLCZ5L");
+      gtag('config', 'G-N85MHLCZ5L');
     </script>
 
     <!-- The privacy policy is a panel on the home page, so the cookie banner
          needs an absolute link to it from here. -->
     <script>
-      window.pecPrivacyPolicyHref = "/#privacy-policy";
+      window.pecPrivacyPolicyHref = '/#privacy-policy';
     </script>
 
     <link
@@ -259,7 +259,9 @@
             <div class="field">
               <label for="objection-building"
                 >Which building do you live in?
-                <span class="campaign-optional">(you can skip this)</span></label
+                <span class="campaign-optional"
+                  >(you can skip this)</span
+                ></label
               >
               <select id="objection-building" name="building">
                 <option value="">Prefer not to say</option>
@@ -347,7 +349,9 @@
                   name="use"
                   value="support"
                 />
-                <label for="objection-use-support">Local support services</label>
+                <label for="objection-use-support"
+                  >Local support services</label
+                >
               </div>
               <div>
                 <input
@@ -365,7 +369,9 @@
             <div class="field">
               <label for="objection-comment"
                 >Why do you want to keep the hall?
-                <span class="campaign-optional">(you can skip this)</span></label
+                <span class="campaign-optional"
+                  >(you can skip this)</span
+                ></label
               >
               <p class="campaign-hint" id="objection-comment-hint">
                 One sentence in your own words counts for more than anything
@@ -417,7 +423,9 @@
             </p>
           </div>
 
-          <label for="objection-output">Edit your objection before sending</label>
+          <label for="objection-output"
+            >Edit your objection before sending</label
+          >
           <textarea id="objection-output" rows="18"></textarea>
 
           <div
@@ -459,7 +467,11 @@
               </p>
             </li>
             <li>
-              <button type="button" id="objection-copy" class="button button-wrap">
+              <button
+                type="button"
+                id="objection-copy"
+                class="button button-wrap"
+              >
                 Copy objection
               </button>
             </li>
@@ -567,7 +579,9 @@
           <p>In its own application, the Council says:</p>
           <ul>
             <li>the hall shut in June 2019 for building work</li>
-            <li>it decided in 2021 not to open it again as a community centre</li>
+            <li>
+              it decided in 2021 not to open it again as a community centre
+            </li>
             <li>there are other halls within a 15 minute walk</li>
             <li>so the hall is not needed any more</li>
           </ul>
@@ -581,7 +595,8 @@
           </p>
           <ul>
             <li>
-              <strong>We did not stop using the hall. It was shut.</strong> The
+              <strong>We did not stop using the hall. It was shut.</strong>
+              We were prevented from accessing the Community Hall - the
               Council&rsquo;s own report says it &ldquo;has not been available
               for community bookings&rdquo; since 2019. No bookings does not
               mean nobody wants it.
@@ -591,25 +606,28 @@
               own Estate Services team worked there from 2021/22 until November
               2024. The same application says the permitted use is still Class
               F1, and that office use needs consent for Class E &mdash; which is
-              what the Council is asking for now, after the event. It should be
-              asked what permission was in place for those three years.
+              what the Council is asking for now, after the event. The Council
+              already tried to take over the Community Hall without first
+              consulting residents.
             </li>
             <li>
-              <strong>The report says a resident asked for the hall back. That
-              was one of us.</strong>
+              <strong
+                >The report says a resident asked for the hall back. That was
+                one of us.</strong
+              >
               The Council&rsquo;s report notes &ldquo;some interest from a local
               resident to return the site to community use&rdquo;, then answers
               it by pointing at other halls. Every objection sent from this page
               is more of the interest it said was not there.
             </li>
             <li>
-              <strong>A hall on the estate is not the same as a hall
-              nearby.</strong>
-              Some of the other halls are closer than 15 minutes. That is not
-              the point. A hall on our own estate is the one people actually
-              turn up to, so it is the one that gets used and the one that
-              builds something here. Booking someone else&rsquo;s hall means
-              their rules, their times and their priorities. We would be guests.
+              <strong
+                >A hall on the estate is not the same as a hall nearby.</strong
+              >
+              A hall on our own estate is the one people actually turn up to, so
+              it is the one that gets used and the one that builds something
+              here. Booking someone else&rsquo;s hall means their rules, their
+              times and their priorities. We would be guests.
             </li>
             <li>
               <strong>The lease runs to at least 2034.</strong> There is no rush
