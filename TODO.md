@@ -1,8 +1,12 @@
 # TODO
 
-Open items from the site audits of 2 and 3 September 2026. Everything here was
-measured rather than guessed; the evidence is quoted so nobody has to take it on
-trust or re-derive it.
+From the site audits of 2–4 September 2026. Everything here was measured rather
+than guessed; the evidence is quoted so nobody has to take it on trust or
+re-derive it.
+
+Nothing here is waiting on a change to the site. Both open items are waiting on
+a reply from someone else, and the two sections after them are closed records
+kept so the same ground is not covered twice.
 
 Fixed items are not listed. `git log` has them, one commit each, with the
 reasoning in the message.
@@ -72,87 +76,7 @@ Extracted with macOS PDFKit via `osascript -l JavaScript` (no `pdftotext` or
 nothing). Two of the eight use a labelled field layout and six a tabular one,
 which is why a naive grep for a status word miscounts them.
 
----
-
-## Page weight
-
-The site has had several rounds of weight work and the JavaScript is now 26,929
-bytes across three files, down from 128,693 across seven. Images are what is
-left, and the slideshow is 43% of what a visitor actually arrives with.
-
-### The slideshow, if anyone still wants it smaller
-
-Fetching is now paced to the rotation, so this is no longer the item it was.
-Measured 4 September 2026, file bytes, on arrival:
-
-| | Bytes |
-| --- | ---: |
-| Slideshow, the 3 images a visitor arrives with | 180,026 |
-| Everything else on first load | 242,213 |
-| **Total on arrival** | **422,239** |
-| Same visit, if they stay past a minute | 1,174,261 |
-| Someone with `prefers-reduced-motion` | **302,651** |
-
-For comparison the audit opened at 2,281,131 with all thirteen fetched every
-time, whatever the visitor did or preferred.
-
-Two of the three original options are still open, and both are now judgement
-calls rather than clear wins:
-
-1. **Ship fewer than thirteen.** Over a minute of rotation is more than most
-   visits use. This only saves bytes for the visitor who stays, since the rest
-   are no longer fetched on arrival — it is a question about how long the
-   rotation should be, not about weight.
-2. **Serve a narrower set to 2x phones.** Recommend closing this one. Measured
-   `#bg div` against nine device profiles on 4 September 2026, and over-serving
-   is the exception rather than the rule:
-
-   | | needs | 1024px file is |
-   | --- | ---: | --- |
-   | iPhone SE1, SE2/8, XR/11 (2x) | 704–910px | 114–320px too wide |
-   | iPhone 14/15, Pixel 8, Android (3x) | 1188–1419px | 164–395px too narrow |
-   | iPad 2x | 1800px | 776px too narrow |
-   | laptop 1440 at 2x | 3168px | 2144px too narrow |
-
-   So most devices are already upscaling, which b33ef14 chose knowingly — at
-   `opacity: 0.25` behind an overlay it does not show. Only 2x phones are
-   over-served. An 858px set would save 64,758 bytes of the 180,026 a 2x phone
-   arrives with, 36%, and cost a second set of thirteen files plus a second
-   encoding step to remember whenever the photos change. Note also that the
-   backdrops are CSS `background-image` set from `slideshow.js`, not `<img>`, so
-   there is no `srcset` route — it would need `image-set()` or a DPR check in
-   the JS.
-
-   Worth revisiting only if 2x phones turn out to be a large share of visits.
-
---- | ---: |
-| Slideshow, 13 images | **932,048** |
-| Everything else on first load | 240,994 |
-| **Total** | **1,173,042** |
-
-All thirteen are still fetched on every visit. `slideshow.js` gates the reveal
-on the first image and the webfont, then `loadRest()` requests the other twelve.
-They are 1024px wide WebP at q45, 40KB–108KB each.
-
-What keeps this open: `slideshow.css` renders `#bg` at `opacity: 0.25`, behind a
-dark overlay, rotating every five seconds. Even re-encoded it is most of the
-page, spent on a backdrop nobody can see clearly.
-
-Re-encoding is done — 1280px q80 to 1024px q45, half the bytes, SSIM 0.955–0.992
-composited the way the page draws it. What is left changes how many are fetched
-rather than how big they are:
-
-1. Ship fewer. Thirteen at five seconds each is over a minute of rotation; most
-   visits will not see them all.
-2. Load the first few, and fetch the rest only if the visitor is still there.
-3. Serve a narrower set to phones. `#bg div` is 110% of viewport width, so a
-   390px phone at 3× asks for 1287px but a 390px phone at 2× only 858px.
-
----
-
-## Smaller
-
-### The 2020 cladding completion date still rests on one source
+### The 2020 cladding completion date, waiting on Guinness
 
 `index.html`, About panel — "The new cladding went up in 2020".
 
@@ -189,7 +113,38 @@ browser; its API rejects direct calls with "Client has not beeing selected".
 
 ---
 
-## Checked and clean, as of 3 September 2026
+## Page weight, settled
+
+Closed 4 September 2026. Nothing here needs doing; it is recorded so the next
+audit does not reopen it.
+
+| | Bytes |
+| --- | ---: |
+| What a visitor arrives with | **422,239** |
+| Of which the slideshow, 3 images | 180,026 |
+| Someone with `prefers-reduced-motion` | **302,651** |
+| A visitor who stays past a minute | 1,174,261 |
+| For comparison, when the audit opened | 2,281,131 |
+
+The slideshow stays at thirteen images: with fetching paced to the rotation the
+other ten cost an arriving visitor nothing, so the count is a question about how
+long the rotation should be, and thirteen is wanted.
+
+Serving a narrower set to 2x phones was measured and rejected. Across nine
+device profiles only 2x phones are over-served, by 114–320px; every 3x phone is
+short by 164–395px, an iPad by 776px and a 1440 laptop by 2144px. Most of the
+audience is already looking at an upscaled backdrop, which b33ef14 chose
+knowingly because at `opacity: 0.25` behind an overlay it does not show. An
+858px set would save 64,758 bytes of the 180,026 a 2x phone arrives with, and
+cost a second set of thirteen files plus a second encoding step to keep in step
+forever. Worth revisiting only if 2x phones turn out to be a large share of
+visits. Note the backdrops are CSS `background-image` set from `slideshow.js`,
+not `<img>`, so there is no `srcset` route — it would need `image-set()` or a
+DPR check in the JS.
+
+---
+
+## Checked and clean, as of 4 September 2026
 
 Recorded so the next audit need not repeat it: no missing `alt` text, no
 untitled iframes, no links without an accessible name, no duplicate ids, no
