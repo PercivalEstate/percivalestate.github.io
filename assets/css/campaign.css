@@ -367,6 +367,7 @@
   border: solid 1px rgba(255, 255, 255, 0.4);
   border-radius: 4px;
   padding: 0 1rem;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .campaign-disclosure[open] {
@@ -375,7 +376,7 @@
 
 .campaign-disclosure summary {
   cursor: pointer;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.05rem;
@@ -383,6 +384,52 @@
   min-height: 44px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* display: flex on a summary is what takes the browser's own disclosure
+   triangle away, which is why these read as three inert boxes without the
+   chevron below. Both of these are needed: ::-webkit-details-marker for
+   Safari, list-style for everyone else. */
+.campaign-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.campaign-disclosure summary {
+  list-style: none;
+}
+
+/* The same chevron main.css draws on a <select>, from the same data URI, so
+   that "this opens" looks the same wherever it appears on the site. */
+.campaign-disclosure summary::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23ffffff' /%3E%3C/svg%3E");
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.campaign-disclosure[open] summary::after {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .campaign-disclosure summary::after {
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+/* It is a control, so it should answer the pointer like one. */
+.campaign-disclosure summary:hover {
+  color: #ffffff;
+}
+
+.campaign-disclosure:hover {
+  border-color: #ffffff;
 }
 
 .campaign-disclosure summary:focus-visible {
