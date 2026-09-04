@@ -173,8 +173,11 @@ finished* is still only Sotech Optima's case study of July 2023 saying "Three
 years on from initial installation (which was completed in 2020)". Rooff carries
 no date and A2O's page 403s to everything, like Guinness's own site.
 
-What would settle it: a building control completion certificate for the facade
-works, or a Guinness newsletter or residents' notice. The planning register is at
+**Guinness were asked on 4 September 2026. Awaiting a reply.** They own the
+block, so they are the ones who can say when the work finished.
+
+Failing that: a building control completion certificate for the facade works, or
+a residents' notice from the time. The planning register is at
 `planning.agileapplications.co.uk/islington` — an Angular app, so it needs a real
 browser; its API rejects direct calls with "Client has not beeing selected".
 
