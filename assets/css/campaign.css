@@ -166,12 +166,12 @@
    typed into the council's search box. */
 .campaign-reference {
   display: block;
-  border: solid 1px rgba(255, 255, 255, 0.4);
   border-left: solid 3px #288548;
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-  margin: 0 0 2rem 0;
+  border-radius: 0 4px 4px 0;
+  padding: 0.5rem 0 0.5rem 0.85rem;
+  margin: 0 0 2.5rem 0;
   font-size: 0.85rem;
+  line-height: 1.5;
   letter-spacing: 0.05rem;
 }
 
@@ -357,22 +357,27 @@
   gap: 0 2rem;
 }
 
-/* Examples of what to write, closed by default so the form stays short. */
-.campaign-examples {
-  margin: 0 0 2rem 0;
+/* Closed by default, and that is the point of them. The page leads with the
+   form because a resident with two minutes and a phone will not read three
+   screens of argument first -- so the case for the campaign sits underneath it
+   and folds away, and the examples of what to write sit inside the form and do
+   the same. Same control, same rules. */
+.campaign-disclosure {
+  margin: 0 0 1rem 0;
   border: solid 1px rgba(255, 255, 255, 0.4);
   border-radius: 4px;
   padding: 0 1rem;
 }
 
-.campaign-examples[open] {
+.campaign-disclosure[open] {
   padding-bottom: 0.5rem;
 }
 
-.campaign-examples summary {
+.campaign-disclosure summary {
   cursor: pointer;
   padding: 0.75rem 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   letter-spacing: 0.05rem;
   /* A summary is a real control, so it needs a real touch target. */
   min-height: 44px;
@@ -380,14 +385,30 @@
   align-items: center;
 }
 
-.campaign-examples summary:focus-visible {
+.campaign-disclosure summary:focus-visible {
   outline: solid 2px #ffffff;
   outline-offset: 2px;
 }
 
-.campaign-examples ul {
+.campaign-disclosure p,
+.campaign-disclosure ul {
   font-size: 0.9rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.campaign-disclosure > :last-child {
+  margin-bottom: 0;
+}
+
+/* Inside the form, where it is a footnote to the field above rather than a
+   section of its own. */
+.campaign-examples {
+  margin-bottom: 2rem;
+}
+
+.campaign-examples summary {
+  font-weight: 300;
+  font-size: 0.85rem;
 }
 
 .campaign-counter {
