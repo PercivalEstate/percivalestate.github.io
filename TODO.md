@@ -108,12 +108,6 @@ rather than how big they are:
 3. Serve a narrower set to phones. `#bg div` is 110% of viewport width, so a
    390px phone at 3× asks for 1287px but a 390px phone at 2× only 858px.
 
-### `images/percival-estate-map-detailed.webp` is 307KB at 2600×1800
-
-Lazy-loaded behind `data-src`, so only people who open the About panel pay for
-it, which is why it is last here. It is displayed at panel width, well under
-800px.
-
 ---
 
 ## Smaller
