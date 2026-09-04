@@ -46,17 +46,27 @@
 
   /* Where "Submit on Islington Council website" points.
 
-     This is Islington's planning register search page, which is a real and
-     current council URL. It is not a direct link to P2026/1577/FUL: the
-     register is an Angular application that builds its own routes at runtime,
-     so an application's own address cannot be constructed from its reference
-     and has to be copied out of the browser once. If you open the application
-     and the address bar shows a link that works when pasted fresh, put it
-     here and the wording on the page adjusts itself. */
+     The application itself, not the search page. The register is an Angular
+     application that builds its own routes at runtime, so this could not be
+     constructed from the reference and had to be copied out of a browser
+     once; 537571 is the register's own id for P2026/1577/FUL and has nothing
+     to do with the reference. Checked: it answers 200. */
   var PLANNING_APPLICATION_URL =
-    'https://planning.agileapplications.co.uk/islington/search-applications';
+    'https://planning.agileapplications.co.uk/islington/application-details/537571';
 
   var PLANNING_APPLICATION_REFERENCE = 'P2026/1577/FUL';
+
+  /* The site address as the application form's own Site Location fields give
+     it, and as the Location Plan repeats: "Tompion Community Centre, 42,
+     Percival Street, London, EC1V 0EB".
+
+     Worth pinning down, because the application is not consistent with
+     itself. Its description says EC1V 0HX, its Existing Use answer says 40
+     Percival Street, the cover letter says 42 Percival Street EC1V 0HX and
+     the Community Needs Assessment uses 42 and 40 on different pages. The
+     Site Location block and the Location Plan agree with each other and are
+     the fields the register indexes, so they are the ones to quote. */
+  var HALL_ADDRESS = '42 Percival Street, London EC1V 0EB';
 
   var OBJECTION_SUBJECT =
     'Objection to ' + PLANNING_APPLICATION_REFERENCE + ' - Tompion Community Hall';
@@ -66,17 +76,19 @@
   var COMMENT_MAX_LENGTH = 1000;
 
   /* Where a mailto URI is long enough that some clients shorten it without
-     saying so. Measured rather than guessed, and re-measured once the five
-     copy recipients were added. With the recipients and the shared case, the
-     shortest objection this form can produce already encodes to 1,603
-     characters, and the longest -- every field at its limit, all eight uses
-     and the full 1,000-character comment -- to 3,265. Warning at the old
-     2,048 figure would therefore have caught almost everybody, including
-     people who wrote nothing of their own, which is the one thing this page
-     is asking them to do. 2,650 sits where a letter is genuinely long.
-     Everyone is told to check the whole letter before sending regardless;
-     see objection-mail-note in the markup. */
-  var MAILTO_WARN_LENGTH = 2650;
+     saying so. Measured rather than guessed, and re-measured every time the
+     letter changed: with the recipients, the shared case and the shortest
+     possible answers it encodes to 2,243 characters, and with every field at
+     its limit, all eight uses and the full 1,000-character comment, to 3,905.
+
+     So a substantive objection is already past the 2,048 characters that
+     Windows mailto handlers were once held to, and no threshold can fix that
+     -- which is why the note beside the button tells everybody to check the
+     whole letter is there before they press Send, rather than only the people
+     a warning happens to catch. 3,200 is set where the warning still says
+     something: it appears once a resident has written a few hundred words of
+     their own, which is exactly when there is most to lose. */
+  var MAILTO_WARN_LENGTH = 3200;
 
   /* ---------------------------------------------------------------------
      Wording
@@ -170,7 +182,9 @@
     paragraphs.push(
       'I am writing to object to planning application ' +
         PLANNING_APPLICATION_REFERENCE +
-        ' concerning Tompion Community Hall, 40 Percival Street, London EC1V 0EB.'
+        ', the proposed change of use of Tompion Hall, ' +
+        HALL_ADDRESS +
+        ", from community use (Class F1) to offices for the Council's Parking Service (Class E(g))."
     );
 
     /* Residency. The required question governs, so an answer of "no" is never
@@ -186,7 +200,7 @@
     }
 
     paragraphs.push(
-      'I object to the permanent loss of Tompion Community Hall from community use to office use.'
+      'I object to the permanent loss of Tompion Hall as a community facility.'
     );
 
     if (answers.uses.length > 0) {
@@ -201,22 +215,34 @@
       paragraphs.push(answers.comment);
     }
 
+    /* From here on, the association's shared case. Every factual claim in it
+       is taken from the applicant's own submission, and attributed, so that a
+       resident is not being asked to put their name to anything they cannot
+       point at.
+
+       Three paragraphs, not six. The campaign page makes six points and this
+       letter deliberately carries the three that answer the application's own
+       central argument; the rest are there on the page for anyone who wants to
+       add them in their own words. Two reasons. Identical boilerplate is worth
+       less to a planning officer the more of it there is, and length has a
+       cost here that it does not have on a web page -- a mailto that runs long
+       is one some mail clients quietly shorten. */
+    paragraphs.push(
+      "The Council's own Community Needs Assessment says the Hall closed in 2019 for refurbishment and has not been available for community bookings since. The absence of bookings follows from that closure, and is not evidence that residents do not want it."
+    );
+
+    paragraphs.push(
+      'The same document records that the Council used the Hall as an office base for its own Estate Services team from 2021/22 until November 2024, so it has stood genuinely empty only since then.'
+    );
+
+    paragraphs.push(
+      "Venues a five to fifteen minute walk away are welcome, but they are not equivalent to a hall on the estate itself, particularly for older residents and for families with young children. Tompion Hall is the only community facility on the Percival Estate, and the interest in reopening it that the Assessment itself notes is borne out by objections like this one."
+    );
+
     paragraphs.push(
       answers.onEstate
-        ? 'I believe Tompion Community Hall should remain available as a community facility for residents of the Percival Estate.'
-        : 'I believe Tompion Community Hall should remain available as a community facility for residents of the Percival Estate and the surrounding area.'
-    );
-
-    paragraphs.push(
-      'The Hall has not been available for normal community bookings for substantial periods in recent years, so the absence of recent bookings should not be treated as evidence that there is no community demand for it.'
-    );
-
-    paragraphs.push(
-      'Having a community facility on the estate itself is valuable and is not necessarily equivalent to residents being directed to other venues elsewhere.'
-    );
-
-    paragraphs.push(
-      'I support retaining Tompion Community Hall for community use and ask Islington Council to refuse the proposed change of use.'
+        ? 'I believe Tompion Hall should remain available as a community facility for residents of the Percival Estate, and I ask Islington Council to refuse the proposed change of use.'
+        : 'I believe Tompion Hall should remain available as a community facility for residents of the Percival Estate and the surrounding area, and I ask Islington Council to refuse the proposed change of use.'
     );
 
     paragraphs.push('Kind regards,');
@@ -490,13 +516,18 @@
     }
 
     /* Configuration that the markup cannot know about. */
-    var portalLink = $('objection-portal-link');
-    if (portalLink) {
-      portalLink.href = PLANNING_APPLICATION_URL;
-      portalLink.addEventListener('click', function () {
+    /* The register is linked from two places -- once where the application is
+       explained and once among the ways to send an objection -- so the href
+       and the tracking hang off an attribute rather than an id. The markup
+       carries the same URL, so the links still work if this file does not
+       run; this keeps them in step with the constant. */
+    var portalLinks = document.querySelectorAll('[data-planning-portal]');
+    Array.prototype.forEach.call(portalLinks, function (link) {
+      link.href = PLANNING_APPLICATION_URL;
+      link.addEventListener('click', function () {
         track('planning_portal_clicked');
       });
-    }
+    });
 
     var emailAddressText = $('objection-email-address');
     if (emailAddressText && hasPlanningEmail) {
