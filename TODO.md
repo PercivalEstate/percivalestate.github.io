@@ -182,6 +182,44 @@ The CNA also records, and then sets aside, "some interest from a local resident
 to return the site to community use", and lists seven alternative venues at 5–15
 minutes' walk. The Community Hall has continued in use as a polling station throughout.
 
+**That local resident is a member of the association**, confirmed 4 September
+2026, which is why the page can say "that was one of us" rather than leaving it
+as an anonymous line in somebody else's report.
+
+**The office use is the sharpest point in the file, and it is left as a question
+on purpose.** Put two of the applicant's own statements side by side:
+
+- on the lease — "The lease restrictions limit permitted use to Class F1
+  (non-residential institutional) unless planning consent is obtained for
+  Class E."
+- on the history — "From 2021/22, the premise was used by Council Estate
+  Services as an office base … Estate Services vacated the space in November
+  2024."
+
+So the Council occupied the Community Hall as offices for about three years and
+is only now applying for the Class E consent that its own document says office
+use requires. Had that consent existed, this application would be unnecessary.
+
+The page and the letter both stop at asking the Council to explain what
+permission was in place, rather than asserting a breach, and that is deliberate
+rather than timid. A permitted development right, a temporary right, or an
+argument that the use was ancillary to the F1 use would each be an answer, and
+none can be ruled out from these documents alone. Several hundred residents
+asserting an unlawful use they cannot then evidence is worth less than the same
+number asking a question the Council has to answer on the record, and an
+objection that overreaches is one an officer can discount. If somebody
+establishes the position properly, the wording can harden.
+
+Note also that the *reason* Estate Services left in November 2024 appears
+nowhere in the documents. The sequence is suggestive and the page sets it out;
+the motive is not stated in the file and should not be asserted as though it
+were.
+
+The fifteen-minute walk is not the argument, and was wrong as well as weak:
+some of the listed alternatives are closer than that. The point is that a hall
+on the estate is the one residents actually turn up to, and that booking
+somebody else's hall means their rules, their times and their priorities.
+
 **The address is not consistent within the application.** Four documents give
 four combinations:
 
