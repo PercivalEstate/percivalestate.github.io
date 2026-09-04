@@ -128,18 +128,37 @@ Fixing it means shrinking the logo or hero type at that height, which is a desig
 decision rather than a bug fix. Measured with `pointer: coarse` emulated —
 without that the banner measures 88px instead of 139px and the problem hides.
 
-### The 2020 cladding date rests on one source
+### The 2020 cladding completion date still rests on one source
 
 `index.html`, About panel — "The new cladding went up in 2020".
 
-Sotech Optima's case study, published July 2023, says "Three years on from
-initial installation (which was completed in 2020)". Every other contractor page
-on the job is undated: Rooff carries none, and A2O's Fact File lists sector,
-status, value, scope and services but no programme.
+Much better bracketed than it was, but not independently confirmed. Islington's
+own records now date everything either side of it:
 
-The spring 2021 fit-out beside it is on much firmer ground — 41 of 43 Islington
-building control records at 40 Percival Street fall in one week of March 2021.
-If a Guinness newsletter or residents' notice dates the cladding, prefer it.
+- **30 January 2018** — Housing Scrutiny Committee. Guinness's own presentation
+  says structure investigation works were "nearing completion", options for
+  re-cladding "to be finalised in February", planning and building regulation
+  submissions to follow, and "once submissions approved works commence".
+  So nothing had started.
+- **24 July 2018** — planning application **P2018/2521/FUL** registered,
+  "Facade refurbishment works including replacement of the existing rainscreen
+  cladding finishes", 40 Percival Street EC1V 0EB, Bunhill ward. Site notice
+  2 August, consultation expiry 23 August.
+- **24 October 2018** — approved with conditions, three-year consent period, so
+  work had to begin by 24 October 2021.
+- **March 2021** — 41 of 43 building control records at the address fall in one
+  week, which is the fit-out.
+
+A 2020 completion sits comfortably in that gap, and the page now states the
+October 2018 consent because it is checkable. But the *year the cladding
+finished* is still only Sotech Optima's case study of July 2023 saying "Three
+years on from initial installation (which was completed in 2020)". Rooff carries
+no date and A2O's page 403s to everything, like Guinness's own site.
+
+What would settle it: a building control completion certificate for the facade
+works, or a Guinness newsletter or residents' notice. The planning register is at
+`planning.agileapplications.co.uk/islington` — an Angular app, so it needs a real
+browser; its API rejects direct calls with "Client has not beeing selected".
 
 ---
 
