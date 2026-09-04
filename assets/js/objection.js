@@ -167,7 +167,7 @@
   /* Builds the letter from the answers.
 
      The parts that change are the residency line, the sentence about how the
-     resident would use the Hall, and the resident's own comment. Everything
+     resident would use the Community Hall, and the resident's own comment. Everything
      else is the association's shared case, which is the part that is the same
      for everybody because it is the same argument. Nothing here is invented
      about the resident: every personal sentence is assembled from something
@@ -182,7 +182,7 @@
     paragraphs.push(
       'I am writing to object to planning application ' +
         PLANNING_APPLICATION_REFERENCE +
-        ', the proposed change of use of Tompion Hall, ' +
+        ', the proposed change of use of Tompion Community Hall, ' +
         HALL_ADDRESS +
         ", from community use (Class F1) to offices for the Council's Parking Service (Class E(g))."
     );
@@ -200,12 +200,12 @@
     }
 
     paragraphs.push(
-      'I object to the permanent loss of Tompion Hall as a community facility.'
+      'I object to the permanent loss of Tompion Community Hall as a community facility.'
     );
 
     if (answers.uses.length > 0) {
       paragraphs.push(
-        'If the Hall were available for community use, I would use it for ' +
+        'If the Community Hall were available for community use, I would use it for ' +
           sentenceList(answers.uses) +
           '.'
       );
@@ -228,21 +228,21 @@
        cost here that it does not have on a web page -- a mailto that runs long
        is one some mail clients quietly shorten. */
     paragraphs.push(
-      "The Council's own Community Needs Assessment says the Hall closed in 2019 for refurbishment and has not been available for community bookings since. The absence of bookings follows from that closure, and is not evidence that residents do not want it."
+      "The Council's own Community Needs Assessment says the Community Hall closed in 2019 for refurbishment and has not been available for community bookings since. The absence of bookings follows from that closure, and is not evidence that residents do not want it."
     );
 
     paragraphs.push(
-      'The same document records that the Council used the Hall as an office base for its own Estate Services team from 2021/22 until November 2024, so it has stood genuinely empty only since then.'
+      'The same document records that the Council used the Community Hall as an office base for its own Estate Services team from 2021/22 until November 2024, so it has stood genuinely empty only since then.'
     );
 
     paragraphs.push(
-      "Venues a five to fifteen minute walk away are welcome, but they are not equivalent to a hall on the estate itself, particularly for older residents and for families with young children. Tompion Hall is the only community facility on the Percival Estate, and the interest in reopening it that the Assessment itself notes is borne out by objections like this one."
+      "Venues a five to fifteen minute walk away are welcome, but they are not equivalent to a hall on the estate itself, particularly for older residents and for families with young children. Tompion Community Hall is the only community facility on the Percival Estate, and the interest in reopening it that the Assessment itself notes is borne out by objections like this one."
     );
 
     paragraphs.push(
       answers.onEstate
-        ? 'I believe Tompion Hall should remain available as a community facility for residents of the Percival Estate, and I ask Islington Council to refuse the proposed change of use.'
-        : 'I believe Tompion Hall should remain available as a community facility for residents of the Percival Estate and the surrounding area, and I ask Islington Council to refuse the proposed change of use.'
+        ? 'I believe Tompion Community Hall should remain available as a community facility for residents of the Percival Estate, and I ask Islington Council to refuse the proposed change of use.'
+        : 'I believe Tompion Community Hall should remain available as a community facility for residents of the Percival Estate and the surrounding area, and I ask Islington Council to refuse the proposed change of use.'
     );
 
     paragraphs.push('Kind regards,');

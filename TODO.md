@@ -148,7 +148,7 @@ Read 4 September 2026 from the eight documents on the register. Recorded so
 that the campaign copy can be checked against it without extracting them again,
 and because the objection residents send quotes it.
 
-**What is proposed.** Change of use of Tompion Hall from community use
+**What is proposed.** Change of use of Tompion Community Hall from community use
 (Class F1) to offices (Class E(g)(i)) for occupation by Islington Council as an
 operational base for its **Parking Service** — "primarily office-based and
 operational in nature, with no public-facing community function". Single storey,
@@ -171,7 +171,7 @@ all of them are the applicant's own account:
 | Declared surplus to Housing Revenue Account requirements | July 2025 |
 | Lease runs until | at least 2034 |
 
-Two things in that table do the work. The Hall "has not been available for
+Two things in that table do the work. The Community Hall "has not been available for
 community bookings" because the Council closed it and then decided not to
 reopen it — so six years of no bookings is a consequence of the Council's own
 decisions, not evidence of no demand. And the building has been genuinely empty
@@ -180,7 +180,7 @@ for the three years before that.
 
 The CNA also records, and then sets aside, "some interest from a local resident
 to return the site to community use", and lists seven alternative venues at 5–15
-minutes' walk. The Hall has continued in use as a polling station throughout.
+minutes' walk. The Community Hall has continued in use as a polling station throughout.
 
 **The address is not consistent within the application.** Four documents give
 four combinations:
