@@ -80,7 +80,12 @@
     var $bgs = [];
     var revealed = false;
     var started = false;
-    var restRequested = false;
+    // How far ahead of the rotation to fetch, and how far it has got. One
+    // backdrop is on screen and the next is wanted in five seconds, so two in
+    // hand absorbs a slow response without running away.
+    var lead = 2;
+    var requested = 1; // sources[0] is requested at the bottom of this block
+    var shown = 0;
 
     // The loading screen covers the whole page, so it has to come down whatever
     // happens to the images -- a single 404 or a stalled request must not leave
@@ -110,10 +115,10 @@
 
     function gateReady() {
       pendingGates--;
-      if (pendingGates <= 0) revealAndLoadRest();
+      if (pendingGates <= 0) revealAndPrime();
     }
 
-    var revealTimeoutId = window.setTimeout(revealAndLoadRest, 2500);
+    var revealTimeoutId = window.setTimeout(revealAndPrime, 2500);
 
     // Asking for the two weights the hero uses, rather than relying on
     // document.fonts.ready alone: ready resolves against whatever is pending
@@ -154,20 +159,30 @@
       img.src = src;
     }
 
-    // The rest are held back until the page is up so that they compete with
-    // neither the first backdrop nor anything else on the critical path.
-    function loadRest() {
-      if (restRequested) return;
-      restRequested = true;
-
-      sources.slice(1).forEach(function (src) {
-        preload(src);
-      });
+    // Whether the rotation is actually going to happen. If it is not, the
+    // first backdrop is the only one that will ever be seen, and fetching the
+    // other twelve would be pure waste -- which is what used to happen to
+    // anyone who had asked their system for less motion.
+    function willRotate() {
+      return canUse('transition') && !prefersReducedMotion();
     }
 
-    function revealAndLoadRest() {
+    // Fetched just ahead of the rotation rather than all at once. Thirteen
+    // images at five seconds each is over a minute of photography and most
+    // visits end long before that, so arriving used to cost the better part of
+    // a megabyte of pictures nobody stayed to see. If a fetch does fall behind,
+    // $bgs grows more slowly and the rotation cycles what it has, which is what
+    // it already did whenever a request stalled.
+    function requestAhead() {
+      while (requested < sources.length && requested <= shown + lead) {
+        preload(sources[requested]);
+        requested++;
+      }
+    }
+
+    function revealAndPrime() {
       reveal();
-      loadRest();
+      if (willRotate()) requestAhead();
     }
 
     if (sources.length > 0) preload(sources[0], gateReady);
@@ -203,6 +218,10 @@
         $bgs[lastPos].classList.remove('top');
         $bgs[pos].classList.add('visible');
         $bgs[pos].classList.add('top');
+
+        // Moving on is what earns the next fetch.
+        shown = pos;
+        requestAhead();
 
         window.setTimeout(function () {
           $bgs[lastPos].classList.remove('visible');

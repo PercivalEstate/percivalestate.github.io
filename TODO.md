@@ -78,14 +78,38 @@ which is why a naive grep for a status word miscounts them.
 
 The site has had several rounds of weight work and the JavaScript is now 26,929
 bytes across three files, down from 128,693 across seven. Images are what is
-left, and the slideshow is now four fifths of a first load on its own.
+left, and the slideshow is 43% of what a visitor actually arrives with.
 
-### The slideshow is 79% of the home page
+### The slideshow, if anyone still wants it smaller
 
-Measured 4 September 2026, file bytes:
+Fetching is now paced to the rotation, so this is no longer the item it was.
+Measured 4 September 2026, file bytes, on arrival:
 
 | | Bytes |
 | --- | ---: |
+| Slideshow, the 3 images a visitor arrives with | 180,026 |
+| Everything else on first load | 242,213 |
+| **Total on arrival** | **422,239** |
+| Same visit, if they stay past a minute | 1,174,261 |
+| Someone with `prefers-reduced-motion` | **302,651** |
+
+For comparison the audit opened at 2,281,131 with all thirteen fetched every
+time, whatever the visitor did or preferred.
+
+Two of the three original options are still open, and both are now judgement
+calls rather than clear wins:
+
+1. **Ship fewer than thirteen.** Over a minute of rotation is more than most
+   visits use. This only saves bytes for the visitor who stays, since the rest
+   are no longer fetched on arrival — it is a question about how long the
+   rotation should be, not about weight.
+2. **Serve a narrower set to phones.** `#bg div` is 110% of viewport width, so a
+   390px phone at 3x asks for 1287px and the files are 1024px; a 2x phone asks
+   for 858px and is the only case being over-served. Needs `srcset` or a second
+   set of files, for a saving that now applies to three images rather than
+   thirteen.
+
+--- | ---: |
 | Slideshow, 13 images | **932,048** |
 | Everything else on first load | 240,994 |
 | **Total** | **1,173,042** |
