@@ -103,11 +103,27 @@ calls rather than clear wins:
    visits use. This only saves bytes for the visitor who stays, since the rest
    are no longer fetched on arrival — it is a question about how long the
    rotation should be, not about weight.
-2. **Serve a narrower set to phones.** `#bg div` is 110% of viewport width, so a
-   390px phone at 3x asks for 1287px and the files are 1024px; a 2x phone asks
-   for 858px and is the only case being over-served. Needs `srcset` or a second
-   set of files, for a saving that now applies to three images rather than
-   thirteen.
+2. **Serve a narrower set to 2x phones.** Recommend closing this one. Measured
+   `#bg div` against nine device profiles on 4 September 2026, and over-serving
+   is the exception rather than the rule:
+
+   | | needs | 1024px file is |
+   | --- | ---: | --- |
+   | iPhone SE1, SE2/8, XR/11 (2x) | 704–910px | 114–320px too wide |
+   | iPhone 14/15, Pixel 8, Android (3x) | 1188–1419px | 164–395px too narrow |
+   | iPad 2x | 1800px | 776px too narrow |
+   | laptop 1440 at 2x | 3168px | 2144px too narrow |
+
+   So most devices are already upscaling, which b33ef14 chose knowingly — at
+   `opacity: 0.25` behind an overlay it does not show. Only 2x phones are
+   over-served. An 858px set would save 64,758 bytes of the 180,026 a 2x phone
+   arrives with, 36%, and cost a second set of thirteen files plus a second
+   encoding step to remember whenever the photos change. Note also that the
+   backdrops are CSS `background-image` set from `slideshow.js`, not `<img>`, so
+   there is no `srcset` route — it would need `image-set()` or a DPR check in
+   the JS.
+
+   Worth revisiting only if 2x phones turn out to be a large share of visits.
 
 --- | ---: |
 | Slideshow, 13 images | **932,048** |
