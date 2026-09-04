@@ -116,11 +116,19 @@
 }
 
 /* h1 in main.css carries 0.5rem of letter-spacing, which is right for the two
-   words on the home page and pushes a five-word campaign title into four
-   cramped lines on a phone. */
+   words on the home page and pushes a four-word campaign title into four
+   cramped lines on a phone.
+
+   Sized so that "Save Tompion Community Hall" holds one line wherever there is
+   room for it. Measured at 1280px, where the panel gives the heading 560px:
+   1.9rem/0.3rem needs more than that and wraps, 1.9rem/0.25rem fits with 2.3%
+   to spare, which is close enough that a different font metric or a browser
+   zoom would push it over. 1.8rem/0.2rem leaves 10.3%, and holds one line at
+   every width from 768px up. Below that it wraps, which a 27-character
+   uppercase title on a 375px phone always will. */
 .campaign-panel h1 {
-  letter-spacing: 0.3rem;
-  font-size: 1.9rem;
+  letter-spacing: 0.2rem;
+  font-size: 1.8rem;
   margin-bottom: 1.5rem;
 }
 
