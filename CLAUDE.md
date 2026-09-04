@@ -17,12 +17,19 @@ that people may act on — so accuracy in those sections is not cosmetic.
 
 ## Line endings
 
-`index.html` and the files in `assets/js/` are **CRLF throughout**. Everything
-else is LF.
+Three files are **CRLF throughout**: `index.html`, `assets/js/main.js` and
+`assets/js/slideshow.js`. Everything else is LF, including
+`assets/js/consent.js` — so this is per-file, not per-directory. Check before
+editing rather than trusting the rule:
 
-A scripted edit that reads and rewrites one of those files with default newline
-handling will flatten it to LF and turn a one-line change into a whole-file diff.
-Edit them as bytes, or read and write with the newline explicitly preserved:
+```
+python3 -c "b=open('FILE','rb').read(); print(b.count(b'\r\n'), b.count(b'\n')-b.count(b'\r\n'))"
+```
+
+A scripted edit that reads and rewrites one of the CRLF files with default
+newline handling will flatten it to LF and turn a one-line change into a
+whole-file diff. Converting `consent.js` the other way does the same damage.
+Edit as bytes, or read and write with the newline explicitly preserved:
 
 ```python
 b = open('index.html', 'rb').read()
