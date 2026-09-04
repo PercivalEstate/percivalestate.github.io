@@ -184,16 +184,47 @@
   margin-top: 0.6rem;
 }
 
-/* On a phone the photograph is standing between a resident and the form, and
-   every pixel of it is a pixel of first screen that the form does not get. At
-   its own 1200x640 it takes 182px of a 390px-wide screen and puts the first
-   field 842px down; capped it takes 130px. Cropped rather than squashed, from
-   the middle, which is where the gate, the sign and the shuttered windows are. */
+/* The photograph costs first-screen space, which is the one thing this page
+   cannot spare. Above 736px there is room to set it beside the opening lines
+   instead of under them, and then it costs nothing at all: the row is as tall
+   as the text was on its own. Below that it stacks, at its own proportions. */
+/* Stacked, the picture grows with the column: 173px tall on a 390px phone but
+   289px at 736px, which is the widest screen that still stacks and so the one
+   where it costs the most. The cap bites only there. Every real phone width is
+   under it and shows the photograph whole. */
 @media screen and (max-width: 736px) {
   .campaign-figure img {
-    height: 130px;
+    max-height: 200px;
     object-fit: cover;
     object-position: center;
+  }
+}
+
+@media screen and (min-width: 737px) {
+  .campaign-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .campaign-intro-text {
+    flex: 1 1 52%;
+    min-width: 0;
+  }
+
+  .campaign-intro .campaign-figure {
+    flex: 1 1 48%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .campaign-intro .campaign-lead {
+    margin-bottom: 1.5rem;
+  }
+
+  .campaign-intro .campaign-reference {
+    margin-bottom: 0;
   }
 }
 
