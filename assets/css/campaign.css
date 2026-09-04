@@ -130,6 +130,17 @@
   letter-spacing: 0.2rem;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
+  /* Centred under the masthead, which is centred too. The body copy below
+     stays ranged left, where it is easier to read.
+
+     The padding is the same trick consent.css uses on its buttons, for the
+     same reason: letter-spacing is applied after the last letter as well as
+     between them, so the line box is 0.2rem wider than the ink and centring
+     it leaves the title half of that -- 1.6px -- to the left of the logo
+     above it. A left pad equal to the letter-spacing moves the centring box
+     back by exactly half of itself. */
+  text-align: center;
+  padding-left: 0.2rem;
 }
 
 @media screen and (max-width: 480px) {
