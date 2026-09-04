@@ -4,9 +4,8 @@ From the site audits of 2–4 September 2026. Everything here was measured rathe
 than guessed; the evidence is quoted so nobody has to take it on trust or
 re-derive it.
 
-Most of what is open is waiting on a reply from someone else. The one item that
-is ours to do is the focus-ring gap in `main.css`, below. The three sections
-at the end are closed records kept so the same ground is not covered twice.
+One item is waiting on a reply from someone else, two are ours to do, and the
+rest are closed records kept so the same ground is not covered twice.
 
 The campaign page is not waiting on anything. The objection goes to
 `Marc.Davis@islington.gov.uk`, copied to the planning inbox, three councillors
@@ -20,67 +19,6 @@ reasoning in the message.
 ---
 
 ## Waiting on someone else
-
-### Islington's reply about the estate's fire risk assessments
-
-**Email sent to FireSafety@islington.gov.uk on 4 September 2026. Awaiting a
-reply.** Not a website change either way; the evidence is kept below because a
-chaser or a follow-up rests on it, and because a reply may only answer part of
-it.
-
-Islington's published FRA list covers 133 assessments, and only three of the six
-blocks appear:
-
-| Block | On the published list |
-| --- | --- |
-| Grimthorpe House (1–48, 49–128) | yes |
-| Tompion House (1–15 … 66–80) | yes |
-| Earnshaw House | yes |
-| Crayle House | **no** |
-| Partridge Court | **no** |
-| Cyrus House | **no** |
-
-Re-checked 3 September 2026 against the live list and the PDFs themselves: 133
-assessments, eight for this estate, and Crayle, Partridge and Cyrus still absent
-— the words do not appear on the page at all.
-
-Residents of the three missing blocks have only the email route. The eight that
-are published carry their own audit and suggested-review dates, all of which
-have passed:
-
-| Assessment | Audited | Suggested review | Overall risk |
-| --- | --- | --- | --- |
-| Earnshaw House | 16/03/2021 | 16/03/2022 | Tolerable |
-| Grimthorpe 1–48 | **09/09/2020** | **blank** | **Moderate** |
-| Grimthorpe 49–128 | 16/03/2021 | 16/03/2022 | Tolerable |
-| Tompion 1–15 | 04/05/2021 | 04/05/2022 | Tolerable |
-| Tompion 16–30 | 04/05/2021 | 04/05/2022 | Tolerable |
-| Tompion 31–45 | 04/05/2021 | 04/05/2022 | Tolerable |
-| Tompion 46–65 | 04/05/2021 | 04/05/2022 | Tolerable |
-| Tompion 66–80 | 04/05/2021 | 04/05/2022 | Tolerable |
-
-Grimthorpe 1–48 is the one to lead on. It is a year older than the rest, it is
-the only block rated Moderate rather than Tolerable, and its "Suggested Review"
-field is printed with nothing after it — the label is there and the date is
-absent, which is in the document rather than an artefact of reading it.
-
-Across the eight, 53 actions are listed and 24 are marked OPEN, 19 of those with
-a due date that has now passed; the oldest two were due 09/03/2021. Careful how
-that is used: OPEN is the status as at report generation in 2021, so it is not
-evidence the work is still outstanding. The point is the opposite — there is no
-later published assessment, so a resident cannot tell either way.
-
-What was asked: whether assessments exist for Crayle, Partridge and Cyrus and
-where to read them; when the estate is next due to be reassessed, Grimthorpe
-1–48 especially; and the current status of the outstanding actions.
-
-If nothing comes back, the Building Safety Team is the right desk and the three
-missing blocks are the part with the least room for argument.
-
-Extracted with macOS PDFKit via `osascript -l JavaScript` (no `pdftotext` or
-`pypdf` on this machine, and the streams are compressed so `strings` finds
-nothing). Two of the eight use a labelled field layout and six a tabular one,
-which is why a naive grep for a status word miscounts them.
 
 ### The 2020 cladding completion date, waiting on Guinness
 
@@ -121,6 +59,21 @@ browser; its API rejects direct calls with "Client has not beeing selected".
 
 ## Open, and ours to fix
 
+### Two questions left for Islington's Fire Safety Team
+
+Both come out of the assessments they sent on 4 September 2026, and the
+evidence for both is in the record further down.
+
+- Was action **0043993** completed — "Inspect front entrance door to ensure it
+  provides 30 minutes' fire resistance" on Grimthorpe House 1–48, due
+  26/09/2024, still carried as OPEN in the September 2025 report?
+- Why is **Partridge Court's** suggested review 06/09/2028, four years after its
+  audit, when the team gave the medium-rise cycle as two years and the other two
+  medium-rise blocks are on two?
+
+Neither is urgent. Both are one sentence, and nobody has asked yet, so this is
+not waiting on a reply.
+
 ### Buttons on the home page have no focus indicator
 
 `main.css` sets `outline: 0` on `input[type=submit]`, `input[type=reset]`,
@@ -139,6 +92,70 @@ belongs in its own commit rather than inside a campaign one.
 Verified with a real Tab walk over both pages rather than by reading the CSS:
 21 stops on the campaign page, every one showing an outline, a box-shadow or a
 tick-box ring.
+
+---
+
+## Fire risk assessments, answered
+
+**Closed 4 September 2026.** Ben Cockle of Islington's Fire Safety Team replied
+to the 4 September email and attached four assessments: Grimthorpe House 1–48,
+Crayle House, Cyrus House and Partridge Court. The three blocks that were
+missing from the published list do have assessments, and the one that led the
+enquiry has been redone.
+
+| Block | Audited | Suggested review | Overall risk |
+| --- | --- | --- | --- |
+| Grimthorpe House 1–48 | **15/09/2025** | 14/09/2026 | Tolerable |
+| Cyrus House | 17/09/2025 | 17/09/2027 | Tolerable |
+| Crayle House | 04/12/2024 | 03/12/2026 | Tolerable |
+| Partridge Court | 04/09/2024 | **06/09/2028** | Tolerable |
+
+Grimthorpe 1–48 was the one to lead on and it is the one that moved: it was
+audited 09/09/2020, rated **Moderate**, with the Suggested Review field printed
+blank. It is now a 2025 assessment, rated Tolerable, with a review date on it.
+That closes the substance of the enquiry.
+
+He also gave the reassessment cycle: higher-risk buildings such as Grimthorpe
+every 12 months, medium-rise such as Crayle, Cyrus and Partridge every 2 years.
+The dates above match that for three blocks and not for the fourth — **Partridge
+Court's suggested review is four years out, not two.** Either the document is
+wrong or the cycle is not being applied to that block, and it is worth one
+sentence to ask which.
+
+Outstanding actions, from each report's own "Previous O/S Actions (as of report
+generation date)" field rather than by counting the word OPEN, which is what
+miscounted the 2021 set:
+
+- Crayle, Cyrus and Partridge: **None**.
+- Grimthorpe 1–48 carries one over, ref 0043993 — "Inspect front entrance door
+  to ensure it provides 30 minutes' fire resistance", due **26/09/2024**,
+  responsible Fire Door Inspection Team, status OPEN. Due date passed. Also ref
+  0045518, floor identification and flat indicator signage under Regulation 8 of
+  the Fire Safety (England) Regulations 2022.
+- New actions raised in the 2025/24 reports carry completion dates of 18/03/2026
+  (Grimthorpe, two), 04/12/2025 (Crayle, three) and 19/03/2026 and 19/09/2026
+  (Cyrus, three). All but the last have passed.
+
+The same caveat as before applies and is the reason none of this is on the
+website as a complaint: OPEN is the status as at report generation, so it is not
+evidence the work is still outstanding. It is a reason to ask.
+
+**Still to ask, if anyone picks this up:** whether the fire door action 0043993
+was completed, and why Partridge Court's review is set four years out.
+
+**He could not place the published list, and it exists.** "I am unsure I know of
+this FRA list that you speak of. Is it on the LBI website?" It is:
+`islington.gov.uk/housing/fire-safety-in-islington/fire-risk-assessments/fire-risk-assessment-list`,
+checked again 4 September 2026 and returning 200 with Grimthorpe and Tompion
+still on it. He is right that it is out of date — every document on it is from
+2021 — and right that it is no use for Crayle, Cyrus or Partridge, which are not
+on it at all. Worth telling him where it is, because residents will keep finding
+it.
+
+The high-rise route has moved to Twinnedit under the Building Safety Act 2022,
+and he says that link "is not currently operational". So for the moment the
+email address is the only working route for every block on this estate, which is
+what the Safety panel now says.
 
 ---
 
