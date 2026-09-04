@@ -78,17 +78,17 @@
   /* Where a mailto URI is long enough that some clients shorten it without
      saying so. Measured rather than guessed, and re-measured every time the
      letter changed: with the recipients, the shared case and the shortest
-     possible answers it encodes to 2,243 characters, and with every field at
-     its limit, all eight uses and the full 1,000-character comment, to 3,905.
+     possible answers it encodes to 2,735 characters, and with every field at
+     its limit, all eight uses and the full 1,000-character comment, to 4,409.
 
-     So a substantive objection is already past the 2,048 characters that
+     So a substantive objection is already well past the 2,048 characters that
      Windows mailto handlers were once held to, and no threshold can fix that
      -- which is why the note beside the button tells everybody to check the
      whole letter is there before they press Send, rather than only the people
-     a warning happens to catch. 3,200 is set where the warning still says
+     a warning happens to catch. 3,600 is set where the warning still says
      something: it appears once a resident has written a few hundred words of
      their own, which is exactly when there is most to lose. */
-  var MAILTO_WARN_LENGTH = 3200;
+  var MAILTO_WARN_LENGTH = 3600;
 
   /* ---------------------------------------------------------------------
      Wording
@@ -228,15 +228,15 @@
        cost here that it does not have on a web page -- a mailto that runs long
        is one some mail clients quietly shorten. */
     paragraphs.push(
-      "The Council's own Community Needs Assessment says the Community Hall closed in 2019 for refurbishment and has not been available for community bookings since. The absence of bookings follows from that closure, and is not evidence that residents do not want it."
+      "The Council's own Community Needs Assessment says the Community Hall closed in 2019 for refurbishment and has not been available for community bookings since, so the absence of bookings follows from that closure rather than from any lack of demand. The same document notes interest from a local resident in reopening it, and sets that aside; my objection is further evidence of it."
     );
 
     paragraphs.push(
-      'The same document records that the Council used the Community Hall as an office base for its own Estate Services team from 2021/22 until November 2024, so it has stood genuinely empty only since then.'
+      "That document also records that the Council's own Estate Services team used the Community Hall as an office base from 2021/22 until November 2024. The application states that the permitted use remains Class F1, and that office use requires consent for Class E - which is what is being sought now. I would ask the Council to explain what permission was in place for that earlier use."
     );
 
     paragraphs.push(
-      "Venues a five to fifteen minute walk away are welcome, but they are not equivalent to a hall on the estate itself, particularly for older residents and for families with young children. Tompion Community Hall is the only community facility on the Percival Estate, and the interest in reopening it that the Assessment itself notes is borne out by objections like this one."
+      "Some of the alternative venues are closer than fifteen minutes, but a hall on the estate itself is not the same thing. It is the one residents actually turn up to, so it is the one that gets used. Booking space on another estate also means accepting that estate's rules, times and priorities. Tompion Community Hall is the only community facility on the Percival Estate."
     );
 
     paragraphs.push(
