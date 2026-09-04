@@ -121,6 +121,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/slideshow.css" />
     <link rel="stylesheet" href="assets/css/consent.css" />
+    <link rel="stylesheet" href="assets/css/campaign.css" />
 
     <!-- Only the PNG is declared. favicon.svg was not a vector at all: it
          wrapped a 180x180 raster, embedded twice over for a light/dark swap
@@ -254,6 +255,32 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
+        <!-- Campaign notice for planning application P2026/1577/FUL.
+
+             After the nav rather than above the register button, and the
+             reason is a measurement rather than a preference: with the
+             cookie banner up the register button has 34px of clearance
+             above it on a 375x667 phone and 59px on a 320x568 one, so
+             anything inserted higher in the header puts a tap target back
+             underneath the banner -- the fault 56141a8 fixed. Here it
+             costs the existing layout nothing.
+
+             It carries the cta class so that the pill, the 44px rows and
+             the single-column stack under 480px all come from rules that
+             already exist. What puts the campaign in front of a first-time
+             visitor is the modal in assets/js/campaign-notice.js; this is
+             what stays once that has been dismissed. -->
+        <div class="cta campaign-notice">
+          <p class="campaign-notice-title">Save our community hall</p>
+          <p class="campaign-notice-text">
+            Islington Council has applied to permanently change Tompion
+            Community Hall from community use to office use. The Percival
+            Estate Community objects &mdash; you can object too.
+          </p>
+          <ul>
+            <li><a href="/save-our-community-hall/">Send your objection</a></li>
+          </ul>
+        </div>
       </header>
 
       <!-- Main -->
@@ -1324,7 +1351,7 @@
 
         <article id="privacy-policy">
           <h2 class="major">Privacy Policy</h2>
-          <p><strong>Last updated:</strong> 30 August 2026</p>
+          <p><strong>Last updated:</strong> 4 September 2026</p>
 
           <h3>Who we are</h3>
           <p>
@@ -1368,6 +1395,30 @@
             choose to write in your message.
           </p>
           <p>
+            <strong>When you use the objection tool.</strong> Our
+            <a href="/save-our-community-hall/"
+              >Save Tompion Community Hall</a
+            >
+            page builds a planning objection for you inside your own
+            browser. Your name, your address, the building you live in, how
+            you would use the Hall and anything you write yourself stay on
+            your device. The page itself sends them nowhere and we never
+            see what you type into it: the finished objection is handed to
+            your own email app or to your clipboard, and it is yours to
+            send.
+          </p>
+          <p>
+            <strong>The objection email itself.</strong> The email that
+            page prepares is addressed to Islington Council&rsquo;s planning
+            team and copies us at
+            <a href="mailto:tra@percivalestate.com">tra@percivalestate.com</a>,
+            so that we can count how many residents have objected. So if you
+            send it as it stands, we do receive your objection, with your
+            name and address in it, as an ordinary email from you. You can
+            delete our address in your email app before you send, and your
+            objection still reaches the Council.
+          </p>
+          <p>
             <strong>When you simply visit.</strong> If you accept analytics
             cookies, Google Analytics counts your visit and records things like
             the pages you look at, the kind of device you are using and the
@@ -1403,6 +1454,15 @@
               share, so that we can ask for help with things like planning or
               legal questions. Our lawful basis is your consent, and you do not
               have to share a profile.
+            </li>
+            <li>
+              <strong>To count objections to planning application
+              P2026/1577/FUL</strong>
+              and follow the application up, from the copy of your objection
+              that reaches us if you leave our address in the email. Our
+              lawful basis is our legitimate interest in representing
+              residents on planning matters affecting the estate. You can ask
+              us to delete your objection at any time.
             </li>
             <li>
               <strong>To see how this website is being used</strong>, so that we
@@ -1740,5 +1800,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/slideshow.js"></script>
     <script src="assets/js/consent.js"></script>
+    <script src="assets/js/campaign-notice.js"></script>
   </body>
 </html>

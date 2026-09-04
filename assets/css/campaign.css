@@ -1,0 +1,682 @@
+/* Save Tompion Community Hall campaign.
+
+   Shared by two pages that use it for different halves of the file:
+
+   - index.html loads it for the first-visit modal (#campaign-modal) and the
+     persistent notice in the header (.campaign-notice).
+   - save-our-community-hall/index.html loads it for the page shell and the
+     objection form.
+
+   Everything else -- type, buttons, form controls, checkboxes and radios --
+   comes from main.css, which the campaign page loads for exactly that reason.
+   Only what main.css has no rule for, or gets wrong at this length of text,
+   is written here.
+
+   The accent is #288548, the estate green already used by .glow and by the
+   cookie banner's top border, so the campaign reads as part of the site
+   rather than as something bolted to it. */
+
+/* The reset in main.css gives section, header, footer and friends an author
+   `display: block`, and an author rule beats the browser's own [hidden] rule
+   however specific it is. Several blocks on the campaign page are shown and
+   hidden by toggling that attribute, so it has to be restated here as one an
+   author rule cannot lose to. */
+[hidden] {
+  display: none !important;
+}
+
+/* -------------------------------------------------------------------------
+   Campaign page shell
+   ------------------------------------------------------------------------- */
+
+/* The campaign page deliberately does not load slideshow.js or main.js. It
+   has no panels to drive and no backdrop to wait for, so it also avoids
+   main.css's loading overlay -- the same trap 404.html documents -- simply by
+   never putting is-preload on <body> and never including #loadingPage.
+
+   The side benefit matters here more than on the home page: a resident who
+   follows a link to this page from a poster or a WhatsApp message is not
+   charged 180KB of slideshow backdrops before they can read it. */
+.campaign-page {
+  padding: 0;
+  margin: 0;
+}
+
+.campaign-shell {
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 736px) {
+  .campaign-shell {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .campaign-shell {
+    padding: 1rem;
+  }
+}
+
+/* Same measure and panel treatment as an article on the home page, so the
+   two feel like one site. Solid rather than the home page's 85% black,
+   because there is no backdrop behind it to show through. */
+.campaign-panel {
+  width: 40rem;
+  max-width: 100%;
+  background-color: #22272b;
+  border-radius: 4px;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 736px) {
+  .campaign-panel {
+    padding: 2rem 1.5rem 0.5rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .campaign-panel {
+    padding: 1.5rem 1.25rem 0.5rem 1.25rem;
+  }
+}
+
+.campaign-masthead {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.campaign-masthead a {
+  border-bottom: 0;
+  display: inline-block;
+}
+
+.campaign-masthead img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border: solid 1px #ffffff;
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.campaign-masthead .campaign-masthead-name {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.7rem;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* h1 in main.css carries 0.5rem of letter-spacing, which is right for the two
+   words on the home page and pushes a five-word campaign title into four
+   cramped lines on a phone. */
+.campaign-panel h1 {
+  letter-spacing: 0.3rem;
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .campaign-panel h1 {
+    letter-spacing: 0.15rem;
+    font-size: 1.5rem;
+  }
+}
+
+.campaign-panel h2 {
+  font-size: 1.1rem;
+  letter-spacing: 0.25rem;
+  border-bottom: solid 1px #ffffff;
+  padding-bottom: 0.5rem;
+  margin: 3rem 0 1.5rem 0;
+}
+
+.campaign-lead {
+  font-size: 1.05rem;
+}
+
+/* The application reference, set apart so it can be read off the screen and
+   typed into the council's search box. */
+.campaign-reference {
+  display: block;
+  border: solid 1px rgba(255, 255, 255, 0.4);
+  border-left: solid 3px #288548;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 2rem 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+}
+
+.campaign-reference strong {
+  letter-spacing: 0.1rem;
+}
+
+.campaign-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: solid 1px rgba(255, 255, 255, 0.25);
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.campaign-footer p {
+  margin-bottom: 0.75rem;
+}
+
+/* -------------------------------------------------------------------------
+   Buttons with a full sentence on them
+   ------------------------------------------------------------------------- */
+
+/* main.css sets every button to a fixed 2.75rem with white-space: nowrap,
+   which is right for "Register" and sends "Open email and send objection"
+   off the side of a 320px phone. .button-wrap lets those labels take the
+   room they need without changing anything else about them. */
+.button-wrap {
+  white-space: normal !important;
+  height: auto !important;
+  line-height: 1.4 !important;
+  padding: 0.85rem 1.25rem 0.85rem 1.35rem !important;
+  min-height: 2.75rem;
+}
+
+/* Absolute, not rem, for the same reason the header nav gives its rows a flat
+   44px: the root drops to 11pt at 736px and 10pt at 360px, which takes 2.75rem
+   down to 41px and then 37px. Measured at 375x667, where these came out at
+   41px before this rule. */
+@media (pointer: coarse) {
+  .button-wrap {
+    min-height: 44px;
+  }
+}
+
+/* Stacked full-width actions are the only sensible arrangement for three
+   buttons this wordy, at every width rather than only under 480px. */
+.campaign-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.campaign-actions li {
+  padding-left: 0;
+}
+
+.campaign-actions li > * {
+  width: 100%;
+}
+
+/* main.css sets `outline: 0` on every button and offers nothing in its place,
+   so a keyboard user tabbing through this page would have no idea where they
+   were. Text fields are fine -- they get a white box-shadow on focus -- and so
+   are the tick boxes, whose ::before takes one. Buttons and links do not, and
+   this page is almost entirely buttons.
+
+   Scoped to the campaign rather than fixed in main.css: the same gap exists on
+   the contact form on the home page, but that is a separate change to a shared
+   file and is recorded in TODO.md instead of being smuggled in here. */
+.campaign-page .button:focus-visible,
+.campaign-page button:focus-visible,
+.campaign-page a:focus-visible,
+.campaign-page summary:focus-visible {
+  outline: solid 2px #ffffff;
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   Objection form
+   ------------------------------------------------------------------------- */
+
+/* The reset in main.css zeroes fieldset and legend, which is what we want as
+   a starting point: a fieldset is used here for the grouping a screen reader
+   needs, not for a border. */
+.campaign-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  min-width: 0;
+}
+
+/* A legend cannot be a <label>, so it is styled to match one. */
+.campaign-fieldset legend {
+  color: #ffffff;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.campaign-hint {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin: -0.5rem 0 1rem 0;
+}
+
+/* The base .campaign-hint pulls itself up under a label. This one sits under
+   the button it explains, which needs the opposite. */
+.campaign-hint-under {
+  margin: 0.75rem 0 0 0;
+  text-align: left;
+}
+
+.campaign-optional {
+  text-transform: none;
+  letter-spacing: 0.05rem;
+  font-size: 0.8em;
+  opacity: 0.75;
+}
+
+/* main.css floats the real checkbox out of the way and draws the box on the
+   label's ::before, so the labels are inline-block and pack together. Two
+   columns on anything wider than a phone keeps eight options from running
+   the form down the screen. */
+.campaign-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem 1rem;
+}
+
+.campaign-checkboxes > div {
+  min-width: 0;
+}
+
+/* Specific enough to beat main.css's own `input[type='checkbox'] + label`,
+   which is (0,1,2) and would otherwise keep these inline-block. */
+.campaign-checkboxes input[type='checkbox'] + label {
+  display: block;
+}
+
+@media screen and (max-width: 480px) {
+  .campaign-checkboxes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* main.css hides the real control and draws the box on the label's ::before,
+   which leaves the tappable area the height of one line of 0.8rem text -- 18px
+   at 375x667. Growing the label to 44px is the whole fix; the box has to be
+   re-centred because main.css pins it 0.15rem above the top of a line box
+   that is now more than twice as tall. Absolutely positioned, so it is out of
+   flow and the flex context does not move it. */
+@media (pointer: coarse) {
+  .campaign-checkboxes input[type='checkbox'] + label,
+  .campaign-radios input[type='radio'] + label {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    margin-bottom: 0;
+  }
+
+  .campaign-checkboxes input[type='checkbox'] + label:before,
+  .campaign-radios input[type='radio'] + label:before {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* The radio pair reads as one row on any screen wide enough. */
+.campaign-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+}
+
+/* Examples of what to write, closed by default so the form stays short. */
+.campaign-examples {
+  margin: 0 0 2rem 0;
+  border: solid 1px rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  padding: 0 1rem;
+}
+
+.campaign-examples[open] {
+  padding-bottom: 0.5rem;
+}
+
+.campaign-examples summary {
+  cursor: pointer;
+  padding: 0.75rem 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  /* A summary is a real control, so it needs a real touch target. */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.campaign-examples summary:focus-visible {
+  outline: solid 2px #ffffff;
+  outline-offset: 2px;
+}
+
+.campaign-examples ul {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.campaign-counter {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin: 0.5rem 0 0 0;
+  text-align: right;
+}
+
+/* -------------------------------------------------------------------------
+   Validation, notices and results
+   ------------------------------------------------------------------------- */
+
+/* Colour alone never carries the message: every error has a leading "Error:"
+   and an icon-free text label, and the summary is announced as an alert. */
+.campaign-error-summary {
+  border: solid 2px #ff6b6b;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 2rem 0;
+}
+
+.campaign-error-summary h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.campaign-error-summary ul {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.campaign-error-summary a {
+  color: #ffffff;
+}
+
+.campaign-field-error {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffb4b4;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.05rem;
+}
+
+.campaign-invalid input[type='text'],
+.campaign-invalid textarea {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 1px #ff6b6b;
+}
+
+.campaign-note {
+  border: solid 1px rgba(255, 255, 255, 0.4);
+  border-left: solid 3px #288548;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* main.css puts 2rem under every paragraph, which is right for body copy and
+   too airy inside a two-paragraph callout. */
+.campaign-note p {
+  margin-bottom: 1rem;
+}
+
+.campaign-note > :last-child {
+  margin-bottom: 0;
+}
+
+.campaign-note.is-warning {
+  border-left-color: #e0a030;
+}
+
+/* The generated objection. Kept tall enough that a resident can see they are
+   editing a whole letter rather than peering at it three lines at a time. */
+#objection-output {
+  min-height: 22rem;
+  line-height: 1.6;
+  resize: vertical;
+  /* main.css gives a textarea no bottom margin, which left the copy button
+     sitting flush against the box it copies. */
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 736px) {
+  #objection-output {
+    min-height: 18rem;
+  }
+}
+
+
+/* Said out loud by the live region after a copy, and shown here for everyone
+   else. */
+/* objection.js moves focus here once the letter exists, so that the keyboard
+   is inside the result rather than back at the form. It is a container rather
+   than a control and the focus is never the visitor's own doing, so it draws
+   no ring -- the same reasoning as #main article:focus in main.css. Every
+   control inside it keeps its own. */
+#objection-result:focus {
+  outline: none;
+}
+
+.campaign-status {
+  font-size: 0.9rem;
+  min-height: 1.6rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.campaign-status:empty {
+  margin: 0;
+  min-height: 0;
+}
+
+.campaign-privacy {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* -------------------------------------------------------------------------
+   Home page: the persistent notice in the header
+   ------------------------------------------------------------------------- */
+
+/* Placed after <nav> rather than above the register button, and the reason is
+   measured rather than aesthetic. With the cookie banner up there are 34px
+   between the register button and the top of the banner on a 375x667 phone
+   and 59px on a 320x568 one, so any block added above the button puts a tap
+   target underneath the banner -- the exact fault 56141a8 fixed. After the
+   nav it costs the existing layout nothing.
+
+   It inherits #header .cta's rules by also carrying that class, which is
+   where the 44px rows and the single-column stack under 480px come from. */
+#header .campaign-notice {
+  max-width: 100%;
+}
+
+#header .campaign-notice .campaign-notice-title {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+#header .campaign-notice .campaign-notice-text {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  max-width: 30rem;
+  margin: 0 auto 1.25rem auto;
+}
+
+/* Filled in the estate green rather than given the register button's glow:
+   two things pulsing at once on the same screen is noise, and a solid accent
+   marks the primary action without animating. */
+#header .campaign-notice ul {
+  border-color: #288548;
+  margin-left: auto;
+  margin-right: auto;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+}
+
+#header .campaign-notice ul li a {
+  background-color: #288548;
+  font-weight: 600;
+}
+
+#header .campaign-notice ul li a:hover {
+  background-color: #2f9c55;
+}
+
+#header .campaign-notice ul li a:active {
+  background-color: #35b061;
+}
+
+/* -------------------------------------------------------------------------
+   Home page: the first-visit modal
+   ------------------------------------------------------------------------- */
+
+/* Above the cookie banner (9998) but below the loading overlay (9999), which
+   campaign-notice.js waits for anyway before showing this. */
+#campaign-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: rgba(10, 12, 13, 0.85);
+  overflow-y: auto;
+}
+
+#campaign-modal .campaign-modal-panel {
+  position: relative;
+  width: 32rem;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background-color: #1b1f22;
+  border: solid 1px rgba(255, 255, 255, 0.35);
+  border-top: solid 4px #288548;
+  border-radius: 4px;
+  padding: 2rem 2rem 1.5rem 2rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  #campaign-modal {
+    padding: 0.75rem;
+  }
+
+  #campaign-modal .campaign-modal-panel {
+    padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+  }
+}
+
+#campaign-modal h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (max-width: 480px) {
+  #campaign-modal h2 {
+    font-size: 1.05rem;
+    letter-spacing: 0.15rem;
+  }
+}
+
+#campaign-modal p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+#campaign-modal .campaign-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+#campaign-modal .campaign-modal-actions .button {
+  width: 100%;
+}
+
+#campaign-modal .campaign-modal-actions .button.primary {
+  background-color: #288548;
+  color: #ffffff !important;
+  box-shadow: inset 0 0 0 1px #288548;
+}
+
+#campaign-modal .campaign-modal-actions .button.primary:hover {
+  background-color: #2f9c55;
+}
+
+/* The dismiss control is a plain button rather than a corner cross so that it
+   says what it does, and so that it is the same 44px target as everything
+   else on a phone. */
+#campaign-modal .campaign-modal-dismiss {
+  background: transparent;
+  box-shadow: none;
+  text-decoration: underline;
+  opacity: 0.85;
+  min-height: 44px;
+}
+
+#campaign-modal .campaign-modal-dismiss:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+  opacity: 1;
+}
+
+#campaign-modal .button:focus-visible,
+#campaign-modal a:focus-visible {
+  outline: solid 2px #ffffff;
+  outline-offset: 2px;
+}
+
+/* The page behind the modal must not scroll under it. */
+body.campaign-modal-open {
+  overflow: hidden;
+}
+
+/* Honour a request for less motion: the modal simply appears. */
+@media (prefers-reduced-motion: no-preference) {
+  #campaign-modal {
+    animation: campaign-modal-in 200ms ease-out;
+  }
+
+  @keyframes campaign-modal-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
