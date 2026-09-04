@@ -128,12 +128,6 @@ Fixing it means shrinking the logo or hero type at that height, which is a desig
 decision rather than a bug fix. Measured with `pointer: coarse` emulated —
 without that the banner measures 88px instead of 139px and the problem hides.
 
-### `sitemap.xml` `lastmod` goes stale
-
-It is a hand-maintained date in a file nothing updates. Either remember to change
-it with content edits, or drop the element — an inaccurate `lastmod` is worth
-less than none.
-
 ### The 2020 cladding date rests on one source
 
 `index.html`, About panel — "The new cladding went up in 2020".
