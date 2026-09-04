@@ -2051,6 +2051,50 @@ body.is-preload .spinner {
   }
 }
 
+/* Shorter windows still.
+
+   At 568px tall the step above is not enough. The banner holds the foot of the
+   window -- 121px of it at 320 wide, 128px at 375 -- and the register button
+   landed entirely behind it, on a hero whose last line reads "Register your
+   interest below:". Not merely covered: hit-tested at both sizes,
+   elementFromPoint at the button's centre returned the banner's own paragraph.
+
+   Tightening the rhythm does not recover enough on its own. Measured, with the
+   banner left at its own size: whitespace plus a smaller logo still leaves the
+   button 3px short at 375x568, and shrinking the headline does not rescue it
+   either -- at that width the headline and the list of blocks wrap to the same
+   number of lines however small the type gets, so nothing is saved. Dropping
+   the list of blocks is what buys the room: 36px of clearance at 375x568 and
+   38px at 320x568, with the banner untouched, so its own text stays readable
+   and its buttons stay 44px.
+
+   The block names are not lost. They are in the page title and description, and
+   the About panel names all six.
+
+   Portrait only. A landscape phone has its own rule further up, and there the
+   button sits below the fold rather than behind the banner, which is ordinary
+   scrolling rather than something that looks pressable and is not. */
+@media screen and (orientation: portrait) and (max-height: 600px) {
+  #header > * {
+    margin-top: 0.5rem;
+  }
+
+  #header .content .inner {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #header .logo {
+    width: 3.25rem;
+    height: 3.25rem;
+    line-height: 3.25rem;
+  }
+
+  #header .estate-blocks {
+    display: none;
+  }
+}
+
 /* The same request, applied to everything else on the page: the glow on the
    register button, and the transitions on the panels, nav and hover states.
 

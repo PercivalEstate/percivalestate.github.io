@@ -136,16 +136,6 @@ rather than how big they are:
 
 ## Smaller
 
-### The register button is still under the cookie banner at 375×568
-
-Fixed for every size tested except an iPhone 5 / SE1 viewport, where the banner
-is 128px and the hero cannot fit above it in 568px. The page scrolls, so the
-button is reachable, but it is covered on arrival.
-
-Fixing it means shrinking the logo or hero type at that height, which is a design
-decision rather than a bug fix. Measured with `pointer: coarse` emulated —
-without that the banner measures 88px instead of 139px and the problem hides.
-
 ### The 2020 cladding completion date still rests on one source
 
 `index.html`, About panel — "The new cladding went up in 2020".
@@ -192,6 +182,14 @@ no `target="_blank"` without `rel="noopener"`, zoom not disabled, `lang` set.
 `404.html` and the `/register` redirect both work. All seven links to
 `documents/` now carry type and size in their own link text, checked against the
 files' actual byte counts.
+
+The register button clears the cookie banner in portrait at every size tested
+from 320×568 up, hit-tested at three points down the button rather than by
+geometry alone. In landscape it sits below the fold — 391px down a 375px window
+at 667×375 — which is ordinary scrolling, not a button that looks pressable and
+is not, so it is left alone and the landscape rule in `main.css` is unchanged.
+Screens shorter than about 520px in portrait (a 320×480 phone) are still
+covered; nothing was done for those.
 
 Islington does not publish the full Conditions of Tenancy. Its
 tenancy-conditions page links only an introductory tenancies factsheet, so the
