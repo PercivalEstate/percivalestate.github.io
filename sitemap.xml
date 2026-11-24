@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- No lastmod, changefreq or priority on purpose.
+     Google ignores changefreq and priority outright, and uses lastmod only
+     "if it's consistently and verifiably (for example by comparing to the last
+     modification of the page) accurate". Nothing here updates that date: it
+     said 2026-08-31 while index.html had changed eight times since, so it was
+     verifiably wrong and worth less than no date at all. If a build step ever
+     appears, stamp it then. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://percivalestate.com/</loc>
+  </url>
+  <url>
+    <loc>https://percivalestate.com/save-our-community-hall/</loc>
+  </url>
+</urlset>

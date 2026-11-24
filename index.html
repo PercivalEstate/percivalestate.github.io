@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en-GB" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+    />
+    <meta name="author" content="Percival Estate Community" />
+
+    <!-- Open Graph protocol -->
+    <meta property="og:site_name" content="Percival Estate Community" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Percival Estate Community" />
+    <meta property="og:url" content="https://percivalestate.com/" />
+    <meta
+      property="og:description"
+      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+    />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://percivalestate.com/images/meta-cover.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="The Percival Estate Community logo above the name of the estate"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Percival Estate Community" />
+    <meta
+      name="twitter:description"
+      content="Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House"
+    />
+    <meta
+      name="twitter:image"
+      content="https://percivalestate.com/images/meta-cover.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="The Percival Estate Community logo above the name of the estate"
+    />
+
+    <title>Percival Estate Community</title>
+
+    <link rel="canonical" href="https://percivalestate.com/" />
+    <meta name="theme-color" content="#288548" />
+
+    <!-- The overlay stays up until the first slideshow backdrop is ready, so
+         start fetching it during parse rather than after the scripts at the
+         end of the body have run. -->
+    <link
+      rel="preload"
+      as="image"
+      href="images/slideshow/1.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Consent Mode: analytics storage stays denied, so GA sets no cookie,
+      // until the visitor accepts in the banner that assets/js/consent.js
+      // shows. Granting a stored consent here rather than waiting for that
+      // file keeps the pageview from being missed.
+      gtag("consent", "default", { analytics_storage: "denied" });
+
+      try {
+        if (localStorage.getItem("pec-cookie-consent") === "granted") {
+          gtag("consent", "update", { analytics_storage: "granted" });
+        }
+      } catch (e) {
+        // Storage is blocked; the denied default stands.
+      }
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-N85MHLCZ5L"
+    ></script>
+    <script>
+      gtag("js", new Date());
+
+      gtag("config", "G-N85MHLCZ5L");
+    </script>
+
+    <!-- Self-hosted rather than fetched from Google; see assets/css/fonts.css
+         for why. Preloading the two weights the hero uses starts them during
+         parse instead of after fonts.css has been fetched and parsed, which
+         is the same second hop the old @import cost, only closer to home.
+         crossorigin is required on font preloads even same-origin: without
+         it the preload is fetched in a different mode to the one @font-face
+         uses and the file is downloaded twice. -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="assets/webfonts/source-sans-pro-300-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="assets/webfonts/source-sans-pro-600-latin.woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/slideshow.css" />
+    <link rel="stylesheet" href="assets/css/consent.css" />
+    <link rel="stylesheet" href="assets/css/campaign.css" />
+
+    <!-- Only the PNG is declared. favicon.svg was not a vector at all: it
+         wrapped a 180x180 raster, embedded twice over for a light/dark swap
+         between two byte-identical copies, and browsers preferred it -- 65KB
+         to show what the 8KB PNG beside it already shows. The .ico stays on
+         disk, undeclared, so only the browsers that actually need it go
+         looking for it. -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Percival Estate Community"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Tells search engines that the estate name, address, contact and
+         social accounts scattered through this page all describe one
+         organisation, rather than leaving them to infer it. Every value
+         below is repeated from copy that is visible on the page. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Percival Estate Community",
+        "url": "https://percivalestate.com/",
+        "logo": "https://percivalestate.com/web-app-manifest-512x512.png",
+        "image": "https://percivalestate.com/images/meta-cover.png",
+        "email": "tra@percivalestate.com",
+        "description": "Percival Estate Community - Grimthorpe House, Crayle House, Partridge Court, Tompion House, Earnshaw House & Cyrus House",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tompion Community Hall, 40 Percival Street",
+          "addressLocality": "London",
+          "postalCode": "EC1V 0EB",
+          "addressCountry": "GB"
+        },
+        "sameAs": [
+          "https://x.com/PercivalEstate/",
+          "https://www.instagram.com/PercivalEstate/",
+          "https://www.facebook.com/PercivalEstate/",
+          "https://www.youtube.com/@PercivalEstate",
+          "https://github.com/PercivalEstate"
+        ]
+      }
+    </script>
+
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+
+  <!-- The social glyphs below are Font Awesome Free 6.7.2 brand icons,
+       inlined rather than fetched from the Font Awesome kit: the kit was a
+       render-blocking third-party script, and a webfont from a further
+       origin, for five pictures. Icons: CC BY 4.0, Fonticons, Inc.
+       https://fontawesome.com/license/free -->
+  <body class="is-preload">
+    <div id="loadingPage">
+      <div class="spinner" style="margin-bottom: 5px"></div>
+      <p style="height: 25px; text-align: center; font-size: 1rem">
+        Loading...
+      </p>
+    </div>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <a href="#register" style="border-bottom-color: transparent">
+            <img
+              class="growsmall"
+              alt="Percival Estate Community Logo"
+              src="images/percival-estate-logo-white-padding.webp"
+              style="
+                width: 83%;
+                height: 83%;
+                margin: 0 auto;
+                display: block;
+                margin-top: 1px;
+              "
+          /></a>
+        </div>
+        <div class="content">
+          <div class="inner" style="background-color: rgba(0, 0, 0, 0.25)">
+            <h1 style="font-size: 2rem">Percival Estate Community</h1>
+            <p
+              class="estate-blocks"
+              style="margin: auto; max-width: 650px; font-size: 0.7rem"
+            >
+              Grimthorpe House, Crayle House, Partridge Court, Tompion House,
+              Earnshaw House & Cyrus House
+            </p>
+            <p style="margin: auto; font-weight: bold; font-size: 1.5rem">
+              Join your neighbours
+            </p>
+            <p
+              style="
+                text-transform: none;
+                font-size: 1rem;
+                letter-spacing: 0;
+                max-width: 650px;
+                margin: auto;
+              "
+            >
+              A new community organisation giving a voice to local residents and
+              improving life on the estate. Register your interest below:
+            </p>
+          </div>
+        </div>
+        <!-- A call to action rather than a navigation region: a landmark
+             holding a single link is noise to anyone browsing by landmark,
+             and with one <nav> left on the page it needs no label to tell
+             it apart from another. -->
+        <div class="cta">
+          <ul>
+            <li class="glow">
+              <a href="#register">Register</a>
+            </li>
+          </ul>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li>
+              <a href="#recycling">Recycling</a>
+            </li>
+            <li><a href="#safety">Safety</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- Campaign notice for planning application P2026/1577/FUL.
+
+             After the nav rather than above the register button, and the
+             reason is a measurement rather than a preference: with the
+             cookie banner up the register button has 34px of clearance
+             above it on a 375x667 phone and 59px on a 320x568 one, so
+             anything inserted higher in the header puts a tap target back
+             underneath the banner -- the fault 56141a8 fixed. Here it
+             costs the existing layout nothing.
+
+             It carries the cta class so that the pill, the 44px rows and
+             the single-column stack under 480px all come from rules that
+             already exist. What puts the campaign in front of a first-time
+             visitor is the modal in assets/js/campaign-notice.js; this is
+             what stays once that has been dismissed. -->
+        <div class="cta campaign-notice">
+          <p class="campaign-notice-title">Save our community hall</p>
+          <p class="campaign-notice-text">
+            Islington Council has applied to permanently change Tompion
+            Community Hall from community use to office use. The Percival
+            Estate Community objects &mdash; you can object too.
+          </p>
+          <ul>
+            <li><a href="/save-our-community-hall/">Send your objection</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main id="main">
+        <!-- About -->
+        <article id="about">
+          <h2 class="major">About</h2>
+          <h3 class="major">About the Percival Estate Community</h3>
+          <p>
+            We are a non-profit community organisation representing residents of
+            the Percival Estate in the London Borough of Islington; we help to
+            give a voice to residents and support with making improvements to
+            the estate.
+          </p>
+          <p>
+            We're in the process of establishing a formal Tenants and Residents
+            Association (TRA). Constituting one is helpful for the community as
+            this will enable us to access specialised funding pots and other
+            opportunities that can make our estate a better place to live, for
+            everyone. Islington's
+            <a href="documents/tra-handbook.pdf" target="_blank" rel="noopener"
+              >TRA handbook (PDF, 3.3 MB)</a
+            >
+            is a step-by-step guide to setting one up, alongside the
+            <a
+              href="documents/tra-model-constitution.pdf"
+              target="_blank"
+              rel="noopener"
+              >TRA model constitution (PDF, 70 KB)</a
+            >
+            and an
+            <a href="documents/tra-info-pack.pdf" target="_blank" rel="noopener"
+              >information pack for this estate (PDF, 304 KB)</a
+            >.
+          </p>
+          <p>
+            If you're a tenant or leaseholder that is part of the estate and
+            you're interested in learning more and would like to become a member
+            of the community group, please
+            <a href="#register">register to join</a>
+            and we'll be in touch in due course.
+          </p>
+          <h3 class="major">About the Percival Estate</h3>
+          <p>
+            The Percival Estate is composed of six buildings that total 293
+            properties.
+          </p>
+          <img
+            class="content-image"
+            data-src="images/percival-estate-map.webp"
+            alt="Map of the Percival Estate showing its six buildings"
+            width="1266"
+            height="657"
+            loading="lazy"
+          />
+          <img
+            class="content-image"
+            data-src="images/percival-estate-map-detailed.webp"
+            alt="Detailed map of the Percival Estate showing the layout and name of each block"
+            width="2600"
+            height="1800"
+            loading="lazy"
+          />
+          <div id="loadingAbout">
+            <div class="spinner" style="margin: 690px auto 5px auto"></div>
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 690px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeAbout"
+            class="embed"
+            title="Buildings of the Percival Estate"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr2kbJXZYFex9lFf"
+            data-spinner="loadingAbout"
+            data-min-height="1460"
+            loading="lazy"
+          ></iframe>
+
+          <br />
+          <br />
+
+          <p>
+            Notably, the seven-storey residential development
+            <a
+              href="https://sotech-optima.co.uk/percival-street/"
+              target="_blank"
+              rel="noopener"
+              >40 Percival Street</a
+            >
+            is owned by The Guinness Partnership, not Islington Council. The
+            block was stripped back to its structural frame and
+            <a
+              href="https://rooff.co.uk/portfolio/percival-street/"
+              target="_blank"
+              rel="noopener"
+              >reclad and refurbished</a
+            >
+            as emergency life safety work following the Grenfell Tower fire,
+            with residents moved into alternative accommodation while it was
+            carried out. Islington granted permission for the facade works on
+            24 October 2018, under application P2018/2521/FUL. The new cladding
+            went up in 2020 and the flats were refitted the following spring.
+            Tompion Community Hall, the community hall built as part of the estate,
+            stands at 42 Percival Street and has been leased to Islington
+            Council since 2009. It closed in June 2019 for refurbishment and,
+            by the Council&rsquo;s own account, has not been available for
+            community bookings since; the Council has now applied to turn it
+            permanently into offices. See
+            <a href="/save-our-community-hall/">Save Tompion Community Hall</a>
+            for the application and how to object.
+          </p>
+
+          <h3 class="major">History of the Percival Estate</h3>
+          <p>
+            The Percival Estate is an Islington Council estate in Clerkenwell so
+            named after its neighbouring street to the north side - Percival
+            Street - records show this was originally spelled as 'Perceval
+            Street', named after a former Prime Minister of the United Kingdom,
+            Spencer Perceval. The wider footprint of the estate is enclosed by
+            Compton Street on the south side, Agdon Street to the west and
+            neighbours The Triangle Estate to the east.
+          </p>
+          <p>
+            The estate was constructed in phases; it has a layered history tied
+            to redevelopment efforts in the 20th century.
+          </p>
+          <h3>Cyrus House (1933–1934)</h3>
+          <p>
+            Built by Finsbury Borough Council and designed by E. C. P. Monson in
+            a traditional style influenced by earlier housing projects. The
+            five-storey block contains 40 two- and three-bedroom flats, with
+            balcony access from a central courtyard reached via a striking
+            two-storey archway. It was part of a redevelopment enabled by the
+            Northampton Estate's discounted land offer and revised housing
+            subsidies. The project included extending Malta Street (Malta Street
+            has since been truncated and the southern portion incorporated into
+            Compton Street). The construction was handled by Gee, Walker & Slater
+            Ltd.
+          </p>
+          <h3>Tompion House & Earnshaw House (1946–1949)</h3>
+          <p>
+            Designed by Messrs Joseph in 1938 and built by W. H. Gaze & Sons Ltd
+            for the London County Council (LCC). These two six-storey blocks
+            were named after horologists Thomas Tompion and Thomas Earnshaw.
+          </p>
+          <h3>Grimthorpe House (1950–1952)</h3>
+          <div class="media-split">
+            <p>
+              Designed by John Partridge under the LCC Architect's Department
+              and approved in 1949, Grimthorpe House was built by A. E. Symes
+              Ltd. This eight-storey Modernist block with 128 flats reflects the
+              LCC's post-war Modernist aspirations and is named after Lord
+              Grimthorpe, long-serving president of the British Horological
+              Institute. The building features dramatic glazed stairwells and a
+              facade clad in hand-made stock bricks. It was substantially
+              refurbished by Islington Council in 1984–5.
+            </p>
+            <div class="media-split-figure">
+              <img
+                class="content-image"
+                data-src="images/grimthorpe-house-historical.jpg"
+                alt="Black and white photograph of Grimthorpe House seen from the north-west in 1952"
+                width="950"
+                height="597"
+                loading="lazy"
+              />
+              <p class="media-split-caption">
+                North-west view of Grimthorpe House (1952)
+              </p>
+            </div>
+          </div>
+          <h3>Crayle House (1959–1960)</h3>
+          <p>
+            Designed by the LCC Architect's Department and built by Stewart &
+            Partners Ltd on the site of a former factory. Initially comprising
+            20 maisonettes, the four-storey block with balcony access was
+            altered in 1983–1984. It was likely named after 17th-century London
+            watchmakers Richard and William Crayle.
+          </p>
+          <h3>Partridge Court (1976–1977)</h3>
+          <p>
+            Added by the Greater London Council (GLC) and designed in 1972 by
+            Renton Howard Wood Levin Partners, with Ove Arup & Partners as
+            engineers. This five-storey block houses 13 flats and maisonettes,
+            including facilities for elderly residents. It is named after an old
+            Clerkenwell family.
+          </p>
+          <p>
+            Each construction highlights the evolution of public housing in
+            Clerkenwell, from pre-war traditional styles to post-war Modernist
+            approaches, reflecting changing priorities and architectural trends.
+          </p>
+          <p>
+            Take a look at the links below to learn more about the history of
+            the estate:
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://www.british-history.ac.uk/survey-london/vol46/pp322-335#h3-s11"
+                target="_blank"
+                rel="noopener"
+                >https://www.british-history.ac.uk/survey-london/vol46/pp322-335#h3-s11</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://manchesterhistory.net/architecture/1940/percivalstreet.html"
+                target="_blank"
+                rel="noopener"
+                >https://manchesterhistory.net/architecture/1940/percivalstreet.html</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://manchesterhistory.net/architecture/1930/cyrushouse.html"
+                target="_blank"
+                rel="noopener"
+                >https://manchesterhistory.net/architecture/1930/cyrushouse.html</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.towerblock.eca.ed.ac.uk/development/percival-street.html"
+                target="_blank"
+                rel="noopener"
+                >https://www.towerblock.eca.ed.ac.uk/development/percival-street.html</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.towerblock.eca.ed.ac.uk/development/percival-street-extension.html"
+                target="_blank"
+                rel="noopener"
+                >https://www.towerblock.eca.ed.ac.uk/development/percival-street-extension.html</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.londonpicturearchive.org.uk/view-item?i=270378&WINID=1731618041420"
+                target="_blank"
+                rel="noopener"
+                >https://www.londonpicturearchive.org.uk/view-item?i=270378&WINID=1731618041420</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://friendsofim.com/2021/04/08/streets-with-a-story-the-book-of-islington/"
+                target="_blank"
+                rel="noopener"
+                >https://friendsofim.com/2021/04/08/streets-with-a-story-the-book-of-islington/</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.theundergroundmap.com/wp/islington-e-k/"
+                target="_blank"
+                rel="noopener"
+                >https://www.theundergroundmap.com/wp/islington-e-k/</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.british-history.ac.uk/survey-london/vol46/pp435-468"
+                target="_blank"
+                rel="noopener"
+                >https://www.british-history.ac.uk/survey-london/vol46/pp435-468</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://en.wikipedia.org/wiki/Street_names_of_Clerkenwell_and_Finsbury"
+                target="_blank"
+                rel="noopener"
+                >https://en.wikipedia.org/wiki/Street_names_of_Clerkenwell_and_Finsbury</a
+              >
+            </li>
+          </ul>
+        </article>
+
+        <!-- News -->
+        <article id="news">
+          <h2 class="major">News</h2>
+
+          <p>
+            Do you have some news you'd like to share with the wider estate?
+            <a href="#contact">Let us know</a>.
+          </p>
+
+          <div id="loadingNews">
+            <div class="spinner" style="margin: 460px auto 5px auto"></div>
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 460px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeNews"
+            class="embed"
+            title="Percival Estate Community news"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrAyVmVDUVIbNHHs"
+            data-spinner="loadingNews"
+            data-min-height="1000"
+            loading="lazy"
+          ></iframe>
+        </article>
+
+        <!-- Register -->
+        <article id="register">
+          <h2 class="major">Register</h2>
+          <div id="loadingRegister">
+            <div class="spinner" style="margin: 285px auto 5px auto"></div>
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 285px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeRegister"
+            class="embed"
+            title="Register your interest in the Percival Estate Community"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrT6agpqL3nUji4p"
+            data-spinner="loadingRegister"
+            data-min-height="650"
+            loading="lazy"
+          ></iframe>
+        </article>
+
+        <!-- Facilities -->
+        <article id="facilities">
+          <h2 class="major">Facilities</h2>
+          <p>
+            Below is a list of facilities shared between residents of the
+            Percival Estate:
+          </p>
+          <div id="loadingFacilities">
+            <div class="spinner" style="margin: 260px auto 5px auto"></div>
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 260px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeFacilities"
+            class="embed"
+            title="Facilities shared between Percival Estate residents"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrYj3Ty7mf8rWif5"
+            data-spinner="loadingFacilities"
+            data-min-height="600"
+            loading="lazy"
+          ></iframe>
+          <br /><br />
+          <p>
+            Other
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/advice/voluntary-and-community-sector/community-centres-in-islington"
+              >nearby facilities</a
+            >
+            include:
+          </p>
+          <ul>
+            <li>Finsbury Unity Room</li>
+            <li>Brunswick Community Room</li>
+            <li>King Square Community Centre</li>
+          </ul>
+
+          <div class="section">
+            <h3 class="major">Parking Information</h3>
+            <ul>
+              <li>
+                <strong>Info:</strong>
+                <a href="https://www.islington.gov.uk/parking" target="_blank" rel="noopener"
+                  >https://www.islington.gov.uk/parking</a
+                >
+              </li>
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:homesandcommunities@islington.gov.uk"
+                  >homesandcommunities@islington.gov.uk</a
+                >
+              </li>
+              <li><strong>Telephone:</strong> 020 7527 5300</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>Estate Parking</h3>
+            <p>
+              This is parking in Percival Estate garages or the numbered bays
+              located outside Crayle House on Cyrus Street.
+            </p>
+            <ul>
+              <li>
+                <strong>Info:</strong>
+                <a
+                  href="https://www.islington.gov.uk/parking/parking-permits/estate-parking/renting-a-garage"
+                  target="_blank"
+                  rel="noopener"
+                  >https://www.islington.gov.uk/parking/parking-permits/estate-parking/renting-a-garage</a
+                >
+              </li>
+              <li>
+                <strong>Costs:</strong>
+                <a
+                  href="https://www.islington.gov.uk/parking/parking-permits/estate-parking/estate-parking-costs-table"
+                  target="_blank"
+                  rel="noopener"
+                  >https://www.islington.gov.uk/parking/parking-permits/estate-parking/estate-parking-costs-table</a
+                >
+              </li>
+              <li>
+                <strong>Apply:</strong>
+                <a
+                  href="https://www.islington.gov.uk/parking/parking-permits/estate-parking/apply-for-estate-parking-space"
+                  target="_blank"
+                  rel="noopener"
+                  >https://www.islington.gov.uk/parking/parking-permits/estate-parking/apply-for-estate-parking-space</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>Islington Resident On-Street Parking Permit</h3>
+            <ul>
+              <li>
+                <strong>Info:</strong>
+                <a
+                  href="https://www.islington.gov.uk/parking/parking-permits/buy-or-renew-a-resident-parking-permit"
+                  target="_blank"
+                  rel="noopener"
+                  >https://www.islington.gov.uk/parking/parking-permits/buy-or-renew-a-resident-parking-permit</a
+                >
+              </li>
+              <li>
+                <strong>Costs:</strong>
+                <a
+                  href="https://www.islington.gov.uk/parking/parking-permits/parking-permit-costs-table"
+                  target="_blank"
+                  rel="noopener"
+                  >https://www.islington.gov.uk/parking/parking-permits/parking-permit-costs-table</a
+                >
+              </li>
+              <li>
+                <strong>Purchase:</strong>
+                <a
+                  href="https://islington.tarantoportal.com/Permits/Account/Login"
+                  target="_blank"
+                  rel="noopener"
+                  >https://islington.tarantoportal.com/Permits/Account/Login</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>Visitor Parking</h3>
+            <p>
+              You are in
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://www.islington.gov.uk/parking/parking-restrictions/controlled-parking-zones"
+                >Parking Zone A</a
+              >. Parking is restricted Mon-Fri 8:30am - 6:30pm, Sat
+              8:30am-1:30pm. Outside of these times parking is free.
+            </p>
+            <p>
+              Within these times your visitor can use
+              <a href="https://www.myringgo.co.uk" target="_blank" rel="noopener">RingGo</a> to pay for their
+              visitor short-stay parking or you can purchase a
+              <a
+                href="https://www.islington.gov.uk/parking/parking-permits/buy-visitor-vouchers"
+                target="_blank"
+                rel="noopener"
+                >Visitor e-voucher</a
+              >
+              on their behalf. To do so you will need:
+            </p>
+            <ul>
+              <li>The parking location number shown on the bay sign</li>
+              <li>To enter the amount of time you want to park for</li>
+              <li>
+                Pay by phone by calling 020 7125 0039 or pay via the
+                <a href="https://www.myringgo.co.uk" target="_blank" rel="noopener">RingGo app</a>
+              </li>
+              <li>Your debit or credit card details</li>
+              <li>Your vehicle registration number</li>
+            </ul>
+            <p>
+              You can also purchase paper vouchers online to be delivered to
+              you. These don't expire and can be used for any vehicle.
+            </p>
+            <p>
+              Contact
+              <a href="mailto:parkingpermits@islington.gov.uk"
+                >parkingpermits@islington.gov.uk</a
+              >
+              if you have questions.
+            </p>
+          </div>
+        </article>
+
+        <!-- Recycling -->
+        <article id="recycling">
+          <h2 class="major">Recycling</h2>
+          <p>
+            The Percival Estate has facilities for both food waste recycling and
+            household recycling for glass, plastic, paper and card, cans, foil,
+            cartons and aerosols. Estate recycling facilities can be seen here:
+          </p>
+          <div id="loadingRecycling">
+            <div class="spinner" style="margin: 260px auto 5px auto"></div>
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 260px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeRecycling"
+            class="embed"
+            title="Recycling facilities on the Percival Estate"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrUj0uobvpPBRNst"
+            data-spinner="loadingRecycling"
+            data-min-height="600"
+            loading="lazy"
+          ></iframe>
+          <br /><br />
+          <p>
+            Small batteries can be recycled at the nearby
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/libraries-arts-and-heritage/libraries/your-local-libraries/finsbury-library"
+              >Finsbury Library</a
+            >, where you can also acquire free clear recycling bags and green
+            compostable liners for food waste. If you don't have a food waste
+            caddy you can request one
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://environment.islington.gov.uk/request/addrequest"
+              >here</a
+            >.
+          </p>
+          <p>
+            There is a textile and clothes recycling facility at the
+            <a target="_blank" rel="noopener" href="https://what3words.com/swung.mock.files"
+              >St John Street Recycling Area</a
+            >
+            on the corner of St John Street and Wyclif Street.
+          </p>
+          <p>
+            Other items can be recycled by taking them to the
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/recycling-and-rubbish/recycling/reuse-and-recycling-centre"
+              >Reuse and Recycling Centre</a
+            >
+            on Hornsey Street.
+          </p>
+          <p>
+            You can find more information about recycling and rubbish in
+            Islington here:<br />
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/recycling-and-rubbish"
+              >https://www.islington.gov.uk/recycling-and-rubbish</a
+            >
+          </p>
+          <p>
+            You can contact the Islington Council Recycling team via:<br />
+            recycling<code>at</code> islington <code>dot</code> gov
+            <code>dot</code> uk
+          </p>
+        </article>
+
+        <!-- Safety -->
+        <article id="safety">
+          <h2 class="major">Safety</h2>
+          <p>
+            Council tenants living on the estate must abide by the
+            <a
+              href="https://www.islington.gov.uk/housing/council-tenant-services/your-tenancy/tenancy-conditions"
+              target="_blank"
+              rel="noopener"
+              >Conditions of Tenancy</a
+            >
+            set by Islington Council; the
+            <a
+              href="documents/conditions-of-tenancy.pdf"
+              target="_blank"
+              rel="noopener"
+              >2013 edition (PDF, 1.3 MB)</a
+            >
+            is kept on this site. The council must ensure the properties
+            they manage are suitable for habitation by their tenants. As an
+            example,
+            <a
+              href="https://www.islington.gov.uk/housing/repairs-and-estate-management/home-safety/damp-and-mould"
+              target="_blank"
+              rel="noopener"
+              >damp and mould issues can be reported to Islington Council
+              repairs team</a
+            >. Communal areas are managed by Islington Council Estate Services
+            and cleaned by the
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/housing/repairs-and-estate-management/estate-management/caretaking-and-cleaning"
+              >caretaking team</a
+            >. Private tenants have their own contracts with their landlords and
+            their own
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/housing/private-sector-housing/private-rented-accommodation/before-your-tenancy/your-rights-and-responsibilities"
+              >rights and responsibilities</a
+            >
+            according to law. Landlords must ensure that their properties meet
+            necessary
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/housing/private-sector-housing/landlords/guidance-for-landlords"
+              >safety standards</a
+            >
+            to be suitable for habitation for their tenants. Leaseholders must
+            ensure they follow the conditions of their
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/housing/council-homeowner-services/your-lease"
+              >lease</a
+            >.
+          </p>
+          <p>
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/community-safety/anti-social-behaviour"
+              >Anti-social behaviour (ASB)</a
+            >
+            is not permitted on the estate. You can
+            <a
+              href="https://account.islington.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-3a470b30-1bc1-4406-8b45-c187095dcb43/AF-Stage-67d2063e-aae1-4b08-ac94-7fa9c2da6c40/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes"
+              target="_blank"
+              rel="noopener"
+              >report ASB to Islington Council</a
+            >. You can
+            <a target="_blank" rel="noopener" href="https://www.met.police.uk/ro/report/"
+              >report criminal activity to the police</a
+            >. If there is an emergency or someone is at immediate risk, call
+            999. The non-emergency number is 101. You can also report in-person
+            at the front desk of
+            <a target="_blank" rel="noopener" href="https://maps.app.goo.gl/rg5QkcKBk5zCR3nS8"
+              >Islington Police Station</a
+            >. You can also keep your local Bunhill Safer Neighbourhoods Team
+            informed via:<br />
+            SNTNI-Bunhill<code>at</code> met <code>dot</code> police
+            <code>dot</code> uk
+          </p>
+          <p>
+            You can get more involved with community policing by attending the
+            local
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.met.police.uk/area/your-area/met/islington/bunhill/meetings-and-events/crime-map"
+              >Bunhill ward panel</a
+            >, which gives residents an opportunity to share their community
+            safety concerns with the Metropolitan Police and Islington Council's
+            Community Safety Team. You can also apply to take part in a
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.met.police.uk/advice/advice-and-information/st-s/stop-and-search/ras/met/ride-along-scheme/"
+              >Ride Along scheme</a
+            >
+            or other Community Observer Initiatives. Community Weapon Sweeps are
+            also a great way to support local policing. The closest
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/community-safety/knife-bin-disposal"
+              >knife bin</a
+            >
+            is on Central Street, outside Finsbury Leisure Centre.
+          </p>
+          <p>
+            Be aware of
+            <a target="_blank" rel="noopener" href="https://www.defibfinder.uk/"
+              >your nearest defibrillator</a
+            >
+            and
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.nhs.uk/service-search/find-an-accident-and-emergency-service/"
+              >your nearest A&E</a
+            >.
+          </p>
+          <p>
+            Fire risk assessments for high-rise buildings, which on this
+            estate means Grimthorpe House, are published online via the
+            building safety system,
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.youtube.com/watch?v=u6TnZ7FzSMA"
+              >Twinnedit</a
+            >. For every other block, email
+            <a href="mailto:FireSafety@islington.gov.uk"
+              >FireSafety@islington.gov.uk</a
+            >
+            and ask for yours. That is the route to use rather than
+            <a
+              href="https://www.islington.gov.uk/housing/fire-safety-in-islington/fire-risk-assessments/fire-risk-assessment-list"
+              target="_blank"
+              rel="noopener"
+              >Islington's published FRA list</a
+            >: everything on it dates from 2021, and Crayle House, Cyrus
+            House and Partridge Court do not appear on it at all.
+          </p>
+          <p>
+            The current assessments were obtained by email in September 2026
+            and rate every block <strong>Tolerable</strong>. Grimthorpe House
+            1&ndash;48 was audited on 15 September 2025 and Cyrus House on
+            17 September 2025; Crayle House on 4 December 2024 and Partridge
+            Court on 4 September 2024. The last assessment published for
+            Grimthorpe 1&ndash;48 before that was from 2020 and rated
+            Moderate, so the 2025 one is an improvement on it.
+            Islington reassesses high-rise blocks every year and medium-rise
+            blocks every two years, so ask again if yours looks old. Any
+            resident can request their own copy at the address above.
+          </p>
+          <p>
+            In the event of property damage, leaseholders are able to claim on
+            their buildings insurance from Protector Insurance, which is paid
+            for via their service charge. Claims go to Protector
+            directly, quoting policy number 3137443-2: by email to
+            <a href="mailto:claims@protectorinsurance.co.uk"
+              >claims@protectorinsurance.co.uk</a
+            >, by phone on 0161 274 9077 between 9am and 5pm Monday to Friday,
+            or through
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://protectorinsurance.co.uk/"
+              >protectorinsurance.co.uk</a
+            >. Out of hours the phone line goes to Sedgwick, the emergency
+            provider. Filling in a
+            <a
+              target="_blank"
+              rel="noopener"
+              href="documents/first-notification-of-loss.docx"
+              >First Notification of Loss form (DOCX, 13 KB)</a
+            >
+            first will cover most of what they ask for. Report a claim as soon as
+            possible and send full details within 30 days, or within seven days
+            for riot or malicious damage, which must also be reported to the
+            police.
+          </p>
+          <p>
+            The
+            <a
+              target="_blank"
+              rel="noopener"
+              href="documents/buildings-insurance-summary-2026-2027.pdf"
+              >summary of cover for 1 April 2026 to 31 March 2027 (PDF, 412 KB)</a
+            >
+            sets out the insured risks, the policy excesses and the limit on
+            property owners' liability, and the
+            <a
+              target="_blank"
+              rel="noopener"
+              href="documents/protector-insurance-leasehold-buildings-policy.pdf"
+              >full policy wording (PDF, 346 KB)</a
+            >
+            has the exclusions. Cover is renewed each April, and Islington
+            publishes the current summary on its
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.islington.gov.uk/housing/council-homeowner-services/leaseholder-buildings-insurance"
+              >leaseholder buildings insurance page</a
+            >.
+          </p>
+        </article>
+
+        <!-- Team -->
+        <article id="team">
+          <h2 class="major">Team</h2>
+          <p>
+            The Founding Committee of the Percival Estate Community are
+            residents of Grimthorpe House and Tompion House. They are listed
+            below:
+          </p>
+          <div id="loadingTeam">
+            <div class="spinner" style="margin: 460px auto 5px auto"></div>
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 460px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeTeam"
+            class="embed"
+            title="Percival Estate Community founding committee"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shr17hNlGjiRksyek"
+            data-spinner="loadingTeam"
+            data-min-height="1000"
+            loading="lazy"
+          ></iframe>
+        </article>
+
+        <!-- Contact -->
+        <article id="contact">
+          <h2 class="major">Contact</h2>
+
+          <p>
+            The Percival Estate Community is managed by a group of local
+            volunteer residents.<br /><b>Contact them via:</b> tra
+            <code>at</code> percivalestate <code>dot</code> com<br /><i
+              >...or use the contact form below:</i
+            >
+          </p>
+          <form method="post" action="https://form.taxi/s/3uyqdb8n">
+            <!-- Without this, where a sender lands after submitting is
+                 whatever the Form Taxi dashboard happens to say, and the
+                 #success panel below is unreachable. Form Taxi reads the
+                 redirect from a _next field, which must carry an absolute
+                 URL, so the destination lives in the markup instead. -->
+            <input
+              type="hidden"
+              name="_next"
+              value="https://percivalestate.com/#success"
+            />
+            <!-- Form Taxi's honeypot. A person never sees this field, so
+                 anything in it came from something filling every input on
+                 the page, and the submission is treated as spam. display:none
+                 keeps it out of the accessibility tree as well as off the
+                 screen, and the negative tabindex keeps it out of the tab
+                 order, so nobody reaches it by keyboard either. -->
+            <input
+              type="text"
+              name="_gotcha"
+              style="display: none"
+              tabindex="-1"
+              autocomplete="off"
+            />
+            <div class="fields">
+              <div class="field half">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div class="field half">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="4" required></textarea>
+              </div>
+            </div>
+            <ul class="actions">
+              <li>
+                <input type="submit" value="Send Message" class="primary" />
+              </li>
+              <li><input type="reset" value="Reset" /></li>
+            </ul>
+          </form>
+          <ul class="icons">
+            <li>
+              <a
+                href="https://x.com/PercivalEstate/"
+                target="_blank"
+                rel="noopener"
+                class="fa-x-twitter nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
+                <span class="label">X</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/PercivalEstate/"
+                target="_blank"
+                rel="noopener"
+                class="fa-instagram nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg>
+                <span class="label">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/PercivalEstate/"
+                target="_blank"
+                rel="noopener"
+                class="fa-facebook nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" /></svg>
+                <span class="label">Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@PercivalEstate"
+                target="_blank"
+                rel="noopener"
+                class="fa-youtube nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></svg>
+                <span class="label">YouTube</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/PercivalEstate"
+                target="_blank"
+                rel="noopener"
+                class="fa-github nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" /></svg>
+                <span class="label">GitHub</span>
+              </a>
+            </li>
+          </ul>
+
+          <p>
+            You can report issues outside of the estate via
+            <a
+              href="https://islington.lovecleanstreets.com/reports/add"
+              target="_blank"
+              rel="noopener"
+              >Love Clean Streets</a
+            >. If you have an issue or question with the estate you can contact
+            Islington Council via these emails:
+          </p>
+
+          <div id="loadingContact">
+            <div class="spinner" style="margin: 395px auto 5px auto"></div>
+            <p
+              style="
+                height: 25px;
+                text-align: center;
+                font-size: 1rem;
+                margin-bottom: 395px;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+          <iframe
+            id="iframeContact"
+            class="embed"
+            title="Islington Council contact details"
+            data-src="https://airtable.com/embed/appJq1pubpWtr0S2c/shrlRumOTwu9t4Bi2"
+            data-spinner="loadingContact"
+            data-min-height="830"
+            loading="lazy"
+          ></iframe>
+        </article>
+
+        <!-- Success -->
+        <article id="success">
+          <h2 class="major">Message Sent ✅</h2>
+          <p>
+            Your message was successfully sent to the Percival Estate Community
+            team.
+          </p>
+          <p>The team will reply to your email in due course.</p>
+          <p>In the meantime, feel free to connect with us on social media:</p>
+          <ul class="icons">
+            <li>
+              <a
+                href="https://x.com/PercivalEstate/"
+                target="_blank"
+                rel="noopener"
+                class="fa-x-twitter nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
+                <span class="label">X</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/PercivalEstate/"
+                target="_blank"
+                rel="noopener"
+                class="fa-instagram nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg>
+                <span class="label">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/PercivalEstate/"
+                target="_blank"
+                rel="noopener"
+                class="fa-facebook nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" /></svg>
+                <span class="label">Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@PercivalEstate"
+                target="_blank"
+                rel="noopener"
+                class="fa-youtube nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></svg>
+                <span class="label">YouTube</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/PercivalEstate"
+                target="_blank"
+                rel="noopener"
+                class="fa-github nav-link grow icon"
+              >
+                <svg class="icon-glyph" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" /></svg>
+                <span class="label">GitHub</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+
+        <article id="privacy-policy">
+          <h2 class="major">Privacy Policy</h2>
+          <p><strong>Last updated:</strong> 4 September 2026</p>
+
+          <h3>Who we are</h3>
+          <p>
+            The Percival Estate Community is an unincorporated non-profit
+            community organisation representing residents of the Percival Estate
+            in the London Borough of Islington. We are the data controller for
+            the personal information described in this policy. You can contact
+            us at
+            <a href="mailto:tra@percivalestate.com">tra@percivalestate.com</a>
+            or at Tompion Community Hall, 40 Percival Street, London, EC1V 0EB.
+          </p>
+          <p>
+            This policy explains what personal information we collect through
+            <a href="https://percivalestate.com/">https://percivalestate.com/</a>
+            and what we do with it. We handle your information in line with the
+            UK GDPR and the Data Protection Act 2018.
+          </p>
+
+          <h3>What we collect</h3>
+          <p>
+            <strong>When you register as a member.</strong> Our registration
+            form asks for your first and last name, your email address, your
+            mobile phone number, your address on the estate, and whether you are
+            a resident or non-resident leaseholder, a council tenant or a
+            private tenant. It also asks whether you would be interested in
+            joining the committee, whether you have a LinkedIn profile and if so
+            its address, and how you heard about us. You can optionally tell us
+            about improvements you would like to see on the estate, and add any
+            other comments.
+          </p>
+          <p>
+            <strong>Information about other people.</strong> If you choose to
+            tell us who told you about the group, we record that person's name
+            so that we can thank them. This is optional, so please only give us
+            a name if you are comfortable doing so. Anyone can ask us to remove
+            their name.
+          </p>
+          <p>
+            <strong>When you contact us.</strong> If you use our contact form or
+            email us, we collect your name, your email address and whatever you
+            choose to write in your message.
+          </p>
+          <p>
+            <strong>When you use the objection tool.</strong> Our
+            <a href="/save-our-community-hall/"
+              >Save Tompion Community Hall</a
+            >
+            page builds a planning objection for you inside your own
+            browser. Your name, your address, the building you live in, how
+            you would use the Community Hall and anything you write yourself stay on
+            your device. The page itself sends them nowhere and we never
+            see what you type into it: the finished objection is handed to
+            your own email app or to your clipboard, and it is yours to
+            send.
+          </p>
+          <p>
+            <strong>The objection email itself.</strong> The email that
+            page prepares is addressed to Islington Council&rsquo;s planning
+            team and copies us at
+            <a href="mailto:tra@percivalestate.com">tra@percivalestate.com</a>,
+            so that we can count how many residents have objected. So if you
+            send it as it stands, we do receive your objection, with your
+            name and address in it, as an ordinary email from you. You can
+            delete our address in your email app before you send, and your
+            objection still reaches the Council.
+          </p>
+          <p>
+            <strong>When you simply visit.</strong> If you accept analytics
+            cookies, Google Analytics counts your visit and records things like
+            the pages you look at, the kind of device you are using and the
+            country you are in. We see this only as totals for the whole site,
+            never as anything that identifies you, and if you decline then no
+            analytics cookies are set at all. Whichever you choose, our web host
+            and the third parties listed below receive your IP address as an
+            ordinary part of serving the page to you.
+          </p>
+
+          <h3>Why we use it, and our lawful basis</h3>
+          <ul>
+            <li>
+              <strong>To run the community organisation</strong> &mdash; keeping
+              a record of members, organising meetings, and representing
+              residents to Islington Council and other bodies. Our lawful basis
+              is your consent, which you give by choosing to register.
+            </li>
+            <li>
+              <strong>To send you community updates</strong> about the estate
+              and the organisation. Our lawful basis is your consent, and you
+              can withdraw it at any time by emailing us.
+            </li>
+            <li>
+              <strong>To invite you to the estate WhatsApp Community</strong>
+              using the mobile number you give us. Our lawful basis is your
+              consent. Joining is optional and you can leave the group at any
+              time.
+            </li>
+            <li>
+              <strong>To understand the skills and experience</strong> members
+              can offer the community, from the LinkedIn profile you choose to
+              share, so that we can ask for help with things like planning or
+              legal questions. Our lawful basis is your consent, and you do not
+              have to share a profile.
+            </li>
+            <li>
+              <strong>To count objections to planning application
+              P2026/1577/FUL</strong>
+              and follow the application up, from the copy of your objection
+              that reaches us if you leave our address in the email. Our
+              lawful basis is our legitimate interest in representing
+              residents on planning matters affecting the estate. You can ask
+              us to delete your objection at any time.
+            </li>
+            <li>
+              <strong>To see how this website is being used</strong>, so that we
+              know which information residents actually find useful. Our lawful
+              basis is your consent, which you give through the cookie banner
+              and can withdraw at any time.
+            </li>
+            <li>
+              <strong>To reply to you</strong> when you get in touch. Our lawful
+              basis is our legitimate interest in responding to people who
+              contact us.
+            </li>
+          </ul>
+          <p>
+            We do not sell your information, and we do not use it to make
+            automated decisions about you.
+          </p>
+
+          <h3>Who else handles your information</h3>
+          <p>
+            We use a small number of third-party services to run this website.
+            They process your information on our behalf:
+          </p>
+          <ul>
+            <li>
+              <strong>Airtable</strong> &mdash; stores our membership records
+              and powers the forms and tables embedded on this site. Airtable is
+              based in the United States, so your information is transferred
+              outside the UK and protected by the safeguards in Airtable's own
+              data processing terms.
+            </li>
+            <li>
+              <strong>WhatsApp (Meta)</strong> &mdash; hosts the Percival Estate
+              WhatsApp Community. If you accept an invitation, your phone number
+              and WhatsApp profile become visible to WhatsApp and to the other
+              residents in the group, and WhatsApp's own terms and privacy
+              policy apply to you there.
+            </li>
+            <li>
+              <strong>Form Taxi</strong> &mdash; delivers messages sent through
+              our contact form to us by email.
+            </li>
+            <li>
+              <strong>Google Analytics</strong> &mdash; tells us how many people
+              visit the site and which pages they read, but only if you accept
+              analytics cookies. Google is based in the United States, so this
+              information is transferred outside the UK and protected by the
+              safeguards in Google's own data processing terms. We have not
+              turned on any advertising features.
+            </li>
+            <li>
+              <strong>GitHub Pages</strong> &mdash; hosts this website and keeps
+              standard server logs, which include visitors' IP addresses.
+            </li>
+          </ul>
+          <p>
+            Members of the Percival Estate Community committee can see
+            membership records so that they can carry out their roles. We will
+            also disclose information if the law requires it.
+          </p>
+
+          <h3>How long we keep it</h3>
+          <p>
+            We keep your membership record for as long as you are a member. If
+            you ask us to remove you, or you tell us you have left the estate,
+            we will delete your record. Messages sent through the contact form
+            are kept only for as long as we need them to deal with what you
+            wrote to us about.
+          </p>
+
+          <h3>Your rights</h3>
+          <p>Under UK data protection law you have the right to:</p>
+          <ul>
+            <li>ask for a copy of the information we hold about you;</li>
+            <li>ask us to correct anything that is wrong;</li>
+            <li>ask us to delete your information;</li>
+            <li>
+              ask us to restrict or stop using it, or object to how we are using
+              it;
+            </li>
+            <li>
+              withdraw your consent at any time, which will not affect anything
+              we did before you withdrew it.
+            </li>
+          </ul>
+          <p>
+            To do any of these, email
+            <a href="mailto:tra@percivalestate.com">tra@percivalestate.com</a>.
+            These rights are free to use and we will respond within one month.
+          </p>
+          <p>
+            If you are unhappy with how we have handled your information, you
+            can complain to the Information Commissioner's Office (ICO) at
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://ico.org.uk/make-a-complaint/"
+              >https://ico.org.uk/make-a-complaint/</a
+            >
+            or on 0303 123 1113. We would appreciate the chance to put things
+            right first.
+          </p>
+
+          <h3>Cookies</h3>
+          <p>
+            The only cookies we set ourselves are the Google Analytics ones
+            described above, and we set them only if you accept them in the
+            banner we show on your first visit. We do not use advertising
+            cookies. You can
+            <a href="#" id="cookie-settings">change your cookie choice</a>
+            whenever you like.
+          </p>
+          <p>
+            The Airtable forms and tables embedded on our pages may set their
+            own cookies when they load; you can control these through your
+            browser settings.
+          </p>
+
+          <h3>Other websites</h3>
+          <p>
+            Our pages link to other websites, including Islington Council, the
+            Metropolitan Police and Airtable. We are not responsible for their
+            content or their privacy practices, and this policy does not cover
+            them.
+          </p>
+
+          <h3>Changes to this policy</h3>
+          <p>
+            If we change this policy we will update the date at the top of this
+            page. If the change is significant, we will tell members by email.
+          </p>
+        </article>
+
+        <article id="terms-and-conditions">
+          <h2 class="major">Terms and Conditions</h2>
+          <p><strong>Last updated:</strong> 30 August 2026</p>
+
+          <p>
+            These terms apply to your use of
+            <a href="https://percivalestate.com/">https://percivalestate.com/</a
+            >, run by the Percival Estate Community, an unincorporated non-profit
+            community organisation based at Tompion Community Hall, 40 Percival
+            Street, London, EC1V 0EB. By using the site you accept these terms
+            and our <a href="#privacy-policy">Privacy Policy</a>.
+          </p>
+
+          <h3>1. About the information on this site</h3>
+          <p>
+            We are a volunteer-run residents' organisation, not a public
+            authority. We publish information about the estate in good faith to
+            help neighbours, but we are not Islington Council and we cannot
+            speak for it. Nothing here is legal, financial or professional
+            advice.
+          </p>
+          <p>
+            Council services, parking rules, waste collections, insurance terms
+            and safety procedures change, and our pages may fall out of date.
+            Always check the official source before you act &mdash; and in an
+            emergency, contact the emergency services on 999 rather than us.
+          </p>
+
+          <h3>2. Using this site</h3>
+          <p>
+            Please use the site lawfully and considerately. Do not attempt to
+            gain unauthorised access to it, disrupt it, or upload anything
+            harmful to it.
+          </p>
+
+          <h3>3. Our content</h3>
+          <p>
+            The text, images and design of this site belong to the Percival
+            Estate Community or to the people who licensed them to us. Residents
+            of the estate are welcome to share and reproduce our pages for
+            community, non-commercial purposes. Please ask us first for anything
+            else.
+          </p>
+          <p>
+            Some material is not ours to license &mdash; historical photographs,
+            documents produced by Islington Council or its insurers, and content
+            shown through embedded third-party services all remain the property
+            of their respective owners.
+          </p>
+
+          <h3>4. Things you send us</h3>
+          <p>
+            If you send us news, photographs or other material for the site, you
+            keep ownership of it. You give us permission to publish it on this
+            site and in our communications with residents, and you can ask us to
+            take it down at any time. Please only send us material that is yours
+            to share.
+          </p>
+
+          <h3>5. Other websites and embedded services</h3>
+          <p>
+            Our pages link to and embed content from other organisations,
+            including Islington Council and Airtable. We do not control those
+            services and are not responsible for their content or availability.
+          </p>
+
+          <h3>6. Our responsibility to you</h3>
+          <p>
+            We provide this site free of charge and as a community service, and
+            we cannot promise it will always be available, accurate or
+            up to date. To the extent the law allows, we are not liable for any
+            loss arising from your reliance on the information here.
+          </p>
+          <p>
+            Nothing in these terms limits our liability for death or personal
+            injury caused by our negligence, for fraud, or for anything else
+            that cannot lawfully be excluded. Nothing in these terms affects
+            your statutory rights as a consumer.
+          </p>
+
+          <h3>7. Changes to these terms</h3>
+          <p>
+            We may update these terms from time to time. The date at the top of
+            this page shows when we last did.
+          </p>
+
+          <h3>8. Governing law</h3>
+          <p>
+            These terms are governed by the laws of England and Wales, and
+            disputes may be brought before the courts of England and Wales.
+          </p>
+
+          <h3>9. Contact us</h3>
+          <address>
+            <strong>The Percival Estate Community</strong><br />
+            Email:
+            <a href="mailto:tra@percivalestate.com">tra@percivalestate.com</a
+            ><br />
+            Address: Tompion Community Hall, 40 Percival Street, London, EC1V
+            0EB, United Kingdom
+          </address>
+        </article>
+      </main>
+
+      <!-- Footer -->
+    </div>
+    <footer id="footer">
+      <div>
+        <p style="font-style: italic">
+          Help spread the word and
+          <a
+            href="https://refer-a-neighbour.percivalestate.com/"
+            target="_blank"
+            rel="noopener"
+            >refer a neighbour</a
+          >
+        </p>
+
+        <ul class="icons">
+          <li>
+            <a
+              href="https://x.com/PercivalEstate/"
+              target="_blank"
+              rel="noopener"
+              class="fa-x-twitter nav-link grow icon"
+            >
+              <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
+              <span class="label">X</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/PercivalEstate/"
+              target="_blank"
+              rel="noopener"
+              class="fa-instagram nav-link grow icon"
+            >
+              <svg class="icon-glyph" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg>
+              <span class="label">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/PercivalEstate/"
+              target="_blank"
+              rel="noopener"
+              class="fa-facebook nav-link grow icon"
+            >
+              <svg class="icon-glyph" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" /></svg>
+              <span class="label">Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/@PercivalEstate"
+              target="_blank"
+              rel="noopener"
+              class="fa-youtube nav-link grow icon"
+            >
+              <svg class="icon-glyph" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></svg>
+              <span class="label">YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/PercivalEstate"
+              target="_blank"
+              rel="noopener"
+              class="fa-github nav-link grow icon"
+            >
+              <svg class="icon-glyph" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" /></svg>
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright">&copy; Percival Estate Community 2026</p>
+        <div
+          class="copyright"
+          style="
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            padding: 30px 0px 0px 0px;
+            text-transform: none;
+            letter-spacing: normal;
+            font-size: 0.8rem;
+          "
+        >
+          <p>
+            The Percival Estate Community is an unincorporated non-profit
+            community organisation based in Tompion Community Hall, 40 Percival
+            Street, London, EC1V 0EB, United Kingdom.
+          </p>
+        </div>
+        <a href="#privacy-policy">Privacy Policy</a>
+        <span class="separator">·</span>
+        <a href="#terms-and-conditions">Terms & Conditions</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/slideshow.js"></script>
+    <script src="assets/js/consent.js"></script>
+    <script src="assets/js/campaign-notice.js"></script>
+  </body>
+</html>
